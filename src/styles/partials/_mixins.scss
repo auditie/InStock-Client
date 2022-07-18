@@ -15,3 +15,36 @@
         @content;
     }
 }
+
+//tablet & desktop: p1, p2, p3
+//mobile: m-p1, m-p2, m-p3
+
+@mixin p1 {
+    font-size: 16px;
+    line-height: 28px;
+}
+
+@mixin m-p1 {
+    font-size: 15px;
+    line-height: 26px;
+}
+
+@mixin p2 {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@mixin m-p2 {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+@mixin p3 {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@mixin m-p3 {
+    font-size: 11px;
+    line-height: 16px;
+}
