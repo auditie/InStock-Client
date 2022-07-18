@@ -1,5 +1,5 @@
 import './WarehouseList.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const WarehouseList = ( { } ) => {
     return (

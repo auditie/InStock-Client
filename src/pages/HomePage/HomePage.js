@@ -1,6 +1,7 @@
 import './HomePage.scss';
 // import axios from 'axios';
 import { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
 
 class HomePage extends Component {
@@ -13,9 +14,9 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div className='home-page'>
-                <WarehouseList />
-            </div>
+            <Switch> 
+                <Route path='/' component={WarehouseList}/>
+            </Switch>
         )
     }
 
