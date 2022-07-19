@@ -13,7 +13,6 @@ const WarehouseList = ( { } ) => {
             <div className='warehouse-list__warehouses'>
                 <WarehouseItem />
             </div>
-
         </div>
     )
 };

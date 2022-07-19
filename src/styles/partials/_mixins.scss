@@ -1,3 +1,5 @@
+@use '../../styles/partials/variables' as *;
+
 @mixin mobile {
     @media (min-width: 320px) {
         @content;
@@ -47,4 +49,12 @@
 @mixin m-p3 {
     font-size: 11px;
     line-height: 16px;
+}
+
+// button styling
+@mixin primary-button {
+    background-color: $Instock-Indigo;
+    color: $White;
+    border-radius: 20px;
+    border: none;
 }

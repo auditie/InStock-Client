@@ -1,0 +1,36 @@
+@use '../../styles/partials/fonts';
+@use '../../styles/partials/global';
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse-list {
+    width: 90vw;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    border: $Slate 1px solid;
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        padding: 4vh 6vw;
+
+        &-search {
+            background-image: url('../../assets/icons/search-24px.svg');
+            background-repeat: no-repeat;
+            background-position: 96% 50%;
+            background-size: 1.7em;
+            padding: 1.2vh 2vw;
+            border: 1px solid #BDC5D5;
+            border-radius: 20px;
+            margin-bottom: 2vh;
+        }
+
+        &-cta {
+            padding: 1.2vh 2vw;
+            @include primary-button;
+            font-size: 1em;
+        }
+    }
+}
