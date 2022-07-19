@@ -1,5 +1,6 @@
 import './App.scss';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import HomePage from './pages/HomePage/HomePage';
 // import InventoryPage from './pages/InventoryPage/InventoryPage';
@@ -21,6 +22,7 @@ function App() {
                 <Route path='/inventory/add' component={InventoryPage} />
             </Switch> */}
             {/* </Router> */}
+            <Footer />
         </>
 
     )
