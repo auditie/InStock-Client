@@ -23,12 +23,13 @@ function EditInventoryItem() {
 			<section>
 				<h2>item details</h2>
 
-				<label>item name</label>
+				<h3>item name</h3>
 				<input type="text" defaultValue={selectedItem.itemName}/>
 
-				<label>description</label>
+				<h3>description</h3>
 				<textarea id="" name="" defaultValue={selectedItem.description}></textarea>
 
+				<h3>category</h3>
 				<select id="inventoryCategory" name="inventoryCategory">
 					<option value={selectedItem.category}>{selectedItem.category}</option>				
 					{
@@ -42,25 +43,25 @@ function EditInventoryItem() {
 				</select>
 			</section>
 			<section>
-				<label>status</label>
-				<fieldset>
+				<h2>item availability</h2>
+				<h3>status</h3>
+					<input 
+						type="radio" 
+						id="inStock" 
+						value="inStock" 
+						name="stock" 
+						defaultChecked={selectedInStock}
+					/>
 					<label htmlFor="inStock">In stock</label>
-						<input 
-							type="radio" 
-							id="inStock" 
-							value="inStock" 
-							name="stock" 
-							defaultChecked={selectedInStock}
-						/>
+
+					<input 
+						type="radio" 
+						id="outOfStock" 
+						value="outOfStock" 
+						name="stock" 
+						defaultChecked={!selectedInStock}
+					/>
 					<label htmlFor="outOfStock">Out of stock</label>
-						<input 
-							type="radio" 
-							id="outOfStock" 
-							value="outOfStock" 
-							name="stock" 
-							defaultChecked={!selectedInStock}
-						/>
-				</fieldset>
 			</section>
 			<div>
 				<button name="cancel" type="reset">cancel</button>
