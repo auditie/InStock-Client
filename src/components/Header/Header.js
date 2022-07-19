@@ -1,5 +1,5 @@
 import './Header.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import InStockLogo from '../../assets/logo/InStock-Logo_2x.png';
 import React from 'react';
 
@@ -20,6 +20,7 @@ class Header extends React.Component {
                     <h3 style={{ backgroundColor: this.state.color }} onClick={this.onChange} className="header__nav--title" >Inventory</h3>
                     {/* <Link className="header__nav--title" to="/"><h3>Warehouses</h3></Link>
                 <Link className="header__nav--title" to="/inventory"> <h3>Inventory</h3></Link> */}
+
                 </div>
             </header>
         )
