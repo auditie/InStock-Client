@@ -2,18 +2,27 @@
     @media (min-width: 320px) {
         @content;
     }
+    @include m-p1();
+    @include m-p2();
+    @include m-p3();
 }
 
 @mixin tablet {
     @media (min-width: 768px) {
         @content;
     }
+    @include p1();
+    @include p2();
+    @include p3();
 }
 
 @mixin desktop {
     @media (min-width: 1280px)  {
         @content;
     }
+    @include p1();
+    @include p2();
+    @include p3();
 }
 
 //tablet & desktop: p1, p2, p3
