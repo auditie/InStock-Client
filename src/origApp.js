@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 
-import EditInventoryItem from './components/EditInventoryItem/EditInventoryItem';
-
-/*
 function App () {
     return (
         <Router>
+            {/* Page Header will go here */}
             <Switch>
                 <Route path='/' exact component={HomePage} />
                 <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
@@ -22,15 +20,6 @@ function App () {
             </Switch>
         </Router>
     )
-}
-*/
-
-function App () {
-	return(
-		<>
-			<EditInventoryItem/>
-		</>
-	);
 }
 
 export default App;
