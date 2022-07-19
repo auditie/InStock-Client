@@ -9,13 +9,13 @@ function App () {
             {/* Page Header will go here */}
             <Switch>
                 <Route path='/' exact component={HomePage} />
-                <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
-                <Route path='/warehouses/:selectedWarehouse/edit' component={HomePage} />
+                <Route path='/warehouses/:warehouseId' component={HomePage} />
+                <Route path='/warehouses/:warehouseId/edit' component={HomePage} />
                 <Route path='/warehouses/add' component={HomePage} />
 
                 <Route path='/inventory' component={InventoryPage} />
-                <Route path='/inventory/:selectedInventory' component={InventoryPage} />
-                <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
+                <Route path='/inventory/:itemId' component={InventoryPage} />
+                <Route path='/inventory/:itemId/edit' component={InventoryPage} />
                 <Route path='/inventory/add' component={InventoryPage} />
             </Switch>
         </Router>

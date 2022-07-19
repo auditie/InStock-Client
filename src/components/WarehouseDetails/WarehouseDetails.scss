@@ -1,0 +1,9 @@
+@use '../../styles/partials/global.scss' as *;
+@use '../../styles/partials/mixins.scss';
+@use '../../styles/partials/variables.scss';
+@use '../../styles/partials/fonts.scss';
+
+p {
+    @include mixins.m-p3
+}
+
