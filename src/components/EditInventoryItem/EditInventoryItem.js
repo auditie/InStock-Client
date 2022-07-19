@@ -1,8 +1,11 @@
+import './EditInventoryItem.scss';
 import inventories from './inventories.json'; 
 
 function EditInventoryItem() {
 	//Selecting a random Item to Display TESTING ONLY
 	const selectedItem = inventories[Math.floor(Math.random() * 69)];
+	console.log("Selected Item");
+	console.log(selectedItem);
 	
 	//Look thru json and find all unique categories and place in an array named uniqueCategories
 	let uniqueCategories = [];
@@ -25,7 +28,15 @@ function EditInventoryItem() {
 				<textarea id="" name="" defaultValue={selectedItem.description}></textarea>
 
 				<select id="inventoryCategory" name="inventoryCategory">
-					<option value=""></option>
+					<option value={selectedItem.category}>{selectedItem.category}</option>				
+					{
+						uniqueCategories.map( category => {
+							if (category !== selectedItem.category) {
+								return <option value={category}>{category}</option>;
+							}
+						})
+					}
+
 				</select>
 			</section>
 		</div>
