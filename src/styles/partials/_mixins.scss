@@ -48,3 +48,21 @@
     font-size: 11px;
     line-height: 16px;
 }
+
+@mixin card {
+    position: absolute;
+    left: 4.27%;
+    right: 4.27%;
+    top: 7.01%;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
+}
+
+@mixin status {
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    width: fit-content;
+    font-weight: 600;
+}

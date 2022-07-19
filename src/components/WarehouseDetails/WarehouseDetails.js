@@ -1,24 +1,26 @@
 import './WarehouseDetails.scss'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import edit from '../../assets/icons/edit-24px.svg'
+import WarehouseInventoryItem from '../WarehouseInventoryItem/WarehouseInventoryItem'
+
 
 const WarehouseDetails = (props) =>{
   const { name, address, city, country } = props.warehouse;
   const { position, phone, email } = props.contact
 
   return (
-    <div>
-      <header>
+    <div className='single-warehouse'>
+      <header className='single-warehouse__header'>
         <img src={backArrow} alt='back arrow' />
-        <h1>{name}</h1>
-        <img srv={edit} alt='edit icon' />
+        <h1 className='single-warehouse__title'>{name}</h1>
+        <img className='single-warehouse__edit-image' src={edit} alt='edit icon' />
       </header>
-      <article>
-        <div>
+      <article className='single-warehouse__details'>
+        <div className='single-warehouse__address'>
           <h4>warehouse address:</h4>
           <p>{`${address}, ${city}, ${country}`}</p>
         </div>
-        <div>
+        <div className='single-warehouse__contact'>
           <div>
             <h4>contact name:</h4>
             <p>{props.contact.name}</p>
@@ -31,15 +33,17 @@ const WarehouseDetails = (props) =>{
           </div>
         </div>
       </article>
-      {/*props.warehouse.map(each => {
+      {props.inventory.map(item => {
         return (
           <WarehouseInventoryItem
-          key={id}
-          item={item}
-          category={category} 
+          key={item.id}
+          itemName={item.itemName}
+          category={item.category} 
+          status={item.status}
+          quantity={item.quantity}
           />
         )
-      })*/}
+      })}
     </div>
   );
 }

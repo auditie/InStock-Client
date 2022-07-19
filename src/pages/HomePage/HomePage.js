@@ -20,7 +20,29 @@ class HomePage extends Component {
         phone: "+1 (646) 123-1234",
         email: "paujla@instock.com"
       }
-    }
+    },
+    warehouseInventory: [
+      {
+        id: "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
+        warehouseID: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+        warehouseName: "Manhattan",
+        itemName: "Television",
+        description: "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
+        category: "Electronics",
+        status: "In Stock",
+        quantity: 500
+      },
+      {
+        "id": "83433026-ca32-4c6d-bd86-a39ee8b7303e",
+        "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+        "warehouseName": "Manhattan",
+        "itemName": "Gym Bag",
+        "description": "Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.",
+        "category": "Gear",
+        "status": "Out of Stock",
+        "quantity": 0
+      }
+    ]
   };
 
   // set up axios
@@ -43,7 +65,7 @@ class HomePage extends Component {
       //             <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} {...routerProps}/>
       //         )}/>
       // </Switch>
-      <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact}/>
+      <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} inventory={this.state.warehouseInventory}/>
     )
   }
 
