@@ -10,19 +10,25 @@ function App() {
         <>
             {/* <Router> */}
             <Header />
-            {/* <Switch>
-                <Route path='/' exact component={HomePage} />
-                <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
-                <Route path='/warehouses/:selectedWarehouse/edit' component={HomePage} />
-                <Route path='/warehouses/add' component={HomePage} />
+            <div className="app__bodywrap">
+                <div>
 
-                <Route path='/inventory' component={InventoryPage} />
-                <Route path='/inventory/:selectedInventory' component={InventoryPage} />
-                <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
-                <Route path='/inventory/add' component={InventoryPage} />
-            </Switch> */}
+                    {/* <Switch>
+                        <Route path='/' exact component={HomePage} />
+                        <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
+                        <Route path='/warehouses/:selectedWarehouse/edit' component={HomePage} />
+                        <Route path='/warehouses/add' component={HomePage} />
+
+                        <Route path='/inventory' component={InventoryPage} />
+                        <Route path='/inventory/:selectedInventory' component={InventoryPage} />
+                        <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
+                        <Route path='/inventory/add' component={InventoryPage} />
+                    </Switch> */}
+
+                </div>
+                <Footer />
+            </div>
             {/* </Router> */}
-            <Footer />
         </>
 
     )

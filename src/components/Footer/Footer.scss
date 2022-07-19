@@ -2,14 +2,13 @@
 @use '../../styles//partials/variables';
 
 .footer {
-    height: 100%;
     
     &__label {
         display: flex;
         justify-content: center;
-        justify-items: end;
         color: variables.$Slate;
-        
-        
+        margin: 0;
+        padding-bottom: 2rem;
+
     }
 }
