@@ -12,6 +12,8 @@ function EditInventoryItem() {
 	inventories.forEach(inventory => {
 		!uniqueCategories.includes(inventory.category) && uniqueCategories.push(inventory.category);
 	});
+
+	const selectedInStock = (selectedItem.status === "In Stock");
 	
 	return (
 		<div>
@@ -39,6 +41,31 @@ function EditInventoryItem() {
 
 				</select>
 			</section>
+			<section>
+				<label>status</label>
+				<fieldset>
+					<label htmlFor="inStock">In stock</label>
+						<input 
+							type="radio" 
+							id="inStock" 
+							value="inStock" 
+							name="stock" 
+							defaultChecked={selectedInStock}
+						/>
+					<label htmlFor="outOfStock">Out of stock</label>
+						<input 
+							type="radio" 
+							id="outOfStock" 
+							value="outOfStock" 
+							name="stock" 
+							defaultChecked={!selectedInStock}
+						/>
+				</fieldset>
+			</section>
+			<div>
+				<button name="cancel" type="reset">cancel</button>
+				<button name="save" type="submit">save</button>
+			</div> 
 		</div>
 	);
 }
