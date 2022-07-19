@@ -3,6 +3,7 @@ import './HomePage.scss';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
+import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
 
 class HomePage extends Component {
     state = {
@@ -16,6 +17,11 @@ class HomePage extends Component {
         return (
             <Switch> 
                 <Route path='/' component={WarehouseList}/>
+                <Route 
+                    path='/warehouses/:selectedWarehouse' 
+                    render={(routerProps) => (
+                        <WarehouseDetails warehouse={this.state.selectedWarehouse} {...routerProps}/>
+                    )}/>
             </Switch>
         )
     }
