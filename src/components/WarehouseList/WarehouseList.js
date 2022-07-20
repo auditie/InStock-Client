@@ -2,8 +2,8 @@ import './WarehouseList.scss';
 // import { Link } from 'react-router-dom';
 import WarehouseItem from '../WarehouseItem/WarehouseItem';
 
-const WarehouseList = ( { warehouses } ) => {
-    console.log(warehouses)
+const WarehouseList = ( { warehousesList } ) => {
+    console.log(warehousesList)
     return (
         <>
             <div className='warehouse-list__head'>
