@@ -41,6 +41,16 @@ class HomePage extends Component {
         "category": "Gear",
         "status": "Out of Stock",
         "quantity": 0
+      },
+      {
+        id: "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
+        warehouseID: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+        warehouseName: "Manhattan",
+        itemName: "Television",
+        description: "This 50\", 4K LED TV provides a crystal-clear picture and vivid colors.",
+        category: "Electronics",
+        status: "In Stock",
+        quantity: 500
       }
     ]
   };
@@ -76,9 +86,22 @@ class HomePage extends Component {
   }
 
   render() {
+          {/*<Switch> 
+          <Route 
+              path='/' exact
+              render={(routerProps) => (
+                  <WarehouseList handleClick={this.handleClick} id={this.state.selectedWarehouse.id} {...routerProps}/>
+              )}/>
+          <Route 
+              path='/warehouses/:warehouseId' 
+              render={(routerProps) => (
+                  <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} inventory={this.state.warehouseInventory} {...routerProps}/>
+              )}/>
+              </Switch>*/}
     return (
-
-              <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} inventory={this.state.warehouseInventory}/>
+      <div className='card'>
+      <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} inventory={this.state.warehouseInventory} />
+      </div>
     )
   }
 

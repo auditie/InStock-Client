@@ -19,7 +19,15 @@ h4 {
 .single-warehouse {
     display: flex;
     flex-direction: column;
-    @include mixins.card;
+    // @include mixins.card;
+
+    // @include mixins.tablet {
+    //     top: 10%;
+    // }
+
+    // @include mixins.desktop {
+    //     top: 9.5%;
+    // }
 
     &__header {
         display: flex;
