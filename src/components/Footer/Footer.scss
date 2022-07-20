@@ -9,12 +9,9 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        min-height: calc(145vh - 13rem);
         color: variables.$Slate;
         margin: 0;
-        padding-bottom: 2rem;
+        padding: 2rem 0;
         background-color: variables.$Light-Grey;
-        
-
     }
 }
