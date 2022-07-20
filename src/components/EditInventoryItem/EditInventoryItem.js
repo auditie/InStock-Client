@@ -6,7 +6,6 @@ import { v4 as uuid } from 'uuid';
 function EditInventoryItem() {
 	//Selecting a random Item to Display TESTING ONLY
 	const selectedItem = inventories[Math.floor(Math.random() * 69)];
-	console.log("Selected Item");
 	console.log(selectedItem);
 	
 	//Look thru json and find all unique categories and place in an array named uniqueCategories

@@ -14,7 +14,8 @@ function App() {
             <Header />
             <div className="app__bodywrap">
                 <div className="app__card" >
-                    <AddWarehouse />
+					{/*<AddWarehouse />*/}
+					<EditInventoryItem/>
                     {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
                     {/* <Switch>
                         <Route path='/' exact component={HomePage} />
