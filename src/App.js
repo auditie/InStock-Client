@@ -11,7 +11,7 @@ function App() {
             {/* <Router> */}
             <Header />
             <div className="app__bodywrap">
-                <div>
+                <div className="app__card">
                     {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
                     {/* <Switch>
                         <Route path='/' exact component={HomePage} />
