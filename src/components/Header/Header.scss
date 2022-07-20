@@ -1,11 +1,14 @@
 @use '../../styles/partials/mixins';
-@use '../../styles//partials/variables';
+@use '../../styles/partials/variables';
+@use '../../styles/partials/fonts';
+@use '../../styles/partials/global';
 
 .header {
     background-color: variables.$Graphite;
     width: 100%;
     height: 13rem;
     z-index: 0;
+    padding-top: 2rem;
 
     @include mixins.tablet {
         display: flex;
@@ -13,7 +16,6 @@
         height: 7rem;
     }
     
-
     &__logo {
         padding: 2rem 0 0.5rem;
         width: 7.3rem;
@@ -35,23 +37,21 @@
         justify-content: space-evenly;
 
         @include mixins.tablet {
-            padding-top: 1.2rem;
+            padding-top: 2rem;
             margin-right: 1rem;
-            
         }
 
         &--title {
             color: variables.$Cloud;
             text-align: center;
-            padding-top: 0.25rem;
+            padding-top: 0.4rem;
             background-color: transparent;
             width: 10rem;
-            height: 2rem;
+            height: 1.5rem;
             border-radius: 20px;
 
             @include mixins.tablet {
                 width: 9rem;
-                
             }
 
             &:hover {
@@ -59,7 +59,7 @@
                 color: variables.$White;
                 background: variables.$Instock-Black;
                 width: 10rem;
-                height: 2rem;
+                height: 1.5rem;
                 border-radius: 20px;
 
                 @include mixins.tablet {
