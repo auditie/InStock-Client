@@ -1,0 +1,14 @@
+@use '../../styles/partials/mixins';
+@use '../../styles//partials/variables';
+
+.footer {
+    
+    &__label {
+        display: flex;
+        justify-content: center;
+        color: variables.$Slate;
+        margin: 0;
+        padding-bottom: 2rem;
+
+    }
+}

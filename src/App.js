@@ -1,13 +1,21 @@
 import './App.scss';
 import Header from './components/Header/Header';
+<<<<<<< HEAD
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 //import InventoryPage from './pages/InventoryPage/InventoryPage';
+=======
+import Footer from './components/Footer/Footer';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import HomePage from './pages/HomePage/HomePage';
+// import InventoryPage from './pages/InventoryPage/InventoryPage';
+>>>>>>> develop
 
 function App() {
     return (
         <>
             <Header />
+<<<<<<< HEAD
             <Router>
             <Switch>
                 <Route path='/' exact component={HomePage} />
@@ -18,8 +26,26 @@ function App() {
                 <Route path='/inventory/add' component={InventoryPage} />  */}
             </Switch> 
             </Router>
+=======
+            <div className="app__bodywrap">
+                <div>
+                    {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
+                    {/* <Switch>
+                        <Route path='/' exact component={HomePage} />
+                        <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
+                        <Route path='/warehouses/:selectedWarehouse/edit' component={HomePage} />
+                        <Route path='/warehouses/add' component={HomePage} />
+                        <Route path='/inventory' component={InventoryPage} />
+                        <Route path='/inventory/:selectedInventory' component={InventoryPage} />
+                        <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
+                        <Route path='/inventory/add' component={InventoryPage} />
+                    </Switch> */}
+                </div>
+                <Footer />
+            </div>
+            {/* </Router> */}
+>>>>>>> develop
         </>
-
     )
 }
 
