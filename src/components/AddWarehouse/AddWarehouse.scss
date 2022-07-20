@@ -15,8 +15,6 @@ textarea {
 }
 
 .add-warehouse {
-    @include mixins.card;
-    
     &__title {
         display: flex;
         justify-content: center;
