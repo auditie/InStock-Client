@@ -6,6 +6,8 @@ import AddWarehouse from './components/AddWarehouse/AddWarehouse';
 // import HomePage from './pages/HomePage/HomePage';
 // import InventoryPage from './pages/InventoryPage/InventoryPage';
 
+export const API_URL = 'http://localhost:8080/';
+
 function App() {
     return (
         <>
