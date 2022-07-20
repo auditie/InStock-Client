@@ -1,14 +1,17 @@
 @use '../../styles/partials/mixins';
-@use '../../styles//partials/variables';
+@use '../../styles/partials/variables';
+@use '../../styles/partials/fonts';
+@use '../../styles/partials/global';
 
 .footer {
     
     &__label {
         display: flex;
         justify-content: center;
+        align-items: flex-end;
         color: variables.$Slate;
         margin: 0;
-        padding-bottom: 2rem;
-
+        padding: 2rem 0;
+        background-color: variables.$Light-Grey;
     }
 }

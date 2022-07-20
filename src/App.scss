@@ -1,5 +1,7 @@
 @use './styles/partials/mixins';
 @use './styles/partials/variables';
+@use './styles/partials/fonts';
+@use './styles/partials/global';
 
 .App {
   text-align: center;
@@ -48,9 +50,22 @@
   background-color: variables.$Light-Grey;
 
   @include mixins.tablet {
-    min-height: calc(100vh - 7rem);
+    min-height: calc(100vh - 14rem);
+  }  
+
+}
+
+.app__card {
+  margin: -4rem 1rem 0;
+  background: variables.$White;
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+
+  @include mixins.tablet {
+    margin: -7.25rem 2rem 0;
   }
 
-  
-
+  @include mixins.desktop {
+    margin: -6.25rem 6rem 0;
+  }
 }
