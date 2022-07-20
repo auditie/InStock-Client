@@ -4,8 +4,12 @@
 @use '../../styles/partials/fonts.scss';
 
 p {
-    @include mixins.m-p3;
+    @include mixins.m-p2;
     margin: 0.2rem 0rem;
+
+    @include mixins.tablet {
+        @include mixins.p2;
+    }
 }
 
 .warehouse-inventory {
@@ -14,22 +18,44 @@ p {
     padding: 1.3rem 1.5rem;
     border-top: solid 1px variables.$Cloud;
 
+    @include mixins.tablet {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.7rem 2.25rem;
+        border-top: none;
+        border-bottom: solid 1px variables.$Cloud;
+    }
+
     &__item-info {
         display: flex;
         width: 83%;
         justify-content: space-between;
         align-items: flex-start;
+
+        @include mixins.tablet {
+            justify-content: flex-start;
+            width: 70%;
+        }
     }
 
     &__column {
         display: flex;
         flex-direction: column;
         inline-size: 8rem;
+
+        @include mixins.tablet {
+            display: contents;
+        }
     }
 
     &__item {
         display: flex;
         align-items: center;
+
+        @include mixins.tablet {
+            inline-size: 9.7rem;
+        }
     }
 
     &__item-name {
@@ -37,11 +63,27 @@ p {
         font-weight: 600;
     }
 
+    &__item-category {
+        @include mixins.tablet {
+            inline-size: 7.8rem;
+        }
+    }
+
+    &__item-quantity {
+        @include mixins.tablet {
+            inline-size: 6rem;
+        }
+    }
+
     &__block {
         margin-bottom: 1rem;
 
         &--status-block {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.65rem;
+        }
+
+        @include mixins.tablet {
+            margin: 0rem
         }
     }
 
@@ -49,26 +91,40 @@ p {
         @include mixins.status;
         color: variables.$Green;
         background: rgba(21, 132, 99, 0.07);
+
+        @include mixins.tablet {
+            inline-size: 4.2rem;
+            margin-right: 7.2rem;
+        }
     }
 
     &__status-out-of-stock {
         @include mixins.status;
         color: variables.$Red;
         background: rgba(201, 69, 21, 0.07);
+
+        @include mixins.tablet {
+            inline-size: 5.8rem;
+            margin-right: 5.7rem;
+        }
     }
 
-    &__options {
+    &__actions {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 1rem 0rem 0rem 0rem 
-    }
-
-    &__tablet-desktop {
-        display: none;
+        margin: 1rem 0rem 0rem 0rem;
 
         @include mixins.tablet {
-            display: contents;
+            width: 10%;
+            justify-content: space-between;
+            margin: 0rem;
+        }
+    }
+
+    &__header {
+        @include mixins.tablet {
+            display: none;
         }
     }
 }

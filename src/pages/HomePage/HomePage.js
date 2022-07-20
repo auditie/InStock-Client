@@ -55,6 +55,15 @@ class HomePage extends Component {
       })
   }
 
+  componentDidMount() {
+    axios.get(`http://localhost:8080/warehouses`)
+    .then((response => {
+      this.setState({
+        warehouses: response.data
+      })
+    }))
+  }
+
   render() {
     return (
       // <Switch> 

@@ -6,6 +6,10 @@
 p {
     @include mixins.m-p2;
     margin: 0rem;
+
+    @include mixins.tablet {
+        @include mixins.p2;
+    }
 }
 
 h4 {
@@ -21,24 +25,57 @@ h4 {
         display: flex;
         align-items: center;
         padding: 1.5rem 1.5rem 1rem 1.5rem;
-        border-bottom: solid 1px #BDC5D5;;
+        border-bottom: solid 1px variables.$Cloud;
+
+        @include mixins.tablet {
+            padding: 1.5rem 2.25rem 1rem 2.25rem;
+        }
     }
 
     &__title {
         margin: 0rem 6.5rem 0rem 1rem;
     }
 
-    &__edit-image {
+    &__edit {
         color: variables.$White;
-        border: solid 1px variables.$Instock-Indigo;
         border-radius: 50%;
-        padding: 0.2rem;
+        padding: 0.4rem 0.4rem 0.2rem 0.4rem;
+        background-color: variables.$Instock-Indigo;
+
+        @include mixins.tablet {
+            margin-left: 16rem;
+            display: flex;
+            border-radius: 20px;
+            padding: 0.5rem 0.8rem;
+            justify-content: space-between;
+            width: 5rem;
+        }
+    }
+
+    &__edit-image {
+        filter: brightness(0) invert(1);
+    }
+
+    &__edit-word {
+        display: none;
+
+        @include mixins.tablet {
+            display: contents;
+            font-family: 'Titillium-Web', sans-serif;
+        }
     }
 
     &__details {
         display: flex;
         flex-direction: column;
         padding: 1rem 1.5rem;
+
+        @include mixins.tablet {
+            flex-direction: row;
+            align-items: center;
+            padding: 1.5rem 2.25rem;
+            justify-content: space-between;
+        }
     }
 
     &__contact {
@@ -46,9 +83,71 @@ h4 {
         width: 80%;
         justify-content: space-between;
         margin: 0.5rem 6rem 0rem 0rem;
+
+        @include mixins.tablet {
+            margin: 0rem;
+            padding: 0rem 0rem 0rem 3rem;
+            justify-content: flex-start;
+            width: 60%;
+            border-left: solid 1px variables.$Cloud;
+        }
     }
 
     &__address {
         margin-bottom: 1.5rem;
+
+        @include mixins.tablet {
+            margin: 0rem;
+            width: 8rem;
+        }
+    }
+
+    &__contact-info {
+        width: 12rem;
+    }
+
+    &__tablet-desktop {
+        display: none;
+
+        @include mixins.tablet {
+            display: contents;
+        }
+    }
+
+    &__table-headers {
+        display: flex;
+        padding: 0.7rem 2.25rem;
+        width: 100%;
+        background-color: variables.$Light-Grey;
+    }
+
+    &__item-header {
+        display: flex;
+        align-items: center;
+        inline-size: 12rem;
+    }
+
+    &__category-header {
+        display: flex;
+        align-items: center;
+        inline-size: 10rem;
+    }
+
+    &__status-header {
+        display: flex;
+        align-items: center;
+        inline-size: 14rem;
+    }
+
+    &__quantity-header {
+        display: flex;
+        align-items: center;
+        inline-size: 8rem;
+    }
+
+    &__action-header {
+        inline-size: 5rem;
+        text-align: end;
+        margin: 0;
     }
 }
