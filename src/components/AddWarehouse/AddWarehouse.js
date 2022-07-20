@@ -39,9 +39,11 @@ class AddWarehouse extends React.Component {
                         <h3 className="add-warehouse__labels" >Email</h3>
                         <textarea type="text" placeholder="Email" ></textarea>
                     </div>
-                    <div>
-                        <button type="submit">+ Add Warehouse</button>
+                    <div className="add-warehouse__submit" >
                         {/* <Link to="/">Cancel</Link> */}
+                        <button className="add-warehouse__submit--cancel">Cancel</button>
+                        <button className="add-warehouse__submit--add" type="submit">+ Add Warehouse</button>
+
                     </div>
 
                 </form>
