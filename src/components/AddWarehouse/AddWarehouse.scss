@@ -36,6 +36,7 @@ textarea {
     }
 
     &__arrow {
+        margin-right: 1rem;
 
         @include mixins.tablet {
             margin-right: 1rem;
