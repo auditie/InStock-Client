@@ -7,8 +7,6 @@ function Footer() {
             <p className="footer__label" >&copy; InStock Inc. All Rights Reserved.</p>
         </footer>
     )
-
-
 }
 
 export default Footer;

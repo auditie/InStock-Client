@@ -45,8 +45,12 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: calc(100vh - 13rem);
+  background-color: variables.$Light-Grey;
 
   @include mixins.tablet {
     min-height: calc(100vh - 7rem);
   }
+
+  
+
 }
