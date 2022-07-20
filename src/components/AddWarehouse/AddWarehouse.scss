@@ -1,2 +1,40 @@
 @use '../../styles/partials/mixins';
-@use '../../styles//partials/variables';
+@use '../../styles/partials/variables';
+// @use '../../styles/partials/fonts';
+// @use '../../styles/partials/global';
+
+textarea {
+    resize: none;
+    border-radius: 20px;
+    border-color: variables.$Cloud;
+    width: 100%;
+    padding: 0.7rem 0 0 1rem;
+}
+
+.add-warehouse {
+    @include mixins.card;
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+        border-bottom: 0.05rem solid variables.$Cloud;
+    }
+
+    &__warehouse--detail, &__contact--detail {
+        padding: 1rem 2rem;
+    }
+
+    &__warehouse--detail {
+        border-bottom: 0.05rem solid variables.$Cloud;
+    }
+
+    &__subtitle {
+        padding-bottom: 1rem;
+    }
+
+    &__labels {
+        margin-bottom: 0.5rem;
+    }
+    
+}
