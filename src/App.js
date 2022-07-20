@@ -9,26 +9,14 @@ import HomePage from './pages/HomePage/HomePage';
 function App() {
     return (
         <>
-            <Header />
             <Router>
-            <Switch>
-                <Route path='/' exact component={HomePage} />
-    
-                {/* <Route path='/inventory' component={InventoryPage} /> */}
-                {/* <Route path='/inventory/:selectedInventory' component={InventoryPage} />
-                <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
-                <Route path='/inventory/add' component={InventoryPage} />  */}
-            </Switch> 
-            </Router>
+            <Header />
             <div className="app__bodywrap">
                 <div className="app__card" >
-                    <AddWarehouse />
+                <HomePage />
+                    {/* <AddWarehouse /> */}
                     {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
                     {/* <Switch>
-                        <Route path='/' exact component={HomePage} />
-                        <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
-                        <Route path='/warehouses/:selectedWarehouse/edit' component={HomePage} />
-                        <Route path='/warehouses/add' component={HomePage} />
                         <Route path='/inventory' component={InventoryPage} />
                         <Route path='/inventory/:selectedInventory' component={InventoryPage} />
                         <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
@@ -38,7 +26,7 @@ function App() {
                 <Footer />
             </div>
 
-            {/* </Router> */}
+            </Router>
         </>
     )
 }
