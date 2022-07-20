@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import HomePage from './pages/HomePage/HomePage';
 // import InventoryPage from './pages/InventoryPage/InventoryPage';
+import EditInventoryItem from './components/EditInventoryItem/EditInventoryItem';
 
 function App() {
     return (
@@ -11,7 +12,8 @@ function App() {
             {/* <Router> */}
             <Header />
             <div className="app__bodywrap">
-                <div>
+				<div>
+					<EditInventoryItem/>
                     {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
                     {/* <Switch>
                         <Route path='/' exact component={HomePage} />
@@ -23,21 +25,12 @@ function App() {
                         <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
                         <Route path='/inventory/add' component={InventoryPage} />
                     </Switch> */}
-                </div>
+				</div>	
                 <Footer />
             </div>
             {/* </Router> */}
         </>
     )
-}
-*/
-
-function App () {
-	return(
-		<>
-			<EditInventoryItem/>
-		</>
-	);
 }
 
 export default App;

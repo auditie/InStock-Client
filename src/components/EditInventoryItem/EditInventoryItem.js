@@ -1,5 +1,7 @@
 import './EditInventoryItem.scss';
-import inventories from './inventories.json'; 
+import inventories from '../../data/inventories.json'; 
+import warehouses from '../../data/warehouses.json';
+import { v4 as uuid } from 'uuid';
 
 function EditInventoryItem() {
 	//Selecting a random Item to Display TESTING ONLY
@@ -16,7 +18,7 @@ function EditInventoryItem() {
 	const selectedInStock = (selectedItem.status === "In Stock");
 	
 	return (
-		<div>
+		<>
 			<header>
 				<h1>edit inventory item</h1>
 			</header>
@@ -35,8 +37,9 @@ function EditInventoryItem() {
 					{
 						uniqueCategories.map( category => {
 							if (category !== selectedItem.category) {
-								return <option value={category}>{category}</option>;
+								return <option key={uuid()} value={category}>{category}</option>;
 							}
+							return null;
 						})
 					}
 
@@ -62,12 +65,25 @@ function EditInventoryItem() {
 						defaultChecked={!selectedInStock}
 					/>
 					<label htmlFor="outOfStock">Out of stock</label>
+				<h3>warehouse</h3>
+					<select id="warehouseList" name="warehouseList">
+						<option value={selectedItem.warehouseName}>{selectedItem.warehouseName}</option>
+						{
+							warehouses.map( warehouse => {
+								if (warehouse.name !== selectedItem.warehouseName) {
+									return <option key={uuid()} value={warehouse.name}>{warehouse.name}</option>;
+								}
+								return null;
+							})
+						}
+
+					</select>
 			</section>
 			<div>
 				<button name="cancel" type="reset">cancel</button>
 				<button name="save" type="submit">save</button>
 			</div> 
-		</div>
+		</>
 	);
 }
 
