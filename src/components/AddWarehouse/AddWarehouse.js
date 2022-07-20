@@ -6,7 +6,16 @@ import BackArrow from '../../assets/icons/arrow_back-24px.svg';
 
 class AddWarehouse extends React.Component {
     state = {
-
+        name: "",
+        address: "",
+        city: "",
+        country: "",
+        contact: {
+            name: "",
+            position: "",
+            phone: "",
+            email: "",
+        }
     }
 
     render() {
@@ -40,9 +49,7 @@ class AddWarehouse extends React.Component {
                             <h3 className="add-warehouse__labels" >Email</h3>
                             <textarea type="text" placeholder="Email" ></textarea>
                         </div>
-
                     </div>
-
                     <div className="add-warehouse__submit" >
                         {/* <Link to="/">Cancel</Link> */}
                         <button className="add-warehouse__submit--cancel">Cancel</button>
