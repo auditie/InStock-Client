@@ -4,7 +4,7 @@ import Footer from './components/Footer/Footer';
 import AddWarehouse from './components/AddWarehouse/AddWarehouse';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import HomePage from './pages/HomePage/HomePage';
-// import InventoryPage from './pages/InventoryPage/InventoryPage';
+import InventoryPage from './pages/InventoryPage/InventoryPage';
 
 function App() {
     return (
@@ -13,7 +13,7 @@ function App() {
             <Header />
             <div className="app__bodywrap">
                 <div className="app__card" >
-                    <AddWarehouse />
+                    <InventoryPage />
                     {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
                     {/* <Switch>
                         <Route path='/' exact component={HomePage} />
