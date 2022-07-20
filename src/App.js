@@ -1,21 +1,14 @@
 import './App.scss';
 import Header from './components/Header/Header';
-<<<<<<< HEAD
+import Footer from './components/Footer/Footer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
-//import InventoryPage from './pages/InventoryPage/InventoryPage';
-=======
-import Footer from './components/Footer/Footer';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import HomePage from './pages/HomePage/HomePage';
 // import InventoryPage from './pages/InventoryPage/InventoryPage';
->>>>>>> develop
 
 function App() {
     return (
         <>
             <Header />
-<<<<<<< HEAD
             <Router>
             <Switch>
                 <Route path='/' exact component={HomePage} />
@@ -26,7 +19,6 @@ function App() {
                 <Route path='/inventory/add' component={InventoryPage} />  */}
             </Switch> 
             </Router>
-=======
             <div className="app__bodywrap">
                 <div>
                     {/* this is where the white panel is basically that has all the information for warehouse, inventory, etc. */}
@@ -44,7 +36,6 @@ function App() {
                 <Footer />
             </div>
             {/* </Router> */}
->>>>>>> develop
         </>
     )
 }
