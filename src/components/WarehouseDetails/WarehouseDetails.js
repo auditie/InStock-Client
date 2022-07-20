@@ -53,7 +53,8 @@ const WarehouseDetails = (props) =>{
           <img src={sort} alt='sort' />
         </div>
         <div className='single-warehouse__quantity-header'>
-          <h4>quantity</h4>
+          <h4 className='quantity-tablet'>quantity</h4>
+          <h4 className='quantity-desktop'>qty</h4>
           <img src={sort} alt='sort' />
         </div>
         <div className='single-warehouse__action-header'>

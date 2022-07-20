@@ -10,20 +10,20 @@
     @include mixins.tablet {
         display: flex;
         justify-content: space-between; 
-        height: 7rem;
+        height: 10rem;
     }
     
 
     &__logo {
         padding: 2rem 0 0.5rem;
         width: 7.3rem;
-        height: 1.7rem;
+        // height: 1.7rem;
         display: block;
         margin: auto;
 
         @include mixins.tablet {
             width: 10rem;
-            height: 2.5rem;
+            // height: 2.5rem;
             margin: 0 1.5rem 0 3rem;
             padding-top: 2rem;    
         }

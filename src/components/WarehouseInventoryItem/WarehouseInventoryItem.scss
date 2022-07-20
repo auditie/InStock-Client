@@ -56,6 +56,10 @@ p {
         @include mixins.tablet {
             inline-size: 9.7rem;
         }
+
+        @include mixins.desktop {
+            inline-size: 15rem;
+        }
     }
 
     &__item-name {
@@ -66,6 +70,10 @@ p {
     &__item-category {
         @include mixins.tablet {
             inline-size: 7.8rem;
+        }
+
+        @include mixins.desktop {
+            inline-size: 13.5rem;
         }
     }
 
@@ -96,6 +104,10 @@ p {
             inline-size: 4.2rem;
             margin-right: 7.2rem;
         }
+
+        @include mixins.desktop {
+            margin-right: 15.9rem;
+        }
     }
 
     &__status-out-of-stock {
@@ -106,6 +118,10 @@ p {
         @include mixins.tablet {
             inline-size: 5.8rem;
             margin-right: 5.7rem;
+        }
+
+        @include mixins.desktop {
+            margin-right: 14.4rem;
         }
     }
 
@@ -119,6 +135,10 @@ p {
             width: 10%;
             justify-content: space-between;
             margin: 0rem;
+        }
+
+        @include mixins.desktop {
+            width: 6%;
         }
     }
 

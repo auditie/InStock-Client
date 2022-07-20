@@ -55,6 +55,17 @@ class HomePage extends Component {
       })
   }
 
+  handleClick = () => {
+    const warehouseId = this.props.match.params.warehouseId
+    this.getVideo(warehouseId)
+    axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventory`)
+    .then((response) => {
+      this.setState({
+        warehouseInventory: response.data
+      })
+    })
+  }
+
   componentDidMount() {
     axios.get(`http://localhost:8080/warehouses`)
     .then((response => {
@@ -66,15 +77,8 @@ class HomePage extends Component {
 
   render() {
     return (
-      // <Switch> 
-      //     <Route path='/' component={WarehouseList}/>
-      //     <Route 
-      //         path='/warehouses/:selectedWarehouse' 
-      //         render={(routerProps) => (
-      //             <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} {...routerProps}/>
-      //         )}/>
-      // </Switch>
-      <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} inventory={this.state.warehouseInventory}/>
+
+              <WarehouseDetails warehouse={this.state.selectedWarehouse} contact={this.state.selectedWarehouse.contact} inventory={this.state.warehouseInventory}/>
     )
   }
 
