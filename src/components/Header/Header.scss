@@ -37,21 +37,19 @@
         @include mixins.tablet {
             padding-top: 1.2rem;
             margin-right: 1rem;
-            
         }
 
         &--title {
             color: variables.$Cloud;
             text-align: center;
-            padding-top: 0.25rem;
+            padding-top: 0.4rem;
             background-color: transparent;
             width: 10rem;
-            height: 2rem;
+            height: 1.5rem;
             border-radius: 20px;
 
             @include mixins.tablet {
                 width: 9rem;
-                
             }
 
             &:hover {
@@ -59,7 +57,7 @@
                 color: variables.$White;
                 background: variables.$Instock-Black;
                 width: 10rem;
-                height: 2rem;
+                height: 1.5rem;
                 border-radius: 20px;
 
                 @include mixins.tablet {
