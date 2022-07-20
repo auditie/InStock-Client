@@ -2,15 +2,3 @@
 @use '../../styles/partials/mixins.scss';
 @use '../../styles/partials/variables.scss';
 @use '../../styles/partials/fonts.scss';
-
-.card {
-  @include mixins.card;
-
-  @include mixins.tablet {
-    top: 10%;
-    }
-
-    @include mixins.desktop {
-        top: 9.5%;
-    }
-}
