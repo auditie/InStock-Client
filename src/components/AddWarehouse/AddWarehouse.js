@@ -73,9 +73,9 @@ class AddWarehouse extends React.Component {
                             <h3 className="add-warehouse__labels" >Position</h3>
                             <textarea type="text" placeholder="Position" value={this.state.contactPosition} onChange={this.handleChangeWarehouse} name="contactPosition" required></textarea>
                             <h3 className="add-warehouse__labels" >Phone Number</h3>
-                            <textarea type="text" placeholder="Phone Number" value={this.state.contactPhone} onChange={this.handleChangeWarehouse} name="contactPhone" required></textarea>
+                            <textarea type="tel" placeholder="Phone Number" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="12" value={this.state.contactPhone} onChange={this.handleChangeWarehouse} name="contactPhone" required></textarea>
                             <h3 className="add-warehouse__labels" >Email</h3>
-                            <textarea type="text" placeholder="Email" value={this.state.contactEmail} onChange={this.handleChangeWarehouse} name="contactEmail" required></textarea>
+                            <textarea type="email" placeholder="Email" value={this.state.contactEmail} onChange={this.handleChangeWarehouse} name="contactEmail" required></textarea>
                         </div>
                     </div>
                     <div className="add-warehouse__submit" >
