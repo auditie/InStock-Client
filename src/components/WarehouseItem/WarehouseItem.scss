@@ -8,9 +8,11 @@
     padding: 2vh 4vw;
 
     @include tablet {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: none;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: space-between;
+        // gap: 5%;
     }
 
     &--mobile {
@@ -22,8 +24,9 @@
 
             @include tablet{
                 display: flex;
-                width: 50%;
+                width: 45%;
                 flex-direction: row;
+                justify-content: flex-start;
                 gap: 10vw;
                 text-align: left;
             }
@@ -31,7 +34,7 @@
 
         @include tablet {
             flex-direction: row;
-            justify-content: space-between;
+            gap: 5%;
         }
     }
 
@@ -42,9 +45,6 @@
     &__direct {
         display: inline;
         vertical-align: bottom;
-
-        @include tablet {
-        }
     }
 
     &__table-header{
@@ -57,6 +57,10 @@
         color: $Instock-Indigo;
         text-decoration: none;
         display: inline;
+
+        @include tablet {
+            width: 50%;
+        }
     }
 
     &__manage {

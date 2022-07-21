@@ -1,6 +1,7 @@
 import './WarehouseList.scss';
 // import { Link } from 'react-router-dom';
 import WarehouseItem from '../WarehouseItem/WarehouseItem';
+import WarehouseItemTablet from '../WarehouseItemTablet/WarehouseItemTablet';
 import sortIcon from '../../assets/icons/sort-24px.svg';
 
 const WarehouseList = ( { warehouses } ) => {
@@ -32,6 +33,11 @@ const WarehouseList = ( { warehouses } ) => {
             {
                 warehouses.map(warehouse => 
                     <WarehouseItem key={warehouse.id} warehouse={warehouse} />
+                )
+            }
+            {
+                warehouses.map(warehouse => 
+                    <WarehouseItemTablet key={warehouse.id} warehouse={warehouse} />
                 )
             }
             </div>

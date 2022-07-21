@@ -8,11 +8,15 @@
     &__head {
         display: flex;
         flex-direction: column;
-        padding: 4vh 4vw;
+        padding: 3.65vh 4vw;
 
         @include tablet {
             flex-direction: row;
             justify-content: space-between;
+        }
+
+        @include desktop {
+            padding: 2.9vh 4vw;
         }
 
         &--top-right {
@@ -25,6 +29,10 @@
                 display: flex;
                 gap: 6%;
                 justify-content: flex-end;
+            }
+
+            @include desktop {
+                gap: 3%;
             }
         }
 
@@ -53,7 +61,7 @@
             }
 
             @include desktop {
-                width: 30%;
+                width: 45%;
             }
         }
 
