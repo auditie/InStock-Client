@@ -18,15 +18,6 @@ textarea {
     padding: 0.2rem 0 0 1rem;;
 }
 
-.add-warehouse__error {
-    border-color: variables.$Red;
-}
-
-// textarea:required:invalid {
-//     border-color: variables.$Red;
-// }
-
-
 .add-warehouse {
     &__title {
         display: flex;
@@ -150,8 +141,17 @@ textarea {
         @include mixins.desktop {
             padding-right: 4rem;
         }
-
     }
 
-    
+    &__error {
+        border-color: variables.$Red;
+    }
+
+    &__warning {
+        background: url('../../assets/icons/error-24px.svg') no-repeat 0.2rem;
+        padding-left: 2rem;
+        color: variables.$Red;
+        font-size: 13px;
+    }
+   
 }
