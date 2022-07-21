@@ -53,7 +53,6 @@
                   <p>Loading...</p>
               )
           }
-          console.log(this.state.warehouses);
           return (
               <Switch> 
                   <Route path='/' exact component={WarehouseList} warehousesList={this.state.warehouses} />
