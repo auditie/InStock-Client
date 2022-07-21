@@ -14,6 +14,17 @@ class HomePage extends Component {
         selectedWarehouse: {}
     };
 
+    fetchWarehouses = warehouseList => {
+        axios
+            .get(`%{API_URL}/warehouses`)
+            .then(response => {
+                this.setState({
+                    warehouses: response.data
+                })
+                return response.data;
+            })
+    }
+
     // set up axios
     componentDidMount() {
         axios.get(`${API_URL}/warehouses`)
@@ -25,6 +36,14 @@ class HomePage extends Component {
             return response.data;
         })
     }
+
+    // axios for page did update
+    // componentDidUpdate(prevState) {
+    //     const previousState = this.state.warehouseList;
+
+    //     if(prevState !== )
+
+    // }
 
     render() {
         if (!this.state.warehouses) {
