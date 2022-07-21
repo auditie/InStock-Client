@@ -3,7 +3,7 @@ import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
 import axios from 'axios';
 import { API_URL } from '../../App';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class AddWarehouse extends React.Component {
     state = {
@@ -34,7 +34,6 @@ class AddWarehouse extends React.Component {
                     email: this.state.contactEmail,
                 }
             })
-            //afterposting, this will make it go back to the homepage
             .then((response) => {
                 this.props.history.push('/');
             })
@@ -79,8 +78,7 @@ class AddWarehouse extends React.Component {
                         </div>
                     </div>
                     <div className="add-warehouse__submit" >
-                        {/* <Link className="add-warehouse__submit--cancel" to="/">Cancel</Link> */}
-                        <button className="add-warehouse__submit--cancel">Cancel</button>
+                        <Link className="add-warehouse__submit--cancel" to="/">Cancel</Link>
                         <button className="add-warehouse__submit--add" type="submit">+ Add Warehouse</button>
                     </div>
                 </form>
