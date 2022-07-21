@@ -1,0 +1,79 @@
+@use '../../styles/partials/fonts';
+@use '../../styles/partials/global';
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse-item {
+    border-top: $Cloud 2px solid;
+    padding: 2vh 4vw;
+
+    @include tablet {
+        display: none;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: space-between;
+        // gap: 5%;
+    }
+
+    &--mobile {
+        display: flex;
+        gap: 10%;
+
+        &-column {
+            width: 45%;
+
+            @include tablet{
+                display: flex;
+                width: 45%;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 10vw;
+                text-align: left;
+            }
+        }
+
+        @include tablet {
+            flex-direction: row;
+            gap: 5%;
+        }
+    }
+
+    &__details {
+        width: 40%;
+    }
+
+    &__direct {
+        display: inline;
+        vertical-align: bottom;
+    }
+
+    &__table-header{
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__link {
+        color: $Instock-Indigo;
+        text-decoration: none;
+        display: inline;
+
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__manage {
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            margin-top: 2%;
+            gap: 25%;
+        }
+
+        &-icon {
+            height: 2em;
+        }
+    }
+}
