@@ -14,8 +14,6 @@ textarea {
     border-radius: 20px;
     border-color: variables.$Cloud;
     width: 100%;
-    height: 30px;
-    padding: 0.2rem 0 0 1rem;;
 }
 
 textarea:required:invalid {
@@ -49,13 +47,11 @@ textarea:required:invalid {
     }
 
     &__form {
-
         @include mixins.tablet {
             display: flex;
             justify-content: space-evenly;
             padding: 1.5rem 0;
         }
-    
     }
 
     &__inventory--detail, &__availability--detail {
@@ -93,6 +89,32 @@ textarea:required:invalid {
        @include mixins.desktop {
            margin-top: 1rem;
         }
+
+        &--description {
+            height: 7rem;
+        }
+    }
+
+    &__dropdown {
+        font-family: 'Titillium-Web';
+        overflow: hidden;
+        resize: none;
+        border-radius: 20px;
+        border-color: variables.$Cloud;
+        width: 100%;
+        height: 30px;
+        padding-left: 1rem;
+    }
+
+    &__radio-buttons {
+        display: flex;
+        color: variables.$Slate;
+        justify-content: start;
+
+        &--in {
+            padding-right: 4rem;
+        }
+        
     }
 
     &__submit {

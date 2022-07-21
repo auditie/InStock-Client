@@ -53,7 +53,7 @@ class AddInventory extends React.Component {
                             <h3 className="add-inventory__labels" >Item Name</h3>
                             <textarea type="text" placeholder="Item Name" value={this.state.itemName} onChange={this.handleChangeInventory} name="itemName" required></textarea>
                             <h3 className="add-inventory__labels" >Description</h3>
-                            <textarea type="text" placeholder="Description" value={this.state.description} onChange={this.handleChangeInventory} name="description" required></textarea>
+                            <textarea className="add-inventory__labels--description" type="text" placeholder="Please enter a brief item description..." value={this.state.description} onChange={this.handleChangeInventory} name="description" required></textarea>
                             <h3 className="add-inventory__labels" >Category</h3>
                             <select className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
@@ -64,7 +64,7 @@ class AddInventory extends React.Component {
                             <h2 className="add-inventory__subtitle" >Contact Details</h2>
                             <h3 className="add-inventory__labels" >Status</h3>
                             <div className="add-inventory__radio-buttons" >
-                                <div>
+                                <div className="add-inventory__radio-buttons--in" >
                                     <input type="radio" name="status" value={this.state.status} onChange={this.handleChangeWarehouse}></input>
                                     <label for="in">In stock</label>
                                 </div>
