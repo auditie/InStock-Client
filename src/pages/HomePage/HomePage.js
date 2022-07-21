@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
+import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
 //import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
@@ -28,13 +29,13 @@ class HomePage extends Component {
     // set up axios
     componentDidMount() {
         axios.get(`${API_URL}/warehouses`)
-        .then(response => {
-            //console.log(response.data);
-            this.setState({
-                warehouses: response.data
+            .then(response => {
+                //console.log(response.data);
+                this.setState({
+                    warehouses: response.data
+                })
+                return response.data;
             })
-            return response.data;
-        })
     }
 
     // axios for page did update
@@ -52,18 +53,18 @@ class HomePage extends Component {
             )
         }
         return (
-            <Switch> 
+            <Switch>
                 <Route path='/' exact component={(routerProps) => {
                     return (
-                        <WarehouseList 
-                            warehouses={this.state.warehouses} 
-                            {...routerProps} 
+                        <WarehouseList
+                            warehouses={this.state.warehouses}
+                            {...routerProps}
                         />
-                            )
+                    )
                 }} />
                 {/* <Route path='/:warehouseId' component={} /> */}
                 {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
-                {/* <Route path='/warehouses/add' component={HomePage} /> */}
+                {/* <Route path='/warehouses/add' component={AddWarehouse} /> */}
             </Switch>
 
         )
