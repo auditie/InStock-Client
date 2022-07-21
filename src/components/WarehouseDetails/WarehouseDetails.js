@@ -13,8 +13,10 @@ const WarehouseDetails = (props) =>{
     <div className='single-warehouse'>
     <section>
       <header className='single-warehouse__header'>
+      <div className='single-warehouse__title-arrow'>
         <img src={backArrow} alt='back arrow' />
-        <h1 className='single-warehouse__title'>{name}</h1>
+        <h1 className='single-warehouse__title'>{name}</h1>     
+      </div>
         <div className='single-warehouse__edit'>
           <img className='single-warehouse__edit-image' src={edit} alt='edit icon' />
           <p className='single-warehouse__edit-word'>Edit</p>

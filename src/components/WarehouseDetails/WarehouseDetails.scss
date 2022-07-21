@@ -19,33 +19,30 @@ h4 {
 .single-warehouse {
     display: flex;
     flex-direction: column;
-    // @include mixins.card;
-
-    // @include mixins.tablet {
-    //     top: 10%;
-    // }
-
-    // @include mixins.desktop {
-    //     top: 9.5%;
-    // }
 
     &__header {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        padding: 1.5rem;
         border-bottom: solid 1px variables.$Cloud;
 
         @include mixins.tablet {
-            padding: 1.5rem 2.25rem 1rem 2.25rem;
+            padding: 2rem 2.25rem 2rem 2.25rem;
+            margin-top: 0.6rem;
         }
 
         @include mixins.desktop {
-            padding: 1.5rem 2.5rem 1rem 2.5rem;
+            padding: 1.5rem 2.5rem;
         }
     }
 
+    &__title-arrow {
+        display: flex;
+    }
+
     &__title {
-        margin: 0rem 6.5rem 0rem 1rem;
+        margin: 0rem 0rem 0rem 0.5rem;
     }
 
     &__edit {
