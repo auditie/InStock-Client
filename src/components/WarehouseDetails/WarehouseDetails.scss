@@ -28,12 +28,13 @@ h4 {
         border-bottom: solid 1px variables.$Cloud;
 
         @include mixins.tablet {
-            padding: 2rem 2.25rem 2rem 2.25rem;
-            margin-top: 0.6rem;
+            padding: 4rem 2.25rem 2rem 2.25rem;
+            margin-top: -2.6rem;
         }
 
         @include mixins.desktop {
             padding: 1.5rem 2.5rem;
+            margin-top: -0.5rem;
         }
     }
 
@@ -63,6 +64,10 @@ h4 {
         @include mixins.desktop {
             margin-left: 66%;
         }
+    }
+
+    &__arrow {
+        margin-top: 0.5rem;
     }
 
     &__edit-image {

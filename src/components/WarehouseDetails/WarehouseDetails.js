@@ -3,6 +3,7 @@ import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import edit from '../../assets/icons/edit-24px.svg'
 import WarehouseInventoryItem from '../WarehouseInventoryItem/WarehouseInventoryItem'
 import sort from '../../assets/icons/sort-24px.svg';
+import { Link } from 'react-router-dom'
 
 
 const WarehouseDetails = (props) =>{
@@ -14,7 +15,7 @@ const WarehouseDetails = (props) =>{
     <section>
       <header className='single-warehouse__header'>
       <div className='single-warehouse__title-arrow'>
-        <img src={backArrow} alt='back arrow' />
+        <Link to='/' className='single-warehouse__arrow'><img src={backArrow} alt='back arrow' /></Link>
         <h1 className='single-warehouse__title'>{name}</h1>     
       </div>
         <div className='single-warehouse__edit'>
