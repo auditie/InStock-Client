@@ -16,11 +16,6 @@ textarea {
     width: 100%;
 }
 
-textarea:required:invalid {
-    border-color: variables.$Red;
-}
-
-
 .add-inventory {
     &__title {
         display: flex;
@@ -96,6 +91,7 @@ textarea:required:invalid {
     }
 
     &__dropdown {
+        background: url('../../assets/icons/arrow_drop_down-24px.svg') no-repeat right;
         font-family: 'Titillium-Web';
         overflow: hidden;
         resize: none;
@@ -104,6 +100,14 @@ textarea:required:invalid {
         width: 100%;
         height: 30px;
         padding-left: 1rem;
+        color: variables.$Slate;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
     }
 
     &__radio-buttons {
@@ -114,7 +118,6 @@ textarea:required:invalid {
         &--in {
             padding-right: 4rem;
         }
-        
     }
 
     &__submit {

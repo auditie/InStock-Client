@@ -1,8 +1,8 @@
 import './AddInventory.scss';
 import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
-// import axios from 'axios';
-// import { API_URL } from '../../App';
+import axios from 'axios';
+import { API_URL } from '../../App';
 import { Link } from 'react-router-dom';
 
 class AddInventory extends React.Component {
@@ -15,29 +15,29 @@ class AddInventory extends React.Component {
         warehouseName: ""
     }
 
-    // addInventory = (event) => {
-    //     event.preventDefault();
-    //     console.log(event);
+    addInventory = (event) => {
+        event.preventDefault();
+        console.log(event);
 
-    //     axios
-    //         .post(`${API_URL}/inventory/add`, {
-    //             itemName: this.state.itemName,
-    //             description: this.state.description,
-    //             category: this.state.category,
-    //             status: this.state.status,
-    //             quantity: this.state.quantity,
-    //             warehouseName: this.state.warehouseName,
-    //         })
-    //         .then((response) => {
-    //             this.props.history.push('/');
-    //         })
-    // };
+        axios
+            .post(`${API_URL}/inventory/add`, {
+                itemName: this.state.itemName,
+                description: this.state.description,
+                category: this.state.category,
+                status: this.state.status,
+                quantity: this.state.quantity,
+                warehouseName: this.state.warehouseName,
+            })
+            .then((response) => {
+                this.props.history.push('/');
+            })
+    };
 
-    // handleChangeInventory = (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
+    handleChangeInventory = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
 
     render() {
         return (
@@ -51,9 +51,9 @@ class AddInventory extends React.Component {
                         <div className="add-inventory__inventory--detail" >
                             <h2 className="add-inventory__subtitle" >Item Details</h2>
                             <h3 className="add-inventory__labels" >Item Name</h3>
-                            <textarea type="text" placeholder="Item Name" value={this.state.itemName} onChange={this.handleChangeInventory} name="itemName" required></textarea>
+                            <textarea type="text" placeholder="Item Name" value={this.state.itemName} onChange={this.handleChangeInventory} name="itemName" ></textarea>
                             <h3 className="add-inventory__labels" >Description</h3>
-                            <textarea className="add-inventory__labels--description" type="text" placeholder="Please enter a brief item description..." value={this.state.description} onChange={this.handleChangeInventory} name="description" required></textarea>
+                            <textarea className="add-inventory__labels--description" type="text" placeholder="Please enter a brief item description..." value={this.state.description} onChange={this.handleChangeInventory} name="description" ></textarea>
                             <h3 className="add-inventory__labels" >Category</h3>
                             <select className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
@@ -74,7 +74,7 @@ class AddInventory extends React.Component {
                                 </div>
                             </div>
                             <h3 className="add-inventory__labels" >Quantity</h3>
-                            <textarea type="text" placeholder="0" value={this.state.quantity} onChange={this.handleChangeWarehouse} name="quantity" required></textarea>
+                            <textarea type="text" placeholder="0" value={this.state.quantity} onChange={this.handleChangeWarehouse} name="quantity" ></textarea>
                             <h3 className="add-inventory__labels" >Warehouse</h3>
                             <select className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
