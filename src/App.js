@@ -16,8 +16,8 @@ function App() {
             <Header />
             <div className="app__bodywrap">
                 <div className="app__card" >
-                    <AddWarehouse />
                     <Switch>
+                        <AddInventory />
                         {/* <Route path='/' exact component={HomePage} />
                         <Route path='/warehouses/:selectedWarehouse' component={HomePage} />
                         <Route path='/warehouses/:selectedWarehouse/edit' component={HomePage} /> */}
