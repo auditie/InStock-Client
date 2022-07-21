@@ -18,6 +18,11 @@ textarea {
     }
 }
 
+// textarea:required:invalid {
+//     border-color: variables.$Red;
+// }
+
+
 .add-warehouse {
     &__title {
         display: flex;
