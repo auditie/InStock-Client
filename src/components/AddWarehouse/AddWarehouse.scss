@@ -152,6 +152,10 @@ textarea {
         padding-left: 2rem;
         color: variables.$Red;
         font-size: 13px;
+
+        &--hide {
+            display: none;
+        }
     }
    
 }
