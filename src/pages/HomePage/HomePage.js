@@ -32,10 +32,16 @@ class HomePage extends Component {
                 <p>Loading...</p>
             )
         }
-        console.log(this.state.warehouses);
         return (
             <Switch> 
-                <Route path='/' exact component={WarehouseList} warehousesList={this.state.warehouses} />
+                <Route path='/' exact component={(routerProps) => {
+                    return (
+                        <WarehouseList 
+                            warehouses={this.state.warehouses} 
+                            {...routerProps} 
+                        />
+                            )
+                }} />
                 {/* <Route path='/:warehouseId' component={} /> */}
                 {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
                 {/* <Route path='/warehouses/add' component={HomePage} /> */}

@@ -1,19 +1,56 @@
 @use '../../styles/partials/fonts';
 @use '../../styles/partials/global';
-@use '../../styles/partials/mixins';
+@use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
 .warehouse-item {
     border-top: $Cloud 2px solid;
-    padding: 2vh 6vw;
+    padding: 2vh 4vw;
+
+    @include tablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
     &--mobile {
         display: flex;
         gap: 10%;
+
+        &-column {
+            width: 45%;
+
+            @include tablet{
+                display: flex;
+                width: 50%;
+                flex-direction: row;
+                gap: 10vw;
+                text-align: left;
+            }
+        }
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
+
+    &__details {
+        width: 40%;
+    }
+
     &__direct {
         display: inline;
         vertical-align: bottom;
+
+        @include tablet {
+        }
+    }
+
+    &__table-header{
+        @include tablet {
+            display: none;
+        }
     }
 
     &__link {
@@ -25,6 +62,11 @@
     &__manage {
         display: flex;
         justify-content: space-between;
+
+        @include tablet {
+            margin-top: 2%;
+            gap: 25%;
+        }
 
         &-icon {
             height: 2em;

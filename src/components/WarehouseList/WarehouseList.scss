@@ -4,17 +4,35 @@
 @use '../../styles/partials/variables' as *;
 
 .warehouse-list {
-    // width: 90vw;
-    // margin-top: 10vh;
-    // margin-left: auto;
-    // margin-right: auto;
-    // border-radius: 3px;
-    // border: $Slate 1px solid;
 
     &__head {
         display: flex;
         flex-direction: column;
-        padding: 4vh 6vw;
+        padding: 4vh 4vw;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &--top-right {
+            display: flex;
+            flex-direction: column; 
+
+            @include tablet {
+                width: 60%;
+                flex-direction: row;
+                display: flex;
+                gap: 6%;
+                justify-content: flex-end;
+            }
+        }
+
+        &-title {
+            @include tablet {
+                margin: 0;
+            }
+        }
 
         &-search {
             background-image: url('../../assets/icons/search-24px.svg');
@@ -25,12 +43,53 @@
             border: 1px solid #BDC5D5;
             border-radius: 20px;
             margin-bottom: 2vh;
+
+            @include tablet {
+                height: 4vh;
+                background-position: 92% 50%;
+                margin-bottom: 0;
+                // margin-left: 13em;
+                width: 15em;
+            }
+
+            @include desktop {
+                width: 30%;
+            }
         }
 
         &-cta {
             padding: 1.2vh 2vw;
             @include primary-button;
             font-size: 1em;
+
+            @include tablet {
+                height: 4vh;
+            }
+        }
+    }
+    &__column-titles {
+        display: none;
+
+        @include tablet {
+            background-color: $Light-Grey;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 2vh 4vw;
+        }
+    }
+
+    &__column-title {
+        display: inline;
+        margin: 0;
+
+        &-icon {
+            display: inline;
+            vertical-align: bottom;
+        }
+
+        &--last {
+            padding-top: .6vh;
         }
     }
 }
