@@ -7,7 +7,7 @@ const WarehouseList = ( { warehouses } ) => {
     const columnTitles = ['WAREHOUSE', 'ADDRESS', 'CONTACT NAME', 'CONTACT INFORMATION'];
     
     return (
-        <>
+        <div>
             <div className='warehouse-list__head'>
                 <h1 className='warehouse-list__head-title'>Warehouses</h1>
                 <div className='warehouse-list__head--top-right'>
@@ -18,7 +18,7 @@ const WarehouseList = ( { warehouses } ) => {
             </div>
             <div className='warehouse-list__column-titles'>
                 {
-                    columnTitles.map(title => (
+                    columnTitles?.map(title => (
                         <h4 className='warehouse-list__column-title'>
                             {title}
                             <img src={sortIcon} alt='up and down arrows' className='warehouse-list__column-title-icon'></img>
@@ -30,12 +30,12 @@ const WarehouseList = ( { warehouses } ) => {
             </div>
             <div className='warehouse-list__warehouses'>
             {
-                warehouses.map(warehouse => 
+                warehouses?.map(warehouse => 
                     <WarehouseItem key={warehouse.id} warehouse={warehouse} />
                 )
             }
             </div>
-        </>
+        </div>
     )
 };
 

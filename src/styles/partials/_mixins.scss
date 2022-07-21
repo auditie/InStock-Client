@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @mixin mobile {
     @media (min-width: 320px) {
         @content;
