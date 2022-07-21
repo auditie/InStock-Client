@@ -68,3 +68,10 @@
     font-size: 12px;
 }
 
+// button styling
+@mixin primary-button {
+    background-color: $Instock-Indigo;
+    color: $White;
+    border-radius: 20px;
+    border: none;
+}
