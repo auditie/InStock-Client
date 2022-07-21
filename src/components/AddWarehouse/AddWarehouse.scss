@@ -18,9 +18,13 @@ textarea {
     padding: 0.2rem 0 0 1rem;;
 }
 
-textarea:required:invalid {
+.add-warehouse__error {
     border-color: variables.$Red;
 }
+
+// textarea:required:invalid {
+//     border-color: variables.$Red;
+// }
 
 
 .add-warehouse {
