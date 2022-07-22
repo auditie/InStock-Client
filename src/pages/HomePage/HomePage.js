@@ -50,7 +50,6 @@ class HomePage extends Component {
     // set up axios
     componentDidMount() {
         const warehouseId = this.props.match.params.warehouseId;
-        console.log(warehouseId);
         axios.get(`${API_URL}/warehouses`)
         .then(response => {
             this.setState({

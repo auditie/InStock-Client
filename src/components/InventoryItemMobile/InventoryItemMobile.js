@@ -2,6 +2,7 @@ import './InventoryItemMobile.scss';
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import rightArrow from '../../assets/icons/chevron_right-24px.svg';
+import { Link } from 'react-router-dom';
 
 const InventoryItemMobile = ( { item } ) => {
     return (
@@ -10,7 +11,7 @@ const InventoryItemMobile = ( { item } ) => {
                 <div className='inventory-item--mobile-column'>
                     <h4 className='inventory-item__table-header'>INVENTORY ITEM</h4>
                     {/* to link to inventory inventory */}
-                    <a href='/' className='inventory-item__link'>{item.itemName} <img src={rightArrow} alt='right pointing arrow' className='inventory-item__direct' /></a>
+                    <Link to={'/inventory/' + item.id} className='inventory-item__link'>{item.itemName} <img src={rightArrow} alt='right pointing arrow' className='inventory-item__direct' /></Link>
                     <h4 className='inventory-item__table-header'>CATEGORY</h4>
                     <p className='inventory-item__details'>{item.category}</p>
                 </div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import edit from '../../assets/icons/edit-24px.svg';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
-import './InventoryItemDetails.scss'
+import './InventoryItemDetails.scss';
 
 const InventoryItemDetails = (props) => {
-  const { id, itemName, warehouseName, description, category, status, quantity } = props.inventory
+  const { itemName, warehouseName, description, category, status, quantity } = props.inventoryItem
   return (
     <div className='inventory-item'>
       <header className='inventory-item__header'>
