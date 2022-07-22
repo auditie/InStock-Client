@@ -42,11 +42,12 @@ class InventoryPage extends Component {
         console.log(inventoryId);
         axios.get(`${API_URL}/inventories`)
         .then(response => {
-            // console.log(response.data);
+            console.log(inventoryId);
             this.setState({
                 inventory: response.data
             });
             if (inventoryId) {
+                console.log(inventoryId)
                 this.getInventory(inventoryId);
             }
         })
@@ -61,7 +62,6 @@ class InventoryPage extends Component {
         if(previousId !== currentId) {
             this.getInventory(currentId)
         }
-
     }
 
     render() {
@@ -71,14 +71,14 @@ class InventoryPage extends Component {
             )
         }
         return (
-            <Switch> 
+            <Switch>
                 <Route path='/inventory' exact component={(routerProps) => {
                     return (
-                        <InventoryList 
-                            inventory={this.state.inventory} 
-                            {...routerProps} 
+                        <InventoryList
+                            inventory={this.state.inventory}
+                            {...routerProps}
                         />
-                            )
+                    )
                 }} />
                 <Route path='/inventory/:inventoryId' component={(routerProps) => {
                     return (this.state.inventoryItem !== null ? (
