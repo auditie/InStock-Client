@@ -9,10 +9,25 @@ class AddInventory extends React.Component {
     state = {
         itemName: "",
         description: "",
-        category: "",
+        // category: "",
         status: "",
         quantity: null,
-        warehouseName: ""
+        warehouses: [],
+        // warehouseName: ""
+    }
+
+    componentDidMount() {
+        axios
+            .get(`${API_URL}warehouses/`)
+            .then((response) => {
+                console.log(response.data);
+                this.setState({
+                    warehouses: response.data
+                });
+            })
+            .catch((error) => {
+                console.log('Failed request. Please try again', error);
+            });
     }
 
     addInventory = (event) => {
@@ -23,10 +38,10 @@ class AddInventory extends React.Component {
             .post(`${API_URL}/inventory/add`, {
                 itemName: this.state.itemName,
                 description: this.state.description,
-                category: this.state.category,
+                category: event.target.categoryName.value,
                 status: this.state.status,
                 quantity: this.state.quantity,
-                warehouseName: this.state.warehouseName,
+                warehouseName: event.target.warehouseName.value,
             })
             .then((response) => {
                 this.props.history.push('/');
@@ -60,13 +75,13 @@ class AddInventory extends React.Component {
                             <h3 className="add-inventory__labels" >Description</h3>
                             <textarea className="add-inventory__labels--description" type="text" placeholder="Please enter a brief item description..." value={this.state.description} onChange={this.handleChangeInventory} name="description" ></textarea>
                             <h3 className="add-inventory__labels" >Category</h3>
-                            <select className="add-inventory__dropdown">
+                            <select name="categoryName" id="categoryName" className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
-                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Accessories</option>
-                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Apparel</option>
-                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Electronics</option>
-                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Health</option>
-                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Gear</option>
+                                <option value="Accessories" >Accessories</option>
+                                <option value="Apparel" >Apparel</option>
+                                <option value="Electronics" >Electronics</option>
+                                <option value="Health" >Health</option>
+                                <option value="Gear" >Gear</option>
                             </select>
                         </div>
                         <div className="add-inventory__availability--detail" >
@@ -85,15 +100,11 @@ class AddInventory extends React.Component {
                             <h3 className="add-inventory__labels" >Quantity</h3>
                             <textarea type="text" name="quantity" placeholder="0" value={this.state.quantity} onChange={this.handleChangeWarehouse}  ></textarea>
                             <h3 className="add-inventory__labels" >Warehouse</h3>
-                            <select className="add-inventory__dropdown">
+                            <select name="warehouseName" id="warehouseName" className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Jersey</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Manhattan</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Miami</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>San Fran</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Santa Monica</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Seattle</option>
-                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Washington</option>
+                                {this.state.warehouses.map((eachWarehouse) => (
+                                    <option key={eachWarehouse.Id} value={eachWarehouse.name}>{eachWarehouse.name}</option>
+                                ))}
                             </select>
                         </div>
                     </div>
