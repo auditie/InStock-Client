@@ -180,5 +180,24 @@ textarea {
 
     }
 
+    &__error {
+        border-color: variables.$Red;
+    }
+
+    &__warning {
+        background: url('../../assets/icons/error-24px.svg') no-repeat 0.2rem;
+        padding-left: 2rem;
+        color: variables.$Red;
+        font-size: 13px;
+
+        &--hide {
+            display: none;
+        }
+    }
+
+    &__quantity--hide {
+        display: none;
+    }
+
     
 }
