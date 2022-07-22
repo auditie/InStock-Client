@@ -21,7 +21,7 @@
             color: $Instock-Indigo;
             text-decoration: none;
             display: inline;
-            margin-top: 3vh;
+            margin-top: 2vh;
         }
     }
 
@@ -35,28 +35,38 @@
         &--name {
             width: 9em;
             text-align: left;
-            margin-top: 3vh;
+            margin-top: 2vh;
+            margin-right: 1%;
+
+            @include desktop {
+                margin-right: 5%;
+            }
         }
 
         @include tablet {
             width: 8em;
-            margin: 1.5vh 0 0 0;
+        }
+
+        @include desktop {
+            margin-top: 2vh;
+            width: 18em;
         }
     }
 
     &__contact-info {
         width: 10em;
-        margin-right: 2%;
+        margin-right: 4%;
+
+        @include desktop {
+            margin-right: 6%;
+        }
     }
 
     &__manage {
-
-        @include tablet {
-            margin-top: 2%;
-            gap: 25%;
-            display: flex;
-            justify-content: space-between;
-        }
+        gap: 25%;
+        margin-top: 1%;
+        display: flex;
+        justify-content: space-between;
 
         &-icon {
             height: 2em;

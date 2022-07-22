@@ -152,7 +152,7 @@ class AddInventory extends React.Component {
                         </div>
                     </div>
                     <div className="add-inventory__submit" >
-                        <Link className="add-inventory__submit--cancel" to="/">Cancel</Link>
+                        <Link className="add-inventory__submit--cancel" to="/inventory">Cancel</Link>
                         <button className="add-inventory__submit--add" type="submit">+ Add Inventory</button>
                     </div>
                 </form >
