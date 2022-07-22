@@ -5,16 +5,14 @@ import rightArrow from '../../assets/icons/chevron_right-24px.svg';
 import { Link } from 'react-router-dom';
 
 const WarehouseItem = ( { warehouse } ) => {
-
     return (
         <div className='warehouse-item'>
             <div className='warehouse-item--mobile'>
                 <div className='warehouse-item--mobile-column'>
                     <h4 className='warehouse-item__table-header'>WAREHOUSE</h4>
-                    {/* to link to warehouse inventory */}
                     <Link to={`/warehouses/${warehouse.id}`} className='warehouse-item__link'>{warehouse.name} <img src={rightArrow} alt='right pointing arrow' className='warehouse-item__direct' /></Link>
                     <h4 className='warehouse-item__table-header'>ADDRESS</h4>
-                    <p className='warehouse-item__details'>{warehouse.address}, {warehouse.city}</p>
+                    <p className='warehouse-item__details'>{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
                 </div>
                 <div className='warehouse-item--mobile-column'>
                     <h4 className='warehouse-item__table-header'>CONTACT NAME</h4>
