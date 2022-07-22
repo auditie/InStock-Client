@@ -36,23 +36,19 @@
     &__category {
         width: 6em;
         text-align: left;
+        margin-left: 1%;
     }
 
     &__in-stock {
         width: 7em;
         @include status;
         color: #158463;
-        background-color: rgba(21, 132, 99, 0.07)
+        background-color: rgba(21, 132, 99, 0.07);
     }
 
     &__out-of-stock {
-        width: 7em;
-        padding: 0.2rem 0.5rem;
-        text-transform: uppercase;
-        border-radius: 20px;
-        width: fit-content;
-        font-weight: 600;
-        font-size: 12px;
+        width: 10em;
+        @include status;
         color: #C94515;
         background-color: rgba(201, 69, 21, 0.07);
         margin-top: 1.5vh;
@@ -64,8 +60,9 @@
         margin-left: 4%;
     }
 
-    &__warehouse{
+    &__warehouse {
         margin-right: 2%;
+        width: 6em;
     }
 
     &__manage {
