@@ -150,7 +150,7 @@ h4 {
     &__item-header {
         display: flex;
         align-items: center;
-        inline-size: 12rem;
+        inline-size: 24%;
 
         @include mixins.desktop {
             inline-size: 15rem;
@@ -160,7 +160,7 @@ h4 {
     &__category-header {
         display: flex;
         align-items: center;
-        inline-size: 10rem;
+        inline-size: 21%;
 
         @include mixins.desktop {
             inline-size: 14rem;
@@ -170,7 +170,7 @@ h4 {
     &__status-header {
         display: flex;
         align-items: center;
-        inline-size: 14rem;
+        inline-size: 28%;
 
         @include mixins.desktop {
             inline-size: 19.6rem;
@@ -180,15 +180,14 @@ h4 {
     &__quantity-header {
         display: flex;
         align-items: center;
-        inline-size: 8rem;
-
+        inline-size: 17%;
         @include mixins.desktop {
             inline-size: 14.6rem;
         }
     }
 
     &__action-header {
-        inline-size: 5rem;
+        inline-size: 10%;
         text-align: end;
         margin: 0;
     }

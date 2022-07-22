@@ -35,7 +35,7 @@ p {
 
         @include mixins.tablet {
             justify-content: flex-start;
-            width: 70%;
+            width: 100%;
         }
     }
 
@@ -55,7 +55,7 @@ p {
         text-decoration: none;
 
         @include mixins.tablet {
-            inline-size: 9.7rem;
+            inline-size: 100%;
         }
 
         @include mixins.desktop {
@@ -70,7 +70,7 @@ p {
 
     &__item-category {
         @include mixins.tablet {
-            inline-size: 7.8rem;
+            inline-size: 23%;
         }
 
         @include mixins.desktop {
@@ -87,13 +87,15 @@ p {
     &__block {
         margin-bottom: 1rem;
 
-        &--status-block {
-            margin-bottom: 0.65rem;
-        }
-
         @include mixins.tablet {
-            margin: 0rem
+            margin: 0rem;
+            width: 26%
         }
+    }
+
+    &__status-block {
+        margin-bottom: 0.65rem;
+        width: 30.5%;
     }
 
     &__status-in-stock {
@@ -102,8 +104,7 @@ p {
         background: rgba(21, 132, 99, 0.07);
 
         @include mixins.tablet {
-            inline-size: 4.2rem;
-            margin-right: 7.2rem;
+            inline-size: 4.5rem;
         }
 
         @include mixins.desktop {
