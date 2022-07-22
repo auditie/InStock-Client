@@ -1,68 +1,111 @@
-  import './HomePage.scss';
-  import axios from 'axios';
-  import { Component } from 'react';
-  import { Route, Switch } from 'react-router-dom';
-  import WarehouseList from '../../components/WarehouseList/WarehouseList';
-  //import axios from 'axios';
-  
-  const API_URL = 'http://localhost:8080';
-  
-  class HomePage extends Component {
-      state = {
-          warehouses: [],
-          warehouseInventory: [],
-          selectedWarehouse: {}
-      };
+import './HomePage.scss';
+import axios from 'axios';
+import { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import WarehouseList from '../../components/WarehouseList/WarehouseList';
+import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
+//import axios from 'axios';
 
-        // set up axios
+const API_URL = 'http://localhost:8080';
+
+class HomePage extends Component {
+    state = {
+        warehouses: [],
+        warehouseInventory: [],
+        selectedWarehouse: null
+    };
+
+    fetchWarehouses = warehouseList => {
+        axios
+            .get(`%{API_URL}/warehouses`)
+            .then(response => {
+                this.setState({
+                    warehouses: response.data
+                })
+                return response.data;
+            })
+    }
+
     getWarehouse = (id) => {
-      axios.get(`http://localhost:8080/warehouses/${id}`)
-        .then((response) => {
-          this.setState({
-            selectedWarehouse: response.data
-          })
-        })
+        axios.get(`${API_URL}/warehouses/${id}`)
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    selectedWarehouse: response.data
+                })
+            })
     }
 
-    handleClick = () => {
-      const warehouseId = this.props.match.params.warehouseId
-      this.getVideo(warehouseId)
-      axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventory`)
-      .then((response) => {
-        this.setState({
-          warehouseInventory: response.data
-        })
-      })
+    getWarehouseInventory = (id) => {
+        axios.get(`${API_URL}/warehouses/${id}/inventory`)
+            .then((response) => {
+                console.log(response.data)
+                this.setState({
+                    warehouseInventory: response.data
+                })
+            })
     }
-  
-      // set up axios
-      componentDidMount() {
-          axios.get(`${API_URL}/warehouses`)
-          .then(response => {
-              //console.log(response.data);
-              this.setState({
-                  warehouses: response.data
-              })
-              return response.data;
-          })
-      }
-  
-      render() {
-          if (!this.state.warehouses) {
-              return (
-                  <p>Loading...</p>
-              )
-          }
-          return (
-              <Switch> 
-                  <Route path='/' exact component={WarehouseList} warehousesList={this.state.warehouses} />
-                  {/* <Route path='/:warehouseId' component={} /> */}
-                  {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
-                  {/* <Route path='/warehouses/add' component={HomePage} /> */}
-              </Switch>
-  
-          )
-      }
-  }
-  
-  export default HomePage;
+
+    // set up axios
+    componentDidMount() {
+        const warehouseId = this.props.match.params.warehouseId;
+        console.log(warehouseId);
+        axios.get(`${API_URL}/warehouses`)
+        .then(response => {
+            this.setState({
+                warehouses: response.data
+            });
+        })
+        if (warehouseId) {
+            this.getWarehouse(warehouseId);
+            this.getWarehouseInventory(warehouseId);
+        }
+    }
+
+    // axios for page did update
+    componentDidUpdate(prevProps) {
+        const previousWarehouseId = prevProps.match.params.warehouseId;
+        const currentWarehouseId = this.props.match.params.warehouseId;
+        console.log(currentWarehouseId);
+
+        if (previousWarehouseId !== currentWarehouseId) {
+            this.getWarehouse(currentWarehouseId);
+            this.getWarehouseInventory(currentWarehouseId);
+        }
+    }
+
+    render() {
+        if (!this.state.warehouses) {
+            return (
+                <p>Loading...</p>
+            )
+        }
+        return (
+            <Switch> 
+                <Route path='/' exact component={(routerProps) => {
+                    return (
+                        <WarehouseList 
+                            warehouses={this.state.warehouses} 
+                            handleWarehouse={this.getWarehouse}
+                            {...routerProps} 
+                        />
+                            )
+                }} />
+                <Route path='/warehouses/:warehouseId' component={(routerProps) => {
+                    return (this.state.selectedWarehouse !== null ? (
+                        <WarehouseDetails 
+                            warehouse={this.state.selectedWarehouse}
+                            inventory={this.state.warehouseInventory}
+                            {...routerProps} 
+                        />
+                            ) : <h1>loading</h1>)
+                }} />
+                {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
+                {/* <Route path='/warehouses/add' component={HomePage} /> */}
+            </Switch>
+
+        )
+    }
+}
+
+export default HomePage;

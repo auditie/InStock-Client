@@ -3,16 +3,12 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.warehouse-item {
+.inventory-item {
     border-top: $Cloud 2px solid;
     padding: 2vh 4vw;
 
     @include tablet {
         display: none;
-        // display: flex;
-        // flex-direction: row;
-        // justify-content: space-between;
-        // gap: 5%;
     }
 
     &--mobile {
@@ -21,20 +17,6 @@
 
         &-column {
             width: 45%;
-
-            @include tablet{
-                display: flex;
-                width: 45%;
-                flex-direction: row;
-                justify-content: flex-start;
-                gap: 10vw;
-                text-align: left;
-            }
-        }
-
-        @include tablet {
-            flex-direction: row;
-            gap: 5%;
         }
     }
 
@@ -47,30 +29,15 @@
         vertical-align: bottom;
     }
 
-    &__table-header{
-        @include tablet {
-            display: none;
-        }
-    }
-
     &__link {
         color: $Instock-Indigo;
         text-decoration: none;
         display: inline;
-
-        @include tablet {
-            width: 50%;
-        }
     }
 
     &__manage {
         display: flex;
         justify-content: space-between;
-
-        @include tablet {
-            margin-top: 2%;
-            gap: 25%;
-        }
 
         &-icon {
             height: 2em;

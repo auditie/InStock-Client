@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const WarehouseDetails = (props) =>{
   const { name, address, city, country } = props.warehouse;
-  const { position, phone, email } = props.contact
+  const { position, phone, email } = props.warehouse.contact;
 
   return (
     <div className='single-warehouse'>
@@ -31,7 +31,7 @@ const WarehouseDetails = (props) =>{
         <div className='single-warehouse__contact'>
           <div className='single-warehouse__contact-info'>
             <h4>contact name:</h4>
-            <p>{props.contact.name}</p>
+            <p>{props.warehouse.contact.name}</p>
             <p>{position}</p>
           </div>
           <div className='single-warehouse__contact-info'>
@@ -65,7 +65,7 @@ const WarehouseDetails = (props) =>{
         </div>
       </div>
     </section>
-      {props.inventory.map(item => {
+      {props.inventory?.map(item => {
         return (
           <WarehouseInventoryItem className='single-warehouse__mobile'
           key={item.id}
