@@ -4,6 +4,7 @@ import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
+import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
 //import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
@@ -81,7 +82,7 @@ class HomePage extends Component {
             )
         }
         return (
-            <Switch> 
+            <Switch>
                 <Route path='/' exact component={(routerProps) => {
                     return (
                         <WarehouseList 
@@ -89,7 +90,7 @@ class HomePage extends Component {
                             handleWarehouse={this.getWarehouse}
                             {...routerProps} 
                         />
-                            )
+                    )
                 }} />
                 <Route path='/warehouses/:warehouseId' component={(routerProps) => {
                     return (this.state.selectedWarehouse !== null ? (
@@ -101,7 +102,7 @@ class HomePage extends Component {
                             ) : <h1>loading</h1>)
                 }} />
                 {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
-                {/* <Route path='/warehouses/add' component={HomePage} /> */}
+                {/* <Route path='/warehouses/add' component={AddWarehouse} /> */}
             </Switch>
 
         )
