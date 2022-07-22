@@ -41,6 +41,7 @@ class AddInventory extends React.Component {
 
     //can i remove required?
     //would it be this.state.warehouseID?? or the name...look at the inventories.json
+    //go to inventories.js and ask the question about the warehouseName: req.body.warehouseID
 
 
     render() {
@@ -66,8 +67,6 @@ class AddInventory extends React.Component {
                                 <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Electronics</option>
                                 <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Health</option>
                                 <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Gear</option>
-                                {/* <option name="category" value={this.state.category} onChange={this.handleChangeInventory}></option>
-                                required */}
                             </select>
                         </div>
                         <div className="add-inventory__availability--detail" >
@@ -95,9 +94,6 @@ class AddInventory extends React.Component {
                                 <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Santa Monica</option>
                                 <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Seattle</option>
                                 <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Washington</option>
-
-                                {/* <option name="warehouseName" value={this.state.warehouseName} onChange={this.handleChangeInventory}></option>
-                                required */}
                             </select>
                         </div>
                     </div>
