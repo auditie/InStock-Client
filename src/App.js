@@ -15,9 +15,9 @@ function App() {
                 <div className="app__card" >
                     <Switch>
                         <Route path='/' exact component={HomePage} />
+                        <Route path='/warehouses/add' component={HomePage} />
                         <Route path='/warehouses/:warehouseId' component={HomePage} />
-                        <Route path='/inventory' exact component={InventoryPage} />
-                        <Route path='/inventory/add' component={InventoryPage} />
+                        <Route path='/inventory' component={InventoryPage} />
                     </Switch>
                 </div>
                 <Footer />

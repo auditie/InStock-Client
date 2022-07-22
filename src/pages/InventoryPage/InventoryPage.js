@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import AddInventory from '../../components/AddInventory/AddInventory';
-import WarehouseList from '../../components/WarehouseList/WarehouseList';
-import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
+// import WarehouseList from '../../components/WarehouseList/WarehouseList';
+// import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
 import InventoryList from '../../components/InventoryList/InventoryList';
 //import axios from 'axios';
 

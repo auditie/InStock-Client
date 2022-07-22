@@ -92,6 +92,7 @@ class HomePage extends Component {
                         />
                     )
                 }} />
+                <Route path='/warehouses/add' exact component={AddWarehouse} />
                 <Route path='/warehouses/:warehouseId' component={(routerProps) => {
                     return (this.state.selectedWarehouse !== null ? (
                         <WarehouseDetails
@@ -102,7 +103,7 @@ class HomePage extends Component {
                     ) : <h1>loading</h1>)
                 }} />
                 {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
-                {/* <Route path='/warehouses/add' component={AddWarehouse} /> */}
+
             </Switch>
 
         )
