@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
 import InventoryList from '../../components/InventoryList/InventoryList';
 import AddInventory from '../../components/AddInventory/AddInventory';
+import EditInventoryItem from '../../components/EditInventoryItem/EditInventoryItem';
 
 const API_URL = 'http://localhost:8080';
 
@@ -80,7 +81,7 @@ class InventoryPage extends Component {
                     )
                 }} />
                 <Route path='/inventory/add' exact component={AddInventory} />
-                <Route path='/inventory/:inventoryId' component={(routerProps) => {
+                <Route path='/inventory/:inventoryId' exact component={(routerProps) => {
                     return (this.state.inventoryItem !== null ? (
                         <InventoryItemDetails
                             inventoryItem={this.state.inventoryItem}
@@ -88,7 +89,7 @@ class InventoryPage extends Component {
                         />
                     ) : <h1>loading</h1>)
                 }} />
-                {/* <Route path='/inventory/:inventoryId/edit' component={InventoryPage} />*/}
+                <Route path='/inventory/:inventoryId/edit' component={EditInventoryItem} />
             </Switch >
         )
     }

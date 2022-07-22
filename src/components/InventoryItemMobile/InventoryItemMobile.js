@@ -25,7 +25,9 @@ const InventoryItemMobile = ( { item } ) => {
             </div>
             <div className='inventory-item__manage'>
                 <img src={deleteIcon} alt='trash can outline' className='inventory-item__manage-icon'></img>
-                <img src={editIcon} alt='pen edit outline' className='inventory-item__manage-icon'></img>
+				<Link to={`/inventory/${item.id}/edit`}>
+                	<img src={editIcon} alt='pen edit outline' className='inventory-item__manage-icon'></img>
+				</Link>
             </div>
         </div>
     )

@@ -19,7 +19,7 @@ function App() {
                         <Route path='/warehouses/add' component={HomePage} />
                         <Route path='/warehouses/:warehouseId' component={HomePage} />
                         <Route path='/inventory' exact component={InventoryPage} />
-                        <Route path='/inventory/:inventoryId' component={InventoryPage} />
+                        <Route path='/inventory/:inventoryId' exact component={InventoryPage} />
                     </Switch>
                 </div>
                 <Footer />
