@@ -18,7 +18,7 @@ textarea {
     padding: 0.2rem 0 0 1rem;;
 }
 
-.add-warehouse {
+.edit-warehouse {
     &__title {
         display: flex;
         justify-content: center;
@@ -36,11 +36,9 @@ textarea {
     }
 
     &__arrow {
-        margin-top: 1.5rem;
         margin-right: 1rem;
 
         @include mixins.tablet {
-            margin-top: 1.8rem;
             margin-right: 1rem;
         }
     }
@@ -52,6 +50,7 @@ textarea {
             justify-content: space-evenly;
             padding: 1.5rem 0;
         }
+    
     }
 
     &__warehouse--detail, &__contact--detail {
@@ -74,6 +73,7 @@ textarea {
             border-bottom: 0;
             border-right: 0.05rem solid variables.$Cloud;
         }
+
     }
 
     &__subtitle {
@@ -97,7 +97,7 @@ textarea {
         align-items: center;
         background-color: variables.$Light-Grey;
     
-        &--add {
+        &--save {
             height: 2.5rem;
             font-weight: 600;
             background-color: variables.$Instock-Indigo;
@@ -157,4 +157,5 @@ textarea {
             display: none;
         }
     }
+   
 }
