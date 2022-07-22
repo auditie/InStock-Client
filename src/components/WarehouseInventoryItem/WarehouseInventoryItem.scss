@@ -52,6 +52,7 @@ p {
     &__item {
         display: flex;
         align-items: center;
+        text-decoration: none;
 
         @include mixins.tablet {
             inline-size: 9.7rem;

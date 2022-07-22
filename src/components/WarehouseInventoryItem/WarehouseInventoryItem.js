@@ -3,7 +3,7 @@ import './WarehouseInventoryItem.scss';
 import chevron from '../../assets/icons/chevron_right-24px.svg';
 import trash from '../../assets/icons/delete_outline-24px.svg';
 import edit from '../../assets/icons/edit-24px.svg';
-
+import { Link } from 'react-router-dom'
 
 const WarehouseInventoryItem = (props) => {
   return (
@@ -14,10 +14,10 @@ const WarehouseInventoryItem = (props) => {
       <div className='warehouse-inventory__column'>
         <div className='warehouse-inventory__block'>
           <h4 className='warehouse-inventory__header'>inventory item</h4>
-            <div className='warehouse-inventory__item'>
+            <Link className='warehouse-inventory__item'>
               <p className='warehouse-inventory__item-name'>{props.itemName}</p>
               <img src={chevron} alt='chevron right' />
-            </div>
+            </Link>
         </div>
         <div>
           <h4 className='warehouse-inventory__header'>category</h4>
