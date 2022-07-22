@@ -18,12 +18,13 @@ function Header(props) {
                     to="/" exact
                     className="header__nav--link"
                     activeClassName="header__nav--active"
-                    isActive={() => ["/", "/warehouses/add"].includes(pathname)}
+                    isActive={() => ["/", "/warehouses/add", "/warehouses/:warehouseId", "/warehouses/:warehouseId/edit"].includes(pathname)}
                 >Warehouses</NavLink>
                 <NavLink
                     to="/inventory"
                     className="header__nav--link"
                     activeClassName="header__nav--active"
+                    isActive={() => ["/", "/inventory/add", "/inventory/:inventoryId", "/inventory/:inventoryId/edit"].includes(pathname)}
                 >Inventory</NavLink>
             </div>
         </header>
