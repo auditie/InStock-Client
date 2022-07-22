@@ -57,7 +57,6 @@ class InventoryPage extends Component {
     componentDidUpdate(prevProps) {
         const previousId = prevProps.match.params.inventoryId;
         const currentId = this.props.match.params.inventoryId;
-        console.log(currentId)
 
         if(previousId !== currentId) {
             this.getInventory(currentId)
@@ -84,7 +83,6 @@ class InventoryPage extends Component {
                     return (this.state.inventoryItem !== null ? (
                         <InventoryItemDetails 
                             inventoryItem={this.state.inventoryItem}
-
                             {...routerProps} 
                         />
                             ) : <h1>loading</h1>)

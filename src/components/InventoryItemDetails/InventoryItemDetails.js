@@ -6,20 +6,20 @@ import './InventoryItemDetails.scss';
 const InventoryItemDetails = (props) => {
   const { itemName, warehouseName, description, category, status, quantity } = props.inventoryItem
   return (
-    <div className='inventory-item'>
-      <header className='inventory-item__header'>
-        <div className='inventory-item__title-arrow'>
+    <div className='inventory-item-details'>
+      <header className='inventory-item-details__header'>
+        <div className='inventory-item-details__title-arrow'>
           <img src={backArrow} alt='back arrow' />
-          <h1 className='inventory-item__title'>{itemName}</h1>
+          <h1 className='inventory-item-details__title'>{itemName}</h1>
         </div>
-        <div className='inventory-item__edit'>
-          <img className='inventory-item__edit-image' src={edit} alt='edit' />
-          <p className='inventory-item__edit-word'>Edit</p>
+        <div className='inventory-item-details__edit'>
+          <img className='inventory-item-details__edit-image' src={edit} alt='edit' />
+          <p className='inventory-item-details__edit-word'>Edit</p>
         </div>
       </header>
-      <section className='inventory-item__info'>
-        <article className='inventory-item__left-section'>
-          <div className='inventory-item__description'>
+      <section className='inventory-item-details__info'>
+        <article className='inventory-item-details__left-section'>
+          <div className='inventory-item-details__description'>
             <h4>item description:</h4>
             <p>{description}</p>
           </div>
@@ -28,11 +28,11 @@ const InventoryItemDetails = (props) => {
             <p>{category}</p>
           </div>
         </article>
-        <article className='inventory-item__right-section'>
-          <div className='inventory-item__status-quantity'>
+        <article className='inventory-item-details__right-section'>
+          <div className='inventory-item-details__status-quantity'>
             <div>
               <h4>status:</h4>
-              <p className={status === "In Stock" ? 'inventory-item__status-in-stock' : 'inventory-item__status-out-of-stock'}>{status}</p>
+              <p className={status === "In Stock" ? 'inventory-item-details__status-in-stock' : 'inventory-item-details__status-out-of-stock'}>{status}</p>
             </div>
             <div>
               <h4>quantity:</h4>
