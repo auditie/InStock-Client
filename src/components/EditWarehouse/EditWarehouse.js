@@ -22,7 +22,7 @@ class EditWarehouse extends React.Component {
     };
 
     getWarehouseInfo = (id) => {
-        axios.get(`${API_URL}/warehouses/${id}`)
+        axios.get(`${API_URL}warehouses/${id}`)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -50,7 +50,7 @@ class EditWarehouse extends React.Component {
             return;
         }
         axios
-            .patch(`${API_URL}/warehouses/${this.state.id}`, {
+            .patch(`${API_URL}warehouses/${this.state.id}`, {
                 id: this.state.id,
                 name: this.state.name,
                 address: this.state.address,
