@@ -2,6 +2,7 @@ import React from 'react';
 import edit from '../../assets/icons/edit-24px.svg';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './InventoryItemDetails.scss';
+import { Link } from 'react-router-dom'
 
 const InventoryItemDetails = (props) => {
   const { itemName, warehouseName, description, category, status, quantity } = props.inventoryItem
@@ -9,7 +10,7 @@ const InventoryItemDetails = (props) => {
     <div className='inventory-item-details'>
       <header className='inventory-item-details__header'>
         <div className='inventory-item-details__title-arrow'>
-          <img src={backArrow} alt='back arrow' />
+          <Link to='/inventory' className='inventory-item-details__arrow'><img src={backArrow} alt='back arrow' /></Link>
           <h1 className='inventory-item-details__title'>{itemName}</h1>
         </div>
         <div className='inventory-item-details__edit'>
