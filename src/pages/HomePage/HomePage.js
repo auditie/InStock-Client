@@ -41,7 +41,6 @@ class HomePage extends Component {
     getWarehouseInventory = (id) => {
         axios.get(`${API_URL}/warehouses/${id}/inventory`)
             .then((response) => {
-                console.log(response.data)
                 this.setState({
                     warehouseInventory: response.data
                 })
@@ -101,14 +100,7 @@ class HomePage extends Component {
                         />
                     ) : <h1>loading</h1>)
                 }} />
-                <Route path='/warehouses/:warehouseId/edit' component={(routerProps) => {
-                    return (this.state.selectedWarehouse !== null ? (
-                        <EditWarehouse
-                            handleWarehouse={this.getWarehouse}
-                            {...routerProps}
-                        />
-                    ) : <h1>loading</h1>)
-                }} />
+                <Route path='/warehouses/:warehouseId/edit' component={EditWarehouse} />
                 {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
 
             </Switch>

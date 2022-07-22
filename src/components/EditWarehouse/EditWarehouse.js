@@ -1,6 +1,9 @@
 import './EditWarehouse.scss';
 import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
+import axios from 'axios';
+import { API_URL } from '../../App';
+import { Link } from 'react-router-dom';
 // import { DropdownList }  from 'react-router-dom';
 // import axios from 'axios';
 
@@ -17,6 +20,22 @@ class EditWarehouse extends React.Component {
         invalidInput: false,
     };
 
+    getWarehouseInfo = (id) => {
+        axios.get(`${API_URL}/warehouses/${id}`)
+            .then((response) => {
+                this.setState({
+                    name: response.data.name,
+                    address: response.data.address,
+                    city: response.data.city,
+                    country: response.data.country,
+                    contactName: response.data.contact.name,
+                    contactPosition: response.data.contact.position,
+                    contactPhone: response.data.contact.phone,
+                    contactEmail: response.data.contact.email,
+                })
+            })
+    }
+
     editWarehouse = (event) => {
         event.preventDefault();
         console.log(event);
@@ -28,7 +47,7 @@ class EditWarehouse extends React.Component {
             return;
         }
         axios
-            .post(`${API_URL}/warehouses/add`, {
+            .patch(`${API_URL}/warehouses/add`, {
                 name: this.state.name,
                 address: this.state.address,
                 city: this.state.city,
@@ -52,6 +71,23 @@ class EditWarehouse extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+    }
+
+    componentDidMount() {
+        const warehouseId = this.props.match.params.warehouseId;
+        if (warehouseId) {
+            this.getWarehouseInfo(warehouseId);
+        }
+    }
+
+    // axios for page did update
+    componentDidUpdate(prevProps) {
+        const previousWarehouseId = prevProps.match.params.warehouseId;
+        const currentWarehouseId = this.props.match.params.warehouseId;
+
+        if (previousWarehouseId !== currentWarehouseId) {
+            this.getWarehouseInfo(currentWarehouseId);
+        }
     }
 
     render() {

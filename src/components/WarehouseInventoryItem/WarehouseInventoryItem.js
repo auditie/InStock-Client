@@ -37,7 +37,7 @@ const WarehouseInventoryItem = (props) => {
       </article>
       <div className='warehouse-inventory__actions'>
         <img src={trash} alt='delete item'/>
-        <img src={edit} alt='edit item'/>
+        <Link to={`/warehouses/${props.id}/edit`}><img src={edit} alt='edit item'/></Link>
       </div>
     </section>
 
