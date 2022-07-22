@@ -53,7 +53,7 @@ class AddInventory extends React.Component {
             return;
         }
 
-        if (Number(this.state.quantity) === NaN && this.state.quantity !== "") {
+        if (isNaN(parseInt(this.state.quantity)) && this.state.quantity !== "") {
             this.setState({
                 invalidInput: true,
             })
