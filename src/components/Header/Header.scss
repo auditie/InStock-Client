@@ -3,6 +3,7 @@
 @use '../../styles/partials/fonts';
 @use '../../styles/partials/global';
 
+
 .header {
     background-color: variables.$Graphite;
     width: 100%;
@@ -26,7 +27,6 @@
             padding: 0;
             margin-left: 3rem;
             margin-top: 2rem;
-
         }
 
         @include mixins.desktop {
@@ -39,21 +39,23 @@
     &__nav {
         display: flex;
         justify-content: space-evenly;
+        padding-top: 1rem;
 
         @include mixins.tablet {
-            padding-top: 1.5rem;
+            padding-top: 2.5rem;
             margin-right: 1rem;
         }
 
         @include mixins.desktop {
             margin-right: 6rem;
-            margin-top: 1rem;
+            padding-top: 3.5rem;
+
         }
 
-        &--title {
-            color: variables.$Cloud;
+        &--link {
             text-align: center;
-            padding-top: 0.4rem;
+            color: variables.$Cloud;
+            padding-top: 0.2rem;
             background-color: transparent;
             width: 10rem;
             height: 2.1rem;
@@ -72,11 +74,17 @@
                     width: 9rem;
                 }
             }
-
         }
 
+        &--active {
+            text-decoration: none;
+            color: variables.$White;
+            background: variables.$Instock-Black;
+
+            @include mixins.tablet {
+                width: 9rem;
+            }
+        }
     }
 
 }
-
-
