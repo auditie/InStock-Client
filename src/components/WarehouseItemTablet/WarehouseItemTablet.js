@@ -5,10 +5,8 @@ import rightArrow from '../../assets/icons/chevron_right-24px.svg';
 import { Link } from 'react-router-dom';
 
 const WarehouseItemTablet = ( { warehouse } ) => {
-    console.log(warehouse);
     return (
         <div className='warehouse-item-tablet'>
-            {/* to link to warehouse inventory */}
             <Link to={`/warehouses/${warehouse.id}`} className='warehouse-item-tablet__link'>{warehouse.name} 
                 <img src={rightArrow} alt='right pointing arrow' className='warehouse-item-tablet__direct' />
             </Link>

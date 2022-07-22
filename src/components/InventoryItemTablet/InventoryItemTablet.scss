@@ -5,15 +5,13 @@
 
 .inventory-item-tablet {
     display: none;
-
-    @include tablet {
-        display: flex;
-        flex-direction: row;
-        border-top: $Cloud 2px solid;
-        padding: 2vh 4vw;
-        justify-content: space-between;
-        text-align: left;
-    }
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    border-top: $Cloud 2px solid;
+    padding: 2vh 4vw;
+    justify-content: space-between;
+    align-items: center;
 
     &__link {
         @include tablet {
@@ -21,11 +19,11 @@
             color: $Instock-Indigo;
             text-decoration: none;
             display: inline;
-            margin-top: 1.5vh;
         }
     }
 
     &__details {
+        width: 8em;
         display: inline;
         text-align: left;
     }
@@ -40,36 +38,39 @@
         text-align: left;
     }
 
-    &__status {
+    &__in-stock {
         width: 7em;
+        @include status;
+        color: #158463;
+        background-color: rgba(21, 132, 99, 0.07)
+    }
 
-        &-in-stock {
-            // @include status;
-            padding: 0.2rem 0.5rem;
-            text-transform: uppercase;
-            border-radius: 20px;
-            width: fit-content;
-            font-weight: 600;
-            font-size: 12px;
-            color: #158463;
-            background-color: rgba(21, 132, 99, 0.07);
-        }
-
-        &-out-of-stock {
-            @include status;
-            color: #C94515;
-            background-color: rgba(201, 69, 21, 0.07);
-        }
+    &__out-of-stock {
+        width: 7em;
+        padding: 0.2rem 0.5rem;
+        text-transform: uppercase;
+        border-radius: 20px;
+        width: fit-content;
+        font-weight: 600;
+        font-size: 12px;
+        color: #C94515;
+        background-color: rgba(201, 69, 21, 0.07);
+        margin-top: 1.5vh;
     }
 
     &__quantity {
-        margin-right: 6%;
+        text-align: left;
+        width: 5em;
+        margin-left: 4%;
+    }
+
+    &__warehouse{
+        margin-right: 2%;
     }
 
     &__manage {
 
         @include tablet {
-            margin-top: 2%;
             gap: 25%;
             display: flex;
             justify-content: space-between;

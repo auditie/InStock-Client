@@ -5,15 +5,14 @@
 
 .warehouse-item-tablet {
     display: none;
+    align-items: flex-start;
 
-    @include tablet {
         display: flex;
         flex-direction: row;
         border-top: $Cloud 2px solid;
         padding: 2vh 4vw;
         justify-content: space-between;
         text-align: left;
-    }
 
     &__link {
         @include tablet {
