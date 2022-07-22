@@ -4,7 +4,7 @@ import editIcon from '../../assets/icons/edit-24px.svg';
 import rightArrow from '../../assets/icons/chevron_right-24px.svg';
 import { Link } from 'react-router-dom';
 
-const InventoryItemMobile = ( { item } ) => {
+const InventoryItemMobile = ({ item }) => {
     return (
         <div className='inventory-item'>
             <div className='inventory-item--mobile'>

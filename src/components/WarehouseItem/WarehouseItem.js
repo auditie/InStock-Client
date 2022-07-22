@@ -23,7 +23,7 @@ const WarehouseItem = ( { warehouse } ) => {
             </div>
             <div className='warehouse-item__manage'>
                 <img src={deleteIcon} alt='trash can outline' className='warehouse-item__manage-icon'></img>
-                <img src={editIcon} alt='pen edit outline' className='warehouse-item__manage-icon'></img>
+                <Link to={`/warehouses/${warehouse.id}/edit`}><img src={editIcon} alt='pen edit outline' className='inventory-item__manage-icon'></img></Link>
             </div>
         </div>
     )

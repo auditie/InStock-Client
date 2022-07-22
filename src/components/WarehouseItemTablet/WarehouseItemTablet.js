@@ -14,8 +14,8 @@ const WarehouseItemTablet = ( { warehouse, showDeleteWarehouse } ) => {
             <p className='warehouse-item-tablet__details--name'>{warehouse.contact.name}</p>
             <p className='warehouse-item-tablet__contact-info'>{warehouse.contact.phone}<br></br>{warehouse.contact.email}</p>
             <div className='warehouse-item-tablet__manage'>
-                <img src={deleteIcon} onClick={(e) => {showDeleteWarehouse(warehouse.id);}} alt='trash can outline' className='warehouse-item-tablet__manage-icon'></img>
-                <img src={editIcon} onClick={showDeleteWarehouse} alt='pen edit outline' className='warehouse-item-tablet__manage-icon'></img>
+				<img src={deleteIcon} onClick={(e) => {showDeleteWarehouse(warehouse.id);}} alt='trash can outline' className='warehouse-item-tablet__manage-icon'></img>
+				<Link to={`/warehouses/${warehouse.id}/edit`}><img src={editIcon} alt='pen edit outline' className='inventory-item__manage-icon'></img></Link>
             </div>
         </div>
     )
