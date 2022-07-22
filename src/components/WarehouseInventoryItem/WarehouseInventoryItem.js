@@ -14,7 +14,7 @@ const WarehouseInventoryItem = (props) => {
       <div className='warehouse-inventory__column'>
         <div className='warehouse-inventory__block'>
           <h4 className='warehouse-inventory__header'>inventory item</h4>
-            <Link className='warehouse-inventory__item'>
+            <Link to={'/inventory/' + props.id}className='warehouse-inventory__item'>
               <p className='warehouse-inventory__item-name'>{props.itemName}</p>
               <img src={chevron} alt='chevron right' />
             </Link>
