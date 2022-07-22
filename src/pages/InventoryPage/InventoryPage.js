@@ -30,13 +30,13 @@ class InventoryPage extends Component {
     // set up axios
     componentDidMount() {
         axios.get(`${API_URL}/inventories`)
-        .then(response => {
-            // console.log(response.data);
-            this.setState({
-                inventory: response.data
+            .then(response => {
+                // console.log(response.data);
+                this.setState({
+                    inventory: response.data
+                })
+                return response.data;
             })
-            return response.data;
-        })
     }
 
     // axios for page did update
@@ -54,17 +54,17 @@ class InventoryPage extends Component {
             )
         }
         return (
-            <Switch> 
+            <Switch>
                 <Route path='/inventory' exact component={(routerProps) => {
                     return (
-                        <InventoryList 
-                            inventory={this.state.inventory} 
-                            {...routerProps} 
+                        <InventoryList
+                            inventory={this.state.inventory}
+                            {...routerProps}
                         />
-                            )
+                    )
                 }} />
-                        {/* <Route path='/inventory/:selectedInventory' component={InventoryPage} />
-                        <Route path='/inventory/:selectedInventory/edit' component={InventoryPage} />
+                {/* <Route path='/inventory/:inventoryId' component={InventoryPage} />
+                        <Route path='/inventory/:inventoryId/edit' component={InventoryPage} />
                         <Route path='/inventory/add' component={InventoryPage} /> */}
             </Switch>
 
