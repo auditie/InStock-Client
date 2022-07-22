@@ -53,7 +53,7 @@ class AddInventory extends React.Component {
             return;
         }
 
-        if (Number(this.state.quantity) === isNaN && this.state.quantity !== "") {
+        if (Number(this.state.quantity) === NaN && this.state.quantity !== "") {
             this.setState({
                 invalidInput: true,
             })
@@ -152,7 +152,7 @@ class AddInventory extends React.Component {
                         </div>
                     </div>
                     <div className="add-inventory__submit" >
-                        <Link className="add-inventory__submit--cancel" to="/">Cancel</Link>
+                        <Link className="add-inventory__submit--cancel" to="/inventory">Cancel</Link>
                         <button className="add-inventory__submit--add" type="submit">+ Add Inventory</button>
                     </div>
                 </form >
