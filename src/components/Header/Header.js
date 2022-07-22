@@ -8,7 +8,8 @@ class Header extends React.Component {
         color: ''
     }
     onChange = () => {
-        this.setState({ color: '#13182c' });
+        this.setState({ backgroundColor: '#13182c' });
+        this.setState({ color: '#ffffff' });
     }
 
     render() {
@@ -16,8 +17,8 @@ class Header extends React.Component {
             <header className="header">
                 <img className="header__logo" src={InStockLogo} alt="main-logo" ></img>
                 <div className="header__nav">
-                    <h3 style={{ backgroundColor: this.state.color }} onClick={this.onChange} className="header__nav--title" >Warehouses</h3>
-                    <h3 style={{ backgroundColor: this.state.color }} onClick={this.onChange} className="header__nav--title" >Inventory</h3>
+                    <h3 style={{ backgroundColor: this.state.backgroundColor, color: this.state.color }} onClick={this.onChange} className="header__nav--title" >Warehouses</h3>
+                    <h3 style={{ backgroundColor: this.state.backgroundColor, color: this.state.color }} onClick={this.onChange} className="header__nav--title" >Inventory</h3>
                     {/* <Link className="header__nav--title" to="/"><h3>Warehouses</h3></Link>
                 <Link className="header__nav--title" to="/inventory"> <h3>Inventory</h3></Link> */}
 

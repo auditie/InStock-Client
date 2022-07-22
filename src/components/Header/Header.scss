@@ -12,7 +12,7 @@
     @include mixins.tablet {
         display: flex;
         justify-content: space-between; 
-        height: 7rem;
+        height: 14rem;
     }
     
     &__logo {
@@ -25,11 +25,22 @@
             width: 10rem;
             padding: 0;
             margin-left: 3rem;
+<<<<<<< HEAD
         }
 
         @include mixins.desktop {
             width: 11rem;
             margin-left: 6rem;
+=======
+            margin-top: 2rem;
+
+        }
+
+        @include mixins.desktop {
+            width: 10rem;
+            margin-left: 6rem;
+            margin-top: 3rem;
+>>>>>>> develop
         }
  
     }
@@ -45,6 +56,10 @@
 
         @include mixins.desktop {
             margin-right: 6rem;
+<<<<<<< HEAD
+=======
+            margin-top: 1rem;
+>>>>>>> develop
         }
 
         &--title {
