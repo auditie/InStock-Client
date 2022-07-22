@@ -16,8 +16,6 @@ class InventoryPage extends Component {
         inventoryItem: null
     };
 
-<<<<<<< HEAD
-=======
     // fetchInventory = inventoryList => {
     //     axios
     //         .get(`%{API_URL}/inventories/inventory`)
@@ -39,7 +37,6 @@ class InventoryPage extends Component {
             });
     }
 
->>>>>>> develop
     // set up axios
     componentDidMount() {
         const inventoryId = this.props.match.params.inventoryId;
@@ -57,8 +54,6 @@ class InventoryPage extends Component {
             })
     }
 
-<<<<<<< HEAD
-=======
     // axios for page did update
     componentDidUpdate(prevProps) {
         const previousId = prevProps.match.params.inventoryId;
@@ -69,7 +64,6 @@ class InventoryPage extends Component {
         }
     }
 
->>>>>>> develop
     render() {
         if (!this.state.inventory) {
             return (
