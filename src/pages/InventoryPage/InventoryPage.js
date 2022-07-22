@@ -2,12 +2,14 @@ import './InventoryPage.scss';
 import axios from 'axios';
 import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import WarehouseList from '../../components/WarehouseList/WarehouseList';
+import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
 import InventoryList from '../../components/InventoryList/InventoryList';
 //import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
 
-class HomePage extends Component {
+class InventoryPage extends Component {
     state = {
         inventory: [],
         warehouseInventory: [],
@@ -27,7 +29,7 @@ class HomePage extends Component {
 
     // set up axios
     componentDidMount() {
-        axios.get(`${API_URL}/inventories/inventory`)
+        axios.get(`${API_URL}/inventories`)
         .then(response => {
             // console.log(response.data);
             this.setState({
@@ -70,4 +72,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+export default InventoryPage;
