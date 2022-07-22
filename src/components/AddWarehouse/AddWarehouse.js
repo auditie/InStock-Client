@@ -29,7 +29,7 @@ class AddWarehouse extends React.Component {
             return;
         }
         axios
-            .post(`${API_URL}/warehouses/add`, {
+            .post(`${API_URL}warehouses`, {
                 name: this.state.name,
                 address: this.state.address,
                 city: this.state.city,
