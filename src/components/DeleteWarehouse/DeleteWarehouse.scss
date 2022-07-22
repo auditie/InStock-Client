@@ -1,0 +1,31 @@
+@use '../../styles/partials/variables';
+
+.delete-warehouse {
+    box-sizing: border-box;
+    background-color: rgba(19,24,44,0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: center;
+    top: 0;
+    left: 0;
+
+	&__card{
+		box-sizing: border-box;
+		background-color: rgba(247,248,249);
+		height: 20rem;
+		width: 20rem;
+		margin: 5vh auto;
+	}
+
+	&__x-button{
+		background-image: url('../../assets/icons/close-24px.svg');
+		background-position: center;
+		background-size: contain;
+		box-sizing: border-box;
+		border: none;
+		height: calc(14/16 * 1rem);
+		width: calc(14/16 * 1rem);
+	}
+}

@@ -4,6 +4,7 @@ import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
+import DeleteWarehouse from '../../components/DeleteWarehouse/DeleteWarehouse';
 //import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
@@ -12,7 +13,8 @@ class HomePage extends Component {
     state = {
         warehouses: [],
         warehouseInventory: [],
-        selectedWarehouse: {}
+        selectedWarehouse: {},
+		showWarehouseDeleteModal: false
     };
 
     fetchWarehouses = warehouseList => {
@@ -53,20 +55,22 @@ class HomePage extends Component {
             )
         }
         return (
-            <Switch>
-                <Route path='/' exact component={(routerProps) => {
-                    return (
-                        <WarehouseList
-                            warehouses={this.state.warehouses}
-                            {...routerProps}
-                        />
-                    )
-                }} />
-                {/* <Route path='/:warehouseId' component={} /> */}
-                {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
-                {/* <Route path='/warehouses/add' component={AddWarehouse} /> */}
-            </Switch>
-
+			<>
+				<Switch>
+					<Route path='/' exact component={(routerProps) => {
+						return (
+							<WarehouseList
+								warehouses={this.state.warehouses}
+								{...routerProps}
+							/>
+						)
+					}} />
+					{/* <Route path='/:warehouseId' component={} /> */}
+					{/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
+					{/* <Route path='/warehouses/add' component={AddWarehouse} /> */}
+				</Switch>
+				<DeleteWarehouse/>
+			</>
         )
     }
 }
