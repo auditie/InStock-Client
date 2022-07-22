@@ -126,11 +126,11 @@ class AddInventory extends React.Component {
                             <div className="add-inventory__radio-buttons" >
                                 <div className="add-inventory__radio-buttons--in" >
                                     <input type="radio" name="status" id="inStock" value="In Stock" defaultChecked onChange={this.handleChangeInventory}></input>
-                                    <label for="in">In stock</label>
+                                    <label for="in">In Stock</label>
                                 </div>
                                 <div>
                                     <input type="radio" name="status" id="outOfStock" value="Out of Stock" onChange={this.handleChangeInventory}></input>
-                                    <label for="out">Out of stock</label>
+                                    <label for="out">Out of Stock</label>
                                 </div>
                             </div>
                             <div className={(this.state.status === "Out of Stock") ? "add-inventory__quantity--hide" : ""} >

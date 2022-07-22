@@ -16,7 +16,7 @@ const InventoryItemMobile = ({ item }) => {
                 </div>
                 <div className='inventory-item--mobile-column'>
                     <h4 className='inventory-item__table-header'>STATUS</h4>
-                    <p className={item.status === "In Stock" ? 'inventory-item__in-stock' : 'inventory-item__out-of-stock'} >{item.status}</p>
+                    <p className={item.status.toLowerCase() === "in stock" ? 'inventory-item__in-stock' : 'inventory-item__out-of-stock'} >{item.status}</p>
                     <h4 className='inventory-item__table-header'>QTY</h4>
                     <p className='inventory-item__details'>{item.quantity}</p>
                     <h4 className='inventory-item__table-header'>WAREHOUSE</h4>
