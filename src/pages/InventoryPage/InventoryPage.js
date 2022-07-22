@@ -58,6 +58,15 @@ class InventoryPage extends Component {
         const previousId = prevProps.match.params.inventoryId;
         const currentId = this.props.match.params.inventoryId;
 
+        if (prevProps.location.pathname === "/inventory/add") {
+            axios.get(`${API_URL}/inventories`)
+                .then(response => {
+                    this.setState({
+                        inventory: response.data
+                    });
+                })
+        }
+
         if (previousId !== currentId) {
             this.getInventory(currentId)
         }
