@@ -5,7 +5,7 @@ import axios from 'axios';
 import { API_URL } from '../../App';
 import { Link } from 'react-router-dom';
 // import { DropdownList }  from 'react-router-dom';
-// import axios from 'axios';
+
 
 class EditWarehouse extends React.Component {
     state = {
@@ -17,13 +17,16 @@ class EditWarehouse extends React.Component {
         contactPosition: "",
         contactPhone: "",
         contactEmail: "",
+        id: "",
         invalidInput: false,
     };
 
     getWarehouseInfo = (id) => {
         axios.get(`${API_URL}/warehouses/${id}`)
             .then((response) => {
+                console.log(response)
                 this.setState({
+                    id: response.data.id,
                     name: response.data.name,
                     address: response.data.address,
                     city: response.data.city,
@@ -31,7 +34,7 @@ class EditWarehouse extends React.Component {
                     contactName: response.data.contact.name,
                     contactPosition: response.data.contact.position,
                     contactPhone: response.data.contact.phone,
-                    contactEmail: response.data.contact.email,
+                    contactEmail: response.data.contact.email
                 })
             })
     }
@@ -47,7 +50,8 @@ class EditWarehouse extends React.Component {
             return;
         }
         axios
-            .patch(`${API_URL}/warehouses/add`, {
+            .patch(`${API_URL}/warehouses/${this.state.id}`, {
+                id: this.state.id,
                 name: this.state.name,
                 address: this.state.address,
                 city: this.state.city,
@@ -96,7 +100,7 @@ class EditWarehouse extends React.Component {
             <div className="edit-warehouse" >
                 <div className="edit-warehouse__title" >
                     <img className="edit-warehouse__arrow" src={BackArrow} alt="arrow-back"></img>
-                    <h1>Add New Warehouse</h1>
+                    <h1>Edit Warehouse</h1>
                 </div>
                 <form onSubmit={this.editWarehouse}>
                     <div className="edit-warehouse__form" >
@@ -104,30 +108,29 @@ class EditWarehouse extends React.Component {
                             <h2 className="edit-warehouse__subtitle" >Warehouse Details</h2>
                             <h3 className="edit-warehouse__labels" >Warehouse Name</h3>
                             <textarea className={
-                                (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" placeholder="Warehouse Name" value={this.state.name} onChange={this.handleChangeWarehouse} name="name">
-                                {this.state.name}
+                                (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" defaultValue={this.state.name} onChange={this.handleChangeWarehouse} name="name">
                             </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
                             <h3 className="edit-warehouse__labels" >Street Address</h3>
                             <textarea className={
-                                (this.state.address.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" placeholder="Street Address" value={this.state.address} onChange={this.handleChangeWarehouse} name="address" >
-                                {this.state.address}</textarea>
+                                (this.state.address.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" defaultValue={this.state.address} onChange={this.handleChangeWarehouse} name="address" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
                             <h3 className="edit-warehouse__labels" >City</h3>
                             <textarea className={
-                                (this.state.city.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" placeholder="City" value={this.state.city} onChange={this.handleChangeWarehouse} name="city" >
-                                {this.state.city}</textarea>
+                                (this.state.city.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" defaultValue={this.state.city} onChange={this.handleChangeWarehouse} name="city" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
                             <h3 className="edit-warehouse__labels" >Country</h3>
                             <textarea className={
-                                (this.state.country.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" placeholder="Country" value={this.state.country} onChange={this.handleChangeWarehouse} name="country" >
-                                {this.state.country}</textarea>
+                                (this.state.country.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" defaultValue={this.state.country} onChange={this.handleChangeWarehouse} name="country" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
@@ -136,29 +139,29 @@ class EditWarehouse extends React.Component {
                             <h2 className="edit-warehouse__subtitle" >Contact Details</h2>
                             <h3 className="edit-warehouse__labels" >Contact Name</h3>
                             <textarea className={
-                                (this.state.contactName.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" placeholder="Contact Name" value={this.state.contactName} onChange={this.handleChangeWarehouse} name="contactName" >
-                                {this.state.contactName}</textarea>
+                                (this.state.contactName.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" defaultValue={this.state.contactName} onChange={this.handleChangeWarehouse} name="contactName" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
                             <h3 className="edit-warehouse__labels" >Position</h3>
                             <textarea className={
-                                (this.state.contactPosition.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" placeholder="Position" value={this.state.contactPosition} onChange={this.handleChangeWarehouse} name="contactPosition" >
-                                {this.state.contactPosition}</textarea>
+                                (this.state.contactPosition.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="text" defaultValue={this.state.contactPosition} onChange={this.handleChangeWarehouse} name="contactPosition" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
                             <h3 className="edit-warehouse__labels" >Phone Number</h3>
                             <textarea className={
-                                (this.state.contactPhone.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="tel" placeholder="Phone Number" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" maxLength="12" value={this.state.contactPhone} onChange={this.handleChangeWarehouse} name="contactPhone" >
-                                {this.state.contactPhone}</textarea>
+                                (this.state.contactPhone.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="tel" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" maxLength="12" defaultValue={this.state.contactPhone} onChange={this.handleChangeWarehouse} name="contactPhone" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>
                             <h3 className="edit-warehouse__labels" >Email</h3>
                             <textarea className={
-                                (this.state.contactEmail.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="email" placeholder="Email" value={this.state.contactEmail} onChange={this.handleChangeWarehouse} name="contactEmail" >
-                                {this.state.contactEmail}</textarea>
+                                (this.state.contactEmail.length === 0 && this.state.invalidInput) ? "edit-warehouse__error" : ""} type="email" defaultValue={this.state.contactEmail} onChange={this.handleChangeWarehouse} name="contactEmail" >
+                            </textarea>
                             <span className={
                                 (this.state.name.length === 0 && this.state.invalidInput) ? "edit-warehouse__warning" : "edit-warehouse__warning--hide"}>
                                 This field is required</span>

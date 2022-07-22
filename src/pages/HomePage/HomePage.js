@@ -91,7 +91,7 @@ class HomePage extends Component {
                     )
                 }} />
                 <Route path='/warehouses/add' exact component={AddWarehouse} />
-                <Route path='/warehouses/:warehouseId' component={(routerProps) => {
+                <Route path='/warehouses/:warehouseId' exact component={(routerProps) => {
                     return (this.state.selectedWarehouse !== null ? (
                         <WarehouseDetails
                             warehouse={this.state.selectedWarehouse}
