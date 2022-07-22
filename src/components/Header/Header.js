@@ -1,5 +1,5 @@
 import './Header.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import InStockLogo from '../../assets/logo/InStock-Logo_2x.png';
 import React from 'react';
 
@@ -8,15 +8,20 @@ function Header() {
 
     return (
         <header className="header">
-            <img className="header__logo" src={InStockLogo} alt="main-logo" ></img>
+            <Link to="/">
+                <img className="header__logo" src={InStockLogo} alt="main-logo" ></img>
+            </Link>
+
             <div className="header__nav">
                 <NavLink
-                    to="/"
-                    className={({ isActive }) => (isActive ? "header__nav--active" : "header__nav--link")}
+                    to="/" exact
+                    className="header__nav--link"
+                    activeClassName="header__nav--active"
                 >Warehouses</NavLink>
                 <NavLink
                     to="/inventory"
-                    className={({ isActive }) => (isActive ? "header__nav--active" : "header__nav--link")}
+                    className="header__nav--link"
+                    activeClassName="header__nav--active"
                 >Inventory</NavLink>
             </div>
         </header>
