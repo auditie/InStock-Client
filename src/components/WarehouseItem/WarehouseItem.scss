@@ -18,6 +18,7 @@
     &--mobile {
         display: flex;
         gap: 10%;
+        margin-bottom: 1vh;
 
         &-column {
             width: 45%;
@@ -39,7 +40,7 @@
     }
 
     &__details {
-        width: 40%;
+        width: 60%;
     }
 
     &__direct {
@@ -48,6 +49,7 @@
     }
 
     &__table-header{
+        margin-top: 1vh;
         @include tablet {
             display: none;
         }
@@ -57,10 +59,6 @@
         color: $Instock-Indigo;
         text-decoration: none;
         display: inline;
-
-        @include tablet {
-            width: 50%;
-        }
     }
 
     &__manage {
