@@ -37,11 +37,13 @@ textarea {
             padding: 0.5rem 0 0.5rem 4rem;
         }
     }
-
+    
     &__arrow {
+        margin-top: 1.5rem;
         margin-right: 1rem;
 
         @include mixins.tablet {
+            margin-top: 1.8rem;
             margin-right: 1rem;
         }
     }

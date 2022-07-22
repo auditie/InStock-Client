@@ -18,7 +18,7 @@ class AddInventory extends React.Component {
 
     componentDidMount() {
         axios
-            .get(`${API_URL}warehouses/`)
+            .get(`${API_URL}/warehouses/`)
             .then((response) => {
                 console.log(response.data);
                 this.setState({
@@ -64,7 +64,7 @@ class AddInventory extends React.Component {
         let newWarehouse = this.state.warehouses.find(warehouse => warehouse.id === event.target.warehouseID.value)
 
         axios
-            .post(`${API_URL}inventories`, {
+            .post(`${API_URL}/inventories`, {
                 warehouseID: event.target.warehouseID.value,
                 itemName: this.state.itemName,
                 description: this.state.description,
@@ -91,7 +91,8 @@ class AddInventory extends React.Component {
         return (
             <div className="add-inventory" >
                 <div className="add-inventory__title" >
-                    <img className="add-inventory__arrow" src={BackArrow} alt="arrow-back"></img>
+                    <Link to="/inventory" className="add-inventory__arrow">
+                        <img src={BackArrow} alt="arrow-back"></img></Link>
                     <h1>Add New Inventory</h1>
                 </div>
                 <form onSubmit={this.addInventory}>
