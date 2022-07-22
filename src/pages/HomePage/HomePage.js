@@ -14,7 +14,7 @@ class HomePage extends Component {
     state = {
         warehouses: [],
         warehouseInventory: [],
-		showWarehouseDeleteModal: false
+		showWarehouseDeleteModal: false,
         selectedWarehouse: null
     };
 
