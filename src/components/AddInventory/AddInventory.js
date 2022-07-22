@@ -10,7 +10,7 @@ class AddInventory extends React.Component {
     state = {
         itemName: "",
         description: "",
-        status: "In stock",
+        status: "In Stock",
         quantity: "",
         warehouses: [],
         invalidInput: false,
@@ -125,15 +125,15 @@ class AddInventory extends React.Component {
                             <h3 className="add-inventory__labels" >Status</h3>
                             <div className="add-inventory__radio-buttons" >
                                 <div className="add-inventory__radio-buttons--in" >
-                                    <input type="radio" name="status" id="inStock" value="In stock" defaultChecked onChange={this.handleChangeInventory}></input>
+                                    <input type="radio" name="status" id="inStock" value="In Stock" defaultChecked onChange={this.handleChangeInventory}></input>
                                     <label for="in">In stock</label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="status" id="outOfStock" value="Out of stock" onChange={this.handleChangeInventory}></input>
+                                    <input type="radio" name="status" id="outOfStock" value="Out of Stock" onChange={this.handleChangeInventory}></input>
                                     <label for="out">Out of stock</label>
                                 </div>
                             </div>
-                            <div className={(this.state.status === "Out of stock") ? "add-inventory__quantity--hide" : ""} >
+                            <div className={(this.state.status === "Out of Stock") ? "add-inventory__quantity--hide" : ""} >
                                 <h3 className="add-inventory__labels" >Quantity</h3>
                                 <textarea className={
                                     (!this.state.quantity && this.state.invalidInput) ? "add-inventory__error" : ""} type="number" name="quantity" placeholder="0" value={this.state.quantity} onChange={this.handleChangeInventory}  ></textarea>
