@@ -5,6 +5,7 @@ import rightArrow from '../../assets/icons/chevron_right-24px.svg';
 import { Link } from 'react-router-dom';
 
 const InventoryItemTablet = ( { item } ) => {
+    console.log(item.status)
     return (
         <div className='inventory-item-tablet'>
             {/* to link to warehouse inventory */}
@@ -12,9 +13,9 @@ const InventoryItemTablet = ( { item } ) => {
                 <img src={rightArrow} alt='right pointing arrow' className='inventory-item-tablet__direct' />
             </Link>
             <p className='inventory-item-tablet__details inventory-item-tablet__category'>{item.category}</p>
-            <p className={item.status === "In Stock" ? 'inventory-item__status-in-stock' : 'inventory-item__status-out-of-stock'}>{item.status}</p>
+            <p className={item.status === "In Stock" ? 'inventory-item-tablet__in-stock' : 'inventory-item-tablet__out-of-stock'}>{item.status}</p>
             <p className='inventory-item-tablet__details  inventory-item-tablet__quantity'>{item.quantity}</p>
-            <p className='inventory-item-tablet__details  inventory-item-tablet__contact-info'>{item.warehouseName}</p>
+            <p className='inventory-item-tablet__details  inventory-item-tablet__warehouse'>{item.warehouseName}</p>
             <div className='inventory-item-tablet__manage'>
                 <img src={deleteIcon} alt='trash can outline' className='inventory-item-tablet__manage-icon'></img>
                 <img src={editIcon} alt='pen edit outline' className='inventory-item-tablet__manage-icon'></img>
