@@ -50,13 +50,12 @@ class HomePage extends Component {
     // set up axios
     componentDidMount() {
         const warehouseId = this.props.match.params.warehouseId;
-        console.log(warehouseId);
         axios.get(`${API_URL}/warehouses`)
-        .then(response => {
-            this.setState({
-                warehouses: response.data
-            });
-        })
+            .then(response => {
+                this.setState({
+                    warehouses: response.data
+                });
+            })
         if (warehouseId) {
             this.getWarehouse(warehouseId);
             this.getWarehouseInventory(warehouseId);
@@ -67,7 +66,6 @@ class HomePage extends Component {
     componentDidUpdate(prevProps) {
         const previousWarehouseId = prevProps.match.params.warehouseId;
         const currentWarehouseId = this.props.match.params.warehouseId;
-        console.log(currentWarehouseId);
 
         if (previousWarehouseId !== currentWarehouseId) {
             this.getWarehouse(currentWarehouseId);
@@ -85,24 +83,25 @@ class HomePage extends Component {
             <Switch>
                 <Route path='/' exact component={(routerProps) => {
                     return (
-                        <WarehouseList 
-                            warehouses={this.state.warehouses} 
+                        <WarehouseList
+                            warehouses={this.state.warehouses}
                             handleWarehouse={this.getWarehouse}
-                            {...routerProps} 
+                            {...routerProps}
                         />
                     )
                 }} />
+                <Route path='/warehouses/add' exact component={AddWarehouse} />
                 <Route path='/warehouses/:warehouseId' component={(routerProps) => {
                     return (this.state.selectedWarehouse !== null ? (
-                        <WarehouseDetails 
+                        <WarehouseDetails
                             warehouse={this.state.selectedWarehouse}
                             inventory={this.state.warehouseInventory}
-                            {...routerProps} 
+                            {...routerProps}
                         />
-                            ) : <h1>loading</h1>)
+                    ) : <h1>loading</h1>)
                 }} />
                 {/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
-                {/* <Route path='/warehouses/add' component={AddWarehouse} /> */}
+
             </Switch>
 
         )

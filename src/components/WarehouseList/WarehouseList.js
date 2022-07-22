@@ -1,19 +1,19 @@
 import './WarehouseList.scss';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import WarehouseItem from '../WarehouseItem/WarehouseItem';
 import WarehouseItemTablet from '../WarehouseItemTablet/WarehouseItemTablet';
 import sortIcon from '../../assets/icons/sort-24px.svg';
 
-const WarehouseList = ( { warehouses } ) => {
+const WarehouseList = ({ warehouses }) => {
     const columnTitles = ['WAREHOUSE', 'ADDRESS', 'CONTACT NAME', 'CONTACT INFORMATION'];
-    
+
     return (
         <>
             <div className='warehouse-list__head'>
                 <h1 className='warehouse-list__head-title'>Warehouses</h1>
                 <div className='warehouse-list__head--top-right'>
                     <input type='text' placeholder='Search...' className='warehouse-list__head-search'></input>
-                    <button className='warehouse-list__head-cta'>+ Add New Warehouse</button>
+                    <Link to="/warehouses/add" className='warehouse-list__head-cta'>+ Add New Warehouse</Link>
 
                 </div>
             </div>
@@ -30,16 +30,16 @@ const WarehouseList = ( { warehouses } ) => {
 
             </div>
             <div className='warehouse-list__warehouses'>
-            {
-                warehouses.map(warehouse => 
-                    <WarehouseItem key={warehouse.id} warehouse={warehouse} />
-                )
-            }
-            {
-                warehouses.map(warehouse => 
-                    <WarehouseItemTablet key={warehouse.id} warehouse={warehouse} />
-                )
-            }
+                {
+                    warehouses.map(warehouse =>
+                        <WarehouseItem key={warehouse.id} warehouse={warehouse} />
+                    )
+                }
+                {
+                    warehouses.map(warehouse =>
+                        <WarehouseItemTablet key={warehouse.id} warehouse={warehouse} />
+                    )
+                }
             </div>
         </>
     )

@@ -1,18 +1,19 @@
 import './InventoryList.scss';
+import { Link } from 'react-router-dom';
 import sortIcon from '../../assets/icons/sort-24px.svg';
 import InventoryItemMobile from '../../components/InventoryItemMobile/InventoryItemMobile';
 import InventoryItemTablet from '../../components/InventoryItemTablet/InventoryItemTablet';
 
-const InventoryList = ( { inventory } ) => {
+const InventoryList = ({ inventory }) => {
     const columnTitles = ['INVENTORY ITEM', 'CATEGORY', 'STATUS', 'QTY', 'WAREHOUSE'];
-    
+
     return (
         <>
             <div className='inventory-list__head'>
                 <h1 className='inventory-list__head-title'>Inventory</h1>
                 <div className='inventory-list__head--top-right'>
                     <input type='text' placeholder='Search...' className='inventory-list__head-search'></input>
-                    <button className='inventory-list__head-cta'>+ Add New Item</button>
+                    <Link to="/inventory/add" className='inventory-list__head-cta'>+ Add New Item</Link>
 
                 </div>
             </div>
@@ -29,16 +30,16 @@ const InventoryList = ( { inventory } ) => {
 
             </div>
             <div className='inventory-list__items'>
-            {
-                inventory.map(item => 
-                    <InventoryItemMobile key={item.id} item={item} />
-                )
-            } 
-            {
-                inventory.map(item => 
-                    <InventoryItemTablet key={item.id} item={item} />
-                )
-            }
+                {
+                    inventory.map(item =>
+                        <InventoryItemMobile key={item.id} item={item} />
+                    )
+                }
+                {
+                    inventory.map(item =>
+                        <InventoryItemTablet key={item.id} item={item} />
+                    )
+                }
             </div>
         </>
     )
