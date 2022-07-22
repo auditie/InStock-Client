@@ -64,11 +64,7 @@
     &__manage {
         display: flex;
         justify-content: space-between;
-
-        @include tablet {
-            margin-top: 2%;
-            gap: 25%;
-        }
+        margin-top: 1%;
 
         &-icon {
             height: 2em;
