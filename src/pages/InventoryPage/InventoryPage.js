@@ -16,17 +16,6 @@ class InventoryPage extends Component {
         selectedWarehouse: {}
     };
 
-    // fetchInventory = inventoryList => {
-    //     axios
-    //         .get(`%{API_URL}/inventories/inventory`)
-    //         .then(response => {
-    //             this.setState({
-    //                 warehouses: response.data
-    //             })
-    //             return response.data;
-    //         })
-    // }
-
     // set up axios
     componentDidMount() {
         axios.get(`${API_URL}/inventories`)
@@ -38,14 +27,6 @@ class InventoryPage extends Component {
             return response.data;
         })
     }
-
-    // axios for page did update
-    // componentDidUpdate(prevState) {
-    //     const previousState = this.state.warehouseList;
-
-    //     if(prevState !== )
-
-    // }
 
     render() {
         if (!this.state.inventory) {

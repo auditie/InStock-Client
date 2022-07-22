@@ -1,5 +1,4 @@
 import './InventoryList.scss';
-// import { Link } from 'react-router-dom';
 import sortIcon from '../../assets/icons/sort-24px.svg';
 import InventoryItemMobile from '../../components/InventoryItemMobile/InventoryItemMobile';
 import InventoryItemTablet from '../../components/InventoryItemTablet/InventoryItemTablet';
