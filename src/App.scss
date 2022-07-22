@@ -3,17 +3,19 @@
 @use './styles/partials/fonts';
 @use './styles/partials/global';
 
-.app__bodywrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(100vh - 13rem);
-  background-color: variables.$Light-Grey;
+.app {
+
+  &__bodywrap { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 13rem);
+    background-color: variables.$Light-Grey;
 
     @include mixins.tablet {
       min-height: calc(100vh - 14rem);
     }  
-  
+  }
 
   &__card {
     margin: -4rem 1rem 0;
