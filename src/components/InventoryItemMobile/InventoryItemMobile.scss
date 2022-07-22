@@ -20,8 +20,24 @@
         }
     }
 
+    &__table-header {
+        margin-top: 1vh;
+    }
+
     &__details {
         width: 40%;
+    }
+
+    &__in-stock {
+        @include status;
+        color: #158463;
+        background-color: rgba(21, 132, 99, 0.07);
+    }
+
+    &__out-of-stock {
+        @include status;
+        color: #C94515;
+        background-color: rgba(201, 69, 21, 0.07);
     }
 
     &__direct {
