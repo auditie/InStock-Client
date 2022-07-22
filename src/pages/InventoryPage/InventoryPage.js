@@ -8,16 +8,7 @@ import InventoryItemDetails from '../../components/InventoryItemDetails/Inventor
 class InventoryPage extends Component {
   state = {
     allInventory: [],
-    singleInventoryItem: {
-        "id": "9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3",
-        "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-        "warehouseName": "Manhattan",
-        "itemName": "Television",
-        "description": "Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.",
-        "category": "Electronics",
-        "status": "In Stock",
-        "quantity": 500
-      }  
+    singleInventoryItem: {}  
 };
 
   // set up axios
@@ -62,3 +53,4 @@ class InventoryPage extends Component {
 }
 
 export default InventoryPage;
+
