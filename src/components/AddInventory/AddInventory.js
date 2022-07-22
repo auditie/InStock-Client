@@ -104,9 +104,6 @@ class AddInventory extends React.Component {
                             <span className={
                                 (this.state.itemName.length === 0 && this.state.invalidInput) ? "add-inventory__warning" : "add-inventory__warning--hide"}>This field is required</span>
                             <h3 className="add-inventory__labels" >Description</h3>
-
-                            {/* className="add-inventory__labels--description" */}
-                            {/* rows="20" */}
                             <textarea className={
                                 (this.state.description.length === 0 && this.state.invalidInput) ? "add-inventory__error add-inventory__labels--description " : "add-inventory__labels--description"} type="text" placeholder="Please enter a brief item description..." value={this.state.description} onChange={this.handleChangeInventory} name="description" ></textarea>
                             <span className={
