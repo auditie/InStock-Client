@@ -3,73 +3,32 @@
 @use './styles/partials/fonts';
 @use './styles/partials/global';
 
-.App {
-  text-align: center;
-}
+.app {
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  &__bodywrap { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 13rem);
+    background-color: variables.$Light-Grey;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.app__bodywrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(100vh - 13rem);
-  background-color: variables.$Light-Grey;
-
-  @include mixins.tablet {
-    min-height: calc(100vh - 14rem);
-  }  
-
-}
-
-.app__card {
-  margin: -4rem 1rem 0;
-  background: variables.$White;
-  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-  border-radius: 3px;
-
-  @include mixins.tablet {
-    margin: -7.25rem 2rem 0;
+    @include mixins.tablet {
+      min-height: calc(100vh - 14rem);
+    }  
   }
 
-  @include mixins.desktop {
-    margin: -6.25rem 6rem 0;
-  }
-}
+  &__card {
+    margin: -4rem 1rem 0;
+    background: variables.$White;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    border-radius: 3px;
 
-.app-container {
-	position: relative;
+    @include mixins.tablet {
+      margin: -7.25rem 2rem 0;
+    }
+
+    @include mixins.desktop {
+      margin: -6.25rem 6rem 0;
+    }
+  }
 }
