@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 @mixin mobile {
     @media (min-width: 320px) {
         @content;
@@ -58,3 +60,21 @@
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     border-radius: 3px;
 }
+
+@mixin status {
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    border-radius: 20px;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+// button styling
+@mixin primary-button {
+    background-color: $Instock-Indigo;
+    color: $White;
+    border-radius: 20px;
+    border: none;
+}
+
