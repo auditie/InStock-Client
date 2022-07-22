@@ -4,7 +4,7 @@ import WarehouseItem from '../WarehouseItem/WarehouseItem';
 import WarehouseItemTablet from '../WarehouseItemTablet/WarehouseItemTablet';
 import sortIcon from '../../assets/icons/sort-24px.svg';
 
-const WarehouseList = ({ warehouses }) => {
+const WarehouseList = ({ warehouses, showDeleteWarehouse }) => {
     const columnTitles = ['WAREHOUSE', 'ADDRESS', 'CONTACT NAME', 'CONTACT INFORMATION'];
 
     return (
@@ -32,12 +32,12 @@ const WarehouseList = ({ warehouses }) => {
             <div className='warehouse-list__warehouses'>
                 {
                     warehouses.map(warehouse =>
-                        <WarehouseItem key={warehouse.id} warehouse={warehouse} />
+                        <WarehouseItem key={warehouse.id} warehouse={warehouse} showDeleteWarehouse={showDeleteWarehouse}/>
                     )
                 }
                 {
                     warehouses.map(warehouse =>
-                        <WarehouseItemTablet key={warehouse.id} warehouse={warehouse} />
+                        <WarehouseItemTablet key={warehouse.id} warehouse={warehouse} showDeleteWarehouse={showDeleteWarehouse}/>
                     )
                 }
             </div>

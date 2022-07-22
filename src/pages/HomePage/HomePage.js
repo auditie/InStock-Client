@@ -49,6 +49,25 @@ class HomePage extends Component {
             })
     }
 
+	// Delete Warehouse Functions //
+	showDeleteWarehouse = (selectedId) => {
+		this.setState({ showWarehouseDeleteModal: true });
+		this.setState({ selectedWarehouse: selectedId });
+	}
+
+	hideDeleteWarehouse = () => {
+		this.setState({ showWarehouseDeleteModal: false });
+		this.setState({ selectedWarehouse: null });
+	}
+
+	handleDeleteWarehouse = (e) => {
+		// axios delete call 
+		console.log("Axios Delete Call");
+		console.log("ID to delete : " + this.state.selectedWarehouse);
+		console.log("this.FetchWarehouses");
+		this.setState({ showWarehouseDeleteModal: false });
+	}
+
     // set up axios
     componentDidMount() {
         const warehouseId = this.props.match.params.warehouseId;
@@ -91,6 +110,7 @@ class HomePage extends Component {
 							<WarehouseList
 								warehouses={this.state.warehouses}
 								handleWarehouse={this.getWarehouse}
+								showDeleteWarehouse={this.showDeleteWarehouse}
 								{...routerProps}
 							/>
 						)
@@ -108,7 +128,14 @@ class HomePage extends Component {
 					{/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
 
 				</Switch>
-				<DeleteWarehouse/>
+				{this.state.showWarehouseDeleteModal && 
+					<DeleteWarehouse 
+						hideDeleteWarehouse={this.hideDeleteWarehouse} 
+						handleDeleteWarehouse={(e) => {
+							this.handleDeleteWarehouse(e);
+						}}
+					/>
+				}
 			</>
         )
     }
