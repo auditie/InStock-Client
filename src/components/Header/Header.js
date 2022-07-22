@@ -1,31 +1,27 @@
 import './Header.scss';
-// import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import InStockLogo from '../../assets/logo/InStock-Logo_2x.png';
 import React from 'react';
 
-class Header extends React.Component {
-    state = {
-        color: ''
-    }
-    onChange = () => {
-        this.setState({ backgroundColor: '#13182c' });
-        this.setState({ color: '#ffffff' });
-    }
 
-    render() {
-        return (
-            <header className="header">
-                <img className="header__logo" src={InStockLogo} alt="main-logo" ></img>
-                <div className="header__nav">
-                    <h3 style={{ backgroundColor: this.state.backgroundColor, color: this.state.color }} onClick={this.onChange} className="header__nav--title" >Warehouses</h3>
-                    <h3 style={{ backgroundColor: this.state.backgroundColor, color: this.state.color }} onClick={this.onChange} className="header__nav--title" >Inventory</h3>
-                    {/* <Link className="header__nav--title" to="/"><h3>Warehouses</h3></Link>
-                <Link className="header__nav--title" to="/inventory"> <h3>Inventory</h3></Link> */}
+function Header() {
 
-                </div>
-            </header>
-        )
-    }
+    return (
+        <header className="header">
+            <img className="header__logo" src={InStockLogo} alt="main-logo" ></img>
+            <div className="header__nav">
+                <NavLink
+                    to="/"
+                    className={({ isActive }) => (isActive ? "header__nav--active" : "header__nav--link")}
+                >Warehouses</NavLink>
+                <NavLink
+                    to="/inventory"
+                    className={({ isActive }) => (isActive ? "header__nav--active" : "header__nav--link")}
+                >Inventory</NavLink>
+            </div>
+        </header>
+    );
+
 
 }
 
