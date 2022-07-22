@@ -11,7 +11,7 @@ class AddInventory extends React.Component {
         description: "",
         category: "",
         status: "",
-        quantity: [],
+        quantity: null,
         warehouseName: ""
     }
 
@@ -39,6 +39,10 @@ class AddInventory extends React.Component {
         })
     }
 
+    //can i remove required?
+    //would it be this.state.warehouseID?? or the name...look at the inventories.json
+
+
     render() {
         return (
             <div className="add-inventory" >
@@ -57,8 +61,14 @@ class AddInventory extends React.Component {
                             <h3 className="add-inventory__labels" >Category</h3>
                             <select className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
-                                <option name="category" value={this.state.category} onChange={this.handleChangeInventory}></option>
-                                required</select>
+                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Accessories</option>
+                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Apparel</option>
+                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Electronics</option>
+                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Health</option>
+                                <option value={this.state.category} name="category" onChange={this.handleChangeInventory}>Gear</option>
+                                {/* <option name="category" value={this.state.category} onChange={this.handleChangeInventory}></option>
+                                required */}
+                            </select>
                         </div>
                         <div className="add-inventory__availability--detail" >
                             <h2 className="add-inventory__subtitle" >Contact Details</h2>
@@ -74,12 +84,21 @@ class AddInventory extends React.Component {
                                 </div>
                             </div>
                             <h3 className="add-inventory__labels" >Quantity</h3>
-                            <textarea type="text" placeholder="0" value={this.state.quantity} onChange={this.handleChangeWarehouse} name="quantity" ></textarea>
+                            <textarea type="text" name="quantity" placeholder="0" value={this.state.quantity} onChange={this.handleChangeWarehouse}  ></textarea>
                             <h3 className="add-inventory__labels" >Warehouse</h3>
                             <select className="add-inventory__dropdown">
                                 <option value="">Please Select</option>
-                                <option name="warehouseName" value={this.state.warehouseName} onChange={this.handleChangeInventory}></option>
-                                required</select>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Jersey</option>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Manhattan</option>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Miami</option>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>San Fran</option>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Santa Monica</option>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Seattle</option>
+                                <option value={this.state.warehouseName} name="warehouseName" onChange={this.handleChangeInventory}>Washington</option>
+
+                                {/* <option name="warehouseName" value={this.state.warehouseName} onChange={this.handleChangeInventory}></option>
+                                required */}
+                            </select>
                         </div>
                     </div>
                     <div className="add-inventory__submit" >
