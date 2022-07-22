@@ -71,7 +71,6 @@ class HomePage extends Component {
     // set up axios
     componentDidMount() {
         const warehouseId = this.props.match.params.warehouseId;
-        console.log(warehouseId);
         axios.get(`${API_URL}/warehouses`)
             .then(response => {
                 this.setState({
@@ -88,7 +87,6 @@ class HomePage extends Component {
     componentDidUpdate(prevProps) {
         const previousWarehouseId = prevProps.match.params.warehouseId;
         const currentWarehouseId = this.props.match.params.warehouseId;
-        console.log(currentWarehouseId);
 
         if (previousWarehouseId !== currentWarehouseId) {
             this.getWarehouse(currentWarehouseId);

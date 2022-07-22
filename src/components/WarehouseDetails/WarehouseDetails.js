@@ -69,6 +69,7 @@ const WarehouseDetails = (props) =>{
         return (
           <WarehouseInventoryItem className='single-warehouse__mobile'
           key={item.id}
+          id={item.id}
           itemName={item.itemName}
           category={item.category} 
           status={item.status}
