@@ -74,7 +74,6 @@ textarea {
             border-bottom: 0;
             border-right: 0.05rem solid variables.$Cloud;
         }
-
     }
 
     &__subtitle {
@@ -177,7 +176,6 @@ textarea {
         @include mixins.desktop {
             padding-right: 4rem;
         }
-
     }
 
     &__error {
@@ -198,6 +196,4 @@ textarea {
     &__quantity--hide {
         display: none;
     }
-
-    
 }
