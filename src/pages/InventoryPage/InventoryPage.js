@@ -4,22 +4,38 @@ import { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
+import InventoryList from '../../components/InventoryList/InventoryList';
+//import axios from 'axios';
 
 class InventoryPage extends Component {
   state = {
     allInventory: [],
     singleInventoryItem: {}  
-};
+    };
 
-  // set up axios
-  getWarehouse = (id) => {
-    axios.get(`http://localhost:8080/warehouses/${id}`)
-      .then((response) => {
-        this.setState({
-          selectedWarehouse: response.data
+    // fetchInventory = inventoryList => {
+    //     axios
+    //         .get(`%{API_URL}/inventories/inventory`)
+    //         .then(response => {
+    //             this.setState({
+    //                 warehouses: response.data
+    //             })
+    //             return response.data;
+    //         })
+    // }
+
+    // set up axios
+    componentDidMount() {
+        axios.get(`${API_URL}/inventories`)
+        .then(response => {
+            // console.log(response.data);
+            this.setState({
+                inventory: response.data
+            })
+            return response.data;
         })
-      })
-  }
+      }
+  
 
   componentDidMount() {
     axios.get(`http://localhost:8080/inventory`)
@@ -53,4 +69,3 @@ class InventoryPage extends Component {
 }
 
 export default InventoryPage;
-
