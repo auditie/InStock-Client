@@ -1,10 +1,11 @@
 import './Header.scss';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import InStockLogo from '../../assets/logo/InStock-Logo_2x.png';
 import React from 'react';
 
-
-function Header() {
+function Header(props) {
+    console.log(props);
+    const { pathname } = useLocation();
 
     return (
         <header className="header">
@@ -17,6 +18,7 @@ function Header() {
                     to="/" exact
                     className="header__nav--link"
                     activeClassName="header__nav--active"
+                    isActive={() => ["/", "/warehouses/add"].includes(pathname)}
                 >Warehouses</NavLink>
                 <NavLink
                     to="/inventory"
