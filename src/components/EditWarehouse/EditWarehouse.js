@@ -4,10 +4,7 @@ import BackArrow from '../../assets/icons/arrow_back-24px.svg';
 // import { DropdownList }  from 'react-router-dom';
 // import axios from 'axios';
 
-class AddWarehouse extends React.Component {
-    state = {
-
-    }
+class EditWarehouse extends React.Component {
 
     render() {
         return (
@@ -56,4 +53,4 @@ class AddWarehouse extends React.Component {
 
 }
 
-export default AddWarehouse;
+export default EditWarehouse;
