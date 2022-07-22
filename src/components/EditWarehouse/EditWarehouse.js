@@ -2,11 +2,10 @@ import './EditWarehouse.scss';
 import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
 import axios from 'axios';
-import { API_URL } from '../../App';
 import { Link } from 'react-router-dom';
 // import { DropdownList }  from 'react-router-dom';
 
-
+const API_URL = 'http://localhost:8080'
 class EditWarehouse extends React.Component {
     state = {
         name: "",
@@ -22,7 +21,7 @@ class EditWarehouse extends React.Component {
     };
 
     getWarehouseInfo = (id) => {
-        axios.get(`${API_URL}warehouses/${id}`)
+        axios.get(`${API_URL}/warehouses/${id}`)
             .then((response) => {
                 console.log(response)
                 this.setState({
@@ -50,7 +49,7 @@ class EditWarehouse extends React.Component {
             return;
         }
         axios
-            .patch(`${API_URL}warehouses/${this.state.id}`, {
+            .patch(`${API_URL}/warehouses/${this.state.id}`, {
                 id: this.state.id,
                 name: this.state.name,
                 address: this.state.address,
