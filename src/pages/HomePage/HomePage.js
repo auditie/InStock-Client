@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
 import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
+import EditWarehouse from '../../components/EditWarehouse/EditWarehouse';
 //import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
@@ -96,6 +97,14 @@ class HomePage extends Component {
                         <WarehouseDetails
                             warehouse={this.state.selectedWarehouse}
                             inventory={this.state.warehouseInventory}
+                            {...routerProps}
+                        />
+                    ) : <h1>loading</h1>)
+                }} />
+                <Route path='/warehouses/:warehouseId/edit' component={(routerProps) => {
+                    return (this.state.selectedWarehouse !== null ? (
+                        <EditWarehouse
+                            handleWarehouse={this.getWarehouse}
                             {...routerProps}
                         />
                     ) : <h1>loading</h1>)
