@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 
-export const API_URL = 'http://localhost:8080/';
+export const API_URL = 'http://localhost:8080';
 
 function App() {
     return (
