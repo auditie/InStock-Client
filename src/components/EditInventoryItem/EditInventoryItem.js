@@ -93,17 +93,21 @@ class EditInventoryItem extends React.Component {
 
         let newQuantity = this.state.quantity === "" ? 0 : (Number(this.state.quantity));
 
-        let newWarehouse = this.state.warehouses.find(warehouse => warehouse.id === event.target.warehouseID.value)
+        //let newWarehouse = this.state.warehouses.find(warehouse => warehouse.id === event.target.warehouseID.value)
+
+		console.log(this.state.warhouseName);
+
 
         axios
-            .patch(`${API_URL}/inventories/${this.props.params.inventoryId}`, {
+            .patch(`${API_URL}inventories/${this.props.match.params.inventoryId}`, {
+				id: this.props.match.params.inventoryId,
                 warehouseID: event.target.warehouseID.value,
                 itemName: this.state.itemName,
                 description: this.state.description,
                 category: event.target.categoryName.value,
                 status: this.state.status,
                 quantity: newQuantity,
-                warehouseName: newWarehouse.name,
+                warehouseName: event.target.warehouseName.value
             })
             .then((response) => {
                 this.props.history.push('/inventory');
