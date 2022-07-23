@@ -29,7 +29,7 @@ class AddWarehouse extends React.Component {
             return;
         }
         axios
-            .post(`${API_URL}warehouses`, {
+            .post(`${API_URL}/warehouses`, {
                 name: this.state.name,
                 address: this.state.address,
                 city: this.state.city,
@@ -60,7 +60,8 @@ class AddWarehouse extends React.Component {
         return (
             <div className="add-warehouse" >
                 <div className="add-warehouse__title" >
-                    <img className="add-warehouse__arrow" src={BackArrow} alt="arrow-back"></img>
+                    <Link className="add-warehouse__arrow" to="/">
+                        <img src={BackArrow} alt="arrow-back"></img></Link>
                     <h1>Add New Warehouse</h1>
                 </div>
                 <form onSubmit={this.addWarehouse}>

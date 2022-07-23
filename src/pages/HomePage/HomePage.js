@@ -33,7 +33,6 @@ class HomePage extends Component {
     getWarehouse = (id) => {
         axios.get(`${API_URL}/warehouses/${id}`)
             .then((response) => {
-                console.log(response.data)
                 this.setState({
                     selectedWarehouse: response.data
                 })
@@ -87,8 +86,7 @@ class HomePage extends Component {
     componentDidUpdate(prevProps) {
         const previousWarehouseId = prevProps.match.params.warehouseId;
         const currentWarehouseId = this.props.match.params.warehouseId;
-        console.log(prevProps);
-        if (prevProps.location.pathname === "/warehouses/add") {
+        if (prevProps.location.pathname === "/warehouses/add" || prevProps.location.pathname === `/warehouses/${previousWarehouseId}/edit`) {
             axios.get(`${API_URL}/warehouses`)
                 .then(response => {
                     this.setState({

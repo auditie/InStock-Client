@@ -2,11 +2,10 @@ import './EditWarehouse.scss';
 import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
 import axios from 'axios';
-import { API_URL } from '../../App';
 import { Link } from 'react-router-dom';
-// import { DropdownList }  from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-
+const API_URL = 'http://localhost:8080'
 class EditWarehouse extends React.Component {
     state = {
         name: "",
@@ -99,7 +98,7 @@ class EditWarehouse extends React.Component {
         return (
             <div className="edit-warehouse" >
                 <div className="edit-warehouse__title" >
-                    <img className="edit-warehouse__arrow" src={BackArrow} alt="arrow-back"></img>
+                    <img onClick={() => {this.props.history.push('/')}} className="edit-warehouse__arrow" src={BackArrow} alt="arrow-back"></img>
                     <h1>Edit Warehouse</h1>
                 </div>
                 <form onSubmit={this.editWarehouse}>

@@ -10,7 +10,7 @@ class AddInventory extends React.Component {
     state = {
         itemName: "",
         description: "",
-        status: "In stock",
+        status: "In Stock",
         quantity: "",
         warehouses: [],
         invalidInput: false,
@@ -18,7 +18,7 @@ class AddInventory extends React.Component {
 
     componentDidMount() {
         axios
-            .get(`${API_URL}warehouses/`)
+            .get(`${API_URL}/warehouses/`)
             .then((response) => {
                 console.log(response.data);
                 this.setState({
@@ -53,7 +53,7 @@ class AddInventory extends React.Component {
             return;
         }
 
-        if (Number(this.state.quantity) === NaN && this.state.quantity !== "") {
+        if (isNaN(parseInt(this.state.quantity)) && this.state.quantity !== "") {
             this.setState({
                 invalidInput: true,
             })
@@ -64,7 +64,7 @@ class AddInventory extends React.Component {
         let newWarehouse = this.state.warehouses.find(warehouse => warehouse.id === event.target.warehouseID.value)
 
         axios
-            .post(`${API_URL}inventories`, {
+            .post(`${API_URL}/inventories`, {
                 warehouseID: event.target.warehouseID.value,
                 itemName: this.state.itemName,
                 description: this.state.description,
@@ -91,7 +91,8 @@ class AddInventory extends React.Component {
         return (
             <div className="add-inventory" >
                 <div className="add-inventory__title" >
-                    <img className="add-inventory__arrow" src={BackArrow} alt="arrow-back"></img>
+                    <Link to="/inventory" className="add-inventory__arrow">
+                        <img src={BackArrow} alt="arrow-back"></img></Link>
                     <h1>Add New Inventory</h1>
                 </div>
                 <form onSubmit={this.addInventory}>
@@ -125,15 +126,15 @@ class AddInventory extends React.Component {
                             <h3 className="add-inventory__labels" >Status</h3>
                             <div className="add-inventory__radio-buttons" >
                                 <div className="add-inventory__radio-buttons--in" >
-                                    <input type="radio" name="status" id="inStock" value="In stock" defaultChecked onChange={this.handleChangeInventory}></input>
-                                    <label for="in">In stock</label>
+                                    <input type="radio" name="status" id="inStock" value="In Stock" defaultChecked onChange={this.handleChangeInventory}></input>
+                                    <label for="in">In Stock</label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="status" id="outOfStock" value="Out of stock" onChange={this.handleChangeInventory}></input>
-                                    <label for="out">Out of stock</label>
+                                    <input type="radio" name="status" id="outOfStock" value="Out of Stock" onChange={this.handleChangeInventory}></input>
+                                    <label for="out">Out of Stock</label>
                                 </div>
                             </div>
-                            <div className={(this.state.status === "Out of stock") ? "add-inventory__quantity--hide" : ""} >
+                            <div className={(this.state.status === "Out of Stock") ? "add-inventory__quantity--hide" : ""} >
                                 <h3 className="add-inventory__labels" >Quantity</h3>
                                 <textarea className={
                                     (!this.state.quantity && this.state.invalidInput) ? "add-inventory__error" : ""} type="number" name="quantity" placeholder="0" value={this.state.quantity} onChange={this.handleChangeInventory}  ></textarea>
