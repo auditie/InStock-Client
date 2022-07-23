@@ -93,11 +93,6 @@ class EditInventoryItem extends React.Component {
 
         let newQuantity = this.state.quantity === "" ? 0 : (Number(this.state.quantity));
 
-        //let newWarehouse = this.state.warehouses.find(warehouse => warehouse.id === event.target.warehouseID.value)
-
-		console.log(this.state.warhouseName);
-
-
         axios
             .patch(`${API_URL}inventories/${this.props.match.params.inventoryId}`, {
 				id: this.props.match.params.inventoryId,
@@ -121,6 +116,7 @@ class EditInventoryItem extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+		event.target.name === "status" && event.target.value.toLowerCase() === "out of stock" && this.setState({ quantity: 0 });
     }
 
     render() {
