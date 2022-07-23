@@ -75,6 +75,10 @@ class HomePage extends Component {
 			});
 	}
 
+	getWarehouseName = (id) => {
+		return this.state.warehouses.find( warehouse => warehouse.id === id).name;
+	}
+
     // set up axios
     componentDidMount() {
         const warehouseId = this.props.match.params.warehouseId;
@@ -142,6 +146,7 @@ class HomePage extends Component {
 				</Switch>
 				{this.state.showWarehouseDeleteModal && 
 					<DeleteWarehouse 
+						warehouseName={this.getWarehouseName(this.state.selectedWarehouse)}
 						hideDeleteWarehouse={this.hideDeleteWarehouse} 
 						handleDeleteWarehouse={(e) => {
 							this.handleDeleteWarehouse(e);
