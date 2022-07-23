@@ -61,10 +61,18 @@ class HomePage extends Component {
 
 	handleDeleteWarehouse = (e) => {
 		// axios delete call 
-		console.log("Axios Delete Call");
-		console.log("ID to delete : " + this.state.selectedWarehouse);
-		console.log("this.FetchWarehouses");
-		this.setState({ showWarehouseDeleteModal: false });
+		axios.delete(`${API_URL}/warehouses/${this.state.selectedWarehouse}`)
+			.then(result => {
+				console.log(`Warehouse with id of ${this.state.selectedWarehouse} successfully deleted`);
+				return axios.get(`${API_URL}/warehouses`)
+			})		
+			.then(result => {
+				this.setState({ warehouses: result.data });
+				this.setState({ showWarehouseDeleteModal: false });
+			})
+			.catch(err => {
+				console.log(`There was an error deleting warehouse with id : ${this.state.selectedWarehouse}, with err ${err}`);
+			});
 	}
 
     // set up axios
