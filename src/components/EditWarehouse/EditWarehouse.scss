@@ -21,8 +21,7 @@ textarea {
 .edit-warehouse {
     &__title {
         display: flex;
-        justify-content: center;
-        padding: 1rem 0;
+        padding: 1rem 2rem;
         border-bottom: 0.05rem solid variables.$Cloud;
 
         @include mixins.tablet {
@@ -36,7 +35,7 @@ textarea {
     }
 
     &__arrow {
-        margin-right: 1rem;
+        margin-right: 0.5rem;
 
         @include mixins.tablet {
             margin-right: 1rem;

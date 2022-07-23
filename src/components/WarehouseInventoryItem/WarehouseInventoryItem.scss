@@ -29,23 +29,26 @@ p {
 
     &__item-info {
         display: flex;
-        width: 83%;
-        justify-content: space-between;
+        width: 100%;
         align-items: flex-start;
 
         @include mixins.tablet {
             justify-content: flex-start;
-            width: 70%;
+            width: 100%;
         }
     }
 
     &__column {
         display: flex;
         flex-direction: column;
-        inline-size: 8rem;
+        width: 100%;
 
         @include mixins.tablet {
             display: contents;
+        }
+        
+        @include mixins.desktop {
+            width: 100%;
         }
     }
 
@@ -55,7 +58,7 @@ p {
         text-decoration: none;
 
         @include mixins.tablet {
-            inline-size: 9.7rem;
+            inline-size: 100%;
         }
 
         @include mixins.desktop {
@@ -70,11 +73,11 @@ p {
 
     &__item-category {
         @include mixins.tablet {
-            inline-size: 7.8rem;
+            inline-size: 23%;
         }
 
         @include mixins.desktop {
-            inline-size: 13.5rem;
+            inline-size: 21%;
         }
     }
 
@@ -87,12 +90,22 @@ p {
     &__block {
         margin-bottom: 1rem;
 
-        &--status-block {
-            margin-bottom: 0.65rem;
+        @include mixins.tablet {
+            margin: 0rem;
+            width: 26%
         }
 
-        @include mixins.tablet {
-            margin: 0rem
+        @include mixins.desktop {
+            width: 26.5%;
+        }
+    }
+
+    &__status-block {
+        margin-bottom: 0.65rem;
+        width: 30.5%;
+
+        @include mixins.desktop {
+            width: 29.5%;
         }
     }
 
@@ -100,10 +113,10 @@ p {
         @include mixins.status;
         color: variables.$Green;
         background: rgba(21, 132, 99, 0.07);
+        width: 4.1rem;
 
         @include mixins.tablet {
-            inline-size: 4.2rem;
-            margin-right: 7.2rem;
+            inline-size: 4.5rem;
         }
 
         @include mixins.desktop {
@@ -115,6 +128,7 @@ p {
         @include mixins.status;
         color: variables.$Red;
         background: rgba(201, 69, 21, 0.07);
+        width: 5.8rem;
 
         @include mixins.tablet {
             inline-size: 5.8rem;
