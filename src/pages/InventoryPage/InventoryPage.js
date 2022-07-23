@@ -31,7 +31,7 @@ class InventoryPage extends Component {
     getInventory = (id) => {
         axios.get(`${API_URL}/inventories/${id}`)
             .then((response) => {
-                console.log(response.data)
+                //console.log(response.data)
                 this.setState({
                     inventoryItem: response.data
                 });
@@ -41,15 +41,15 @@ class InventoryPage extends Component {
     // set up axios
     componentDidMount() {
         const inventoryId = this.props.match.params.inventoryId;
-        console.log(inventoryId);
+        //console.log(inventoryId);
         axios.get(`${API_URL}/inventories`)
             .then(response => {
-                console.log(inventoryId);
+                //console.log(inventoryId);
                 this.setState({
                     inventory: response.data
                 });
                 if (inventoryId) {
-                    console.log(inventoryId)
+                    //console.log(inventoryId)
                     this.getInventory(inventoryId);
                 }
             })

@@ -5,7 +5,7 @@ import rightArrow from '../../assets/icons/chevron_right-24px.svg';
 import { Link } from 'react-router-dom';
 
 const InventoryItemTablet = ( { item, showDeleteInventory } ) => {
-    console.log(item.status)
+    //console.log(item.status)
     return (
         <div className='inventory-item-tablet'>
             {/* to link to warehouse inventory */}
