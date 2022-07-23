@@ -4,7 +4,7 @@ import editIcon from '../../assets/icons/edit-24px.svg';
 import rightArrow from '../../assets/icons/chevron_right-24px.svg';
 import { Link } from 'react-router-dom';
 
-const WarehouseItem = ( { warehouse } ) => {
+const WarehouseItem = ( { warehouse, showDeleteWarehouse } ) => {
     return (
         <div className='warehouse-item'>
             <div className='warehouse-item--mobile'>
@@ -22,7 +22,7 @@ const WarehouseItem = ( { warehouse } ) => {
                 </div>
             </div>
             <div className='warehouse-item__manage'>
-                <img src={deleteIcon} alt='trash can outline' className='warehouse-item__manage-icon'></img>
+                <img src={deleteIcon} onClick={(e) => {showDeleteWarehouse(warehouse.id);}} lt='trash can outline' className='warehouse-item__manage-icon'></img>
                 <Link to={`/warehouses/${warehouse.id}/edit`}><img src={editIcon} alt='pen edit outline' className='inventory-item__manage-icon'></img></Link>
             </div>
         </div>
