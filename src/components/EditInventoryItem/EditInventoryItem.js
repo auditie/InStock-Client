@@ -25,12 +25,12 @@ class EditInventoryItem extends React.Component {
     componentDidMount() {
 		const { inventoryId } = this.props.match.params;
         axios
-            .get(`${API_URL}warehouses/`)
+            .get(`${API_URL}/warehouses/`)
             .then((response) => {
                 this.setState({
                     warehouses: response.data
                 });
-				return axios.get(`${API_URL}inventories/`)
+				return axios.get(`${API_URL}/inventories/`)
             })
 			.then((result) => {
 				const inventories = result.data;
@@ -94,7 +94,7 @@ class EditInventoryItem extends React.Component {
         let newQuantity = this.state.quantity === "" ? 0 : (Number(this.state.quantity));
 
         axios
-            .patch(`${API_URL}inventories/${this.props.match.params.inventoryId}`, {
+            .patch(`${API_URL}/inventories/${this.props.match.params.inventoryId}`, {
 				id: this.props.match.params.inventoryId,
                 warehouseID: event.target.warehouseID.value,
                 itemName: this.state.itemName,
