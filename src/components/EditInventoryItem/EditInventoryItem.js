@@ -1,99 +1,186 @@
 import './EditInventoryItem.scss';
-import inventories from '../../data/inventories.json'; 
-import warehouses from '../../data/warehouses.json';
-import { v4 as uuid } from 'uuid';
+import React from 'react';
+import BackArrow from '../../assets/icons/arrow_back-24px.svg';
+import axios from 'axios';
+import { API_URL } from '../../App';
+import { Link } from 'react-router-dom';
 
-function EditInventoryItem() {
-	//Selecting a random Item to Display TESTING ONLY
-	const selectedItem = inventories[Math.floor(Math.random() * 69)];
-	console.log(selectedItem);
-	
-	//Look thru json and find all unique categories and place in an array named uniqueCategories
-	let uniqueCategories = [];
-	inventories.forEach(inventory => {
-		!uniqueCategories.includes(inventory.category) && uniqueCategories.push(inventory.category);
-	});
 
-	const selectedInStock = (selectedItem.status === "In Stock");
-	
-	return (
-		<>
-			<header className="edit-item__header">
-				<h1 className="edit-item__header-title">edit inventory item</h1>
-			</header>
-			<section className="item-details__container">
+class EditInventoryItem extends React.Component {
+    state = {
+        itemName: "",
+        description: "",
+        status: "In Stock",
+        quantity: "",
+        warehouses: [],
+        invalidInput: false,
+		warehouseName: "",
+		warehouseID: null,
+		uniqueWarehouseList: [],
+		uniqueCategoryList: []
+    }
 
-				<h2 className="item-details__title">item details</h2>
+    componentDidMount() {
+		const { inventoryId } = this.props.match.params;
+        axios
+            .get(`${API_URL}warehouses/`)
+            .then((response) => {
+                this.setState({
+                    warehouses: response.data
+                });
+				return axios.get(`${API_URL}inventories/${inventoryId}`)
+            })
+			.then((inventory) => {
+				const { itemName, description, status, quantity, warehouseName, warehouseID } = inventory.data;
+				this.setState({
+					itemName: itemName,
+					description: description,
+					status: status,
+					quantity: quantity,
+					warehouseName: warehouseName,
+					warehouseID: warehouseID
+				});
+				//TESTER
+				console.log(this.state);
+			})
+            .catch((error) => {
+                console.log('Failed request. Please try again', error);
+            });
+    }
 
-				<h3 className="item-details__item-name-title">item name</h3>
-				<input className="item-details__item-name-input" type="text" id="name" name="name" defaultValue={selectedItem.itemName}/>
+    editInventory = (event) => {
+        event.preventDefault();
 
-				<h3 className="item-details__description-title">description</h3>
-				<textarea className="item-details__description-input" id="description" name="description" defaultValue={selectedItem.description}></textarea>
+        if (event.target.categoryName.value === "") {
+            event.target.categoryName.classList.add("edit-inventory__error");
+        } 
+		else {
+            event.target.categoryName.classList.remove("edit-inventory__error");
+        }
 
-				<h3 className="item-details__category-title">category</h3>
-				<select className="item-details__category-select" id="inventoryCategory" name="inventoryCategory">
-					<option value={selectedItem.category}>{selectedItem.category}</option>				
-					{
-						uniqueCategories.map( category => {
-							if (category !== selectedItem.category) {
-								return <option key={uuid()} value={category}>{category}</option>;
-							}
-							return null;
-						})
-					}
-				</select>
+        if (event.target.warehouseName.value === "") {
+            event.target.warehouseName.classList.add("edit-inventory__error");
+        } 
+		else {
+            event.target.warehouseName.classList.remove("edit-inventory__error");
+        }
 
-			</section>
-			<section className="item-avail__container">
 
-				<h2 className="item-avail__title">item availability</h2>
+        if (!this.state.itemName || !this.state.description || !this.state.status || (!this.state.quantity && this.state.status !== "Out of stock") || !event.target.warehouseName.value || !event.target.categoryName.value) {
+            this.setState({
+                invalidInput: true,
+            })
+            return;
+        }
 
-				<h3 className="item-avail__status-title">status</h3>
-					<label htmlFor="inStock">
-						<input 
-							className="item-avail__status-input"
-							type="radio" 
-							id="inStock" 
-							value="In Stock" 
-							name="inStock" 
-							defaultChecked={selectedInStock}
-						/>
-						In stock
-					</label>
+        if (isNaN(parseInt(this.state.quantity)) && this.state.quantity !== "") {
+            this.setState({
+                invalidInput: true,
+            })
+            return;
+        }
 
-					<label htmlFor="outOfStock">
-						<input 
-							className="item-avail__status-input"
-							type="radio" 
-							id="outOfStock" 
-							value="Out of Stock" 
-							name="outOfStock" 
-							defaultChecked={!selectedInStock}
-						/>
-						Out of stock
-					</label>
+        let newQuantity = this.state.quantity === "" ? 0 : (Number(this.state.quantity));
 
-				<h3>warehouse</h3>
-					<select id="warehouseList" name="warehouseList">
-						<option value={selectedItem.warehouseName}>{selectedItem.warehouseName}</option>
-						{
-							warehouses.map( warehouse => {
-								if (warehouse.name !== selectedItem.warehouseName) {
-									return <option key={uuid()} value={warehouse.name}>{warehouse.name}</option>;
-								}
-								return null;
-							})
-						}
+        let newWarehouse = this.state.warehouses.find(warehouse => warehouse.id === event.target.warehouseID.value)
 
-					</select>
-			</section>
-			<div className="edit-item__buttons-container">
-				<button className="edit-item__cancel-button" name="cancel" type="reset">cancel</button>
-				<button className="edit-item__submit-button" name="save" type="submit">save</button>
-			</div> 
-		</>
-	);
+        axios
+            .patch(`${API_URL}/inventories/${this.props.params.inventoryId}`, {
+                warehouseID: event.target.warehouseID.value,
+                itemName: this.state.itemName,
+                description: this.state.description,
+                category: event.target.categoryName.value,
+                status: this.state.status,
+                quantity: newQuantity,
+                warehouseName: newWarehouse.name,
+            })
+            .then((response) => {
+                this.props.history.push('/inventory');
+            })
+            .catch((error) => {
+                console.log('Error', error);
+            })
+    };
+
+    handleChangeInventory = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    render() {
+        return (
+            <div className="edit-inventory" >
+                <div className="edit-inventory__title" >
+                    <Link to="/inventory" className="edit-inventory__arrow">
+                        <img src={BackArrow} alt="arrow-back"></img></Link>
+                    <h1>Edit Inventory Item</h1>
+                </div>
+                <form onSubmit={this.editInventory}>
+                    <div className="edit-inventory__form" >
+                        <div className="edit-inventory__inventory--detail" >
+                            <h2 className="edit-inventory__subtitle" >Item Details</h2>
+                            <h3 className="edit-inventory__labels" >Item Name</h3>
+                            <textarea className={
+                                (this.state.itemName.length === 0 && this.state.invalidInput) ? "edit-inventory__error" : ""} type="text" defaultValue={this.state.itemName} onChange={this.handleChangeInventory} name="itemName" ></textarea>
+                            <span className={
+                                (this.state.itemName.length === 0 && this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
+                            <h3 className="edit-inventory__labels" >Description</h3>
+                            <textarea className={
+                                (this.state.description.length === 0 && this.state.invalidInput) ? "edit-inventory__error edit-inventory__labels--description " : "edit-inventory__labels--description"} type="text" placeholder="Please enter a brief item description..." defaultValue={this.state.description} onChange={this.handleChangeInventory} name="description" ></textarea>
+                            <span className={
+                                (this.state.description.length === 0 && this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
+                            <h3 className="edit-inventory__labels" >Category</h3>
+                            <select name="categoryName" id="categoryName" className="edit-inventory__dropdown">
+                                <option value="">Please select</option>
+                                <option value="Accessories" >Accessories</option>
+                                <option value="Apparel" >Apparel</option>
+                                <option value="Electronics" >Electronics</option>
+                                <option value="Health" >Health</option>
+                                <option value="Gear" >Gear</option>
+                            </select>
+                            <span className={
+                                (this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
+                        </div>
+                        <div className="edit-inventory__availability--detail" >
+                            <h2 className="edit-inventory__subtitle" >Item Availability</h2>
+                            <h3 className="edit-inventory__labels" >Status</h3>
+                            <div className="edit-inventory__radio-buttons" >
+                                <div className="edit-inventory__radio-buttons--in" >
+                                    <input type="radio" name="status" id="inStock" value="In Stock" defaultChecked onChange={this.handleChangeInventory}></input>
+                                    <label htmlFor="in">In Stock</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="status" id="outOfStock" value="Out of Stock" onChange={this.handleChangeInventory}></input>
+                                    <label htmlFor="out">Out of Stock</label>
+                                </div>
+                            </div>
+                            <div className={(this.state.status === "Out of Stock") ? "edit-inventory__quantity--hide" : ""} >
+                                <h3 className="edit-inventory__labels" >Quantity</h3>
+                                <textarea className={
+                                    (!this.state.quantity && this.state.invalidInput) ? "edit-inventory__error" : ""} type="number" name="quantity" placeholder="0" value={this.state.quantity} onChange={this.handleChangeInventory}  ></textarea>
+                                <span className={
+                                    (this.state.quantity.length === 0 && this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
+                            </div>
+                            <h3 className="edit-inventory__labels" >Warehouse</h3>
+                            <select name="warehouseID" id="warehouseName" className="edit-inventory__dropdown">
+                                <option value="">Please select</option>
+                                {this.state.warehouses.map((eachWarehouse) => (
+                                    <option key={eachWarehouse.Id} value={eachWarehouse.id}>{eachWarehouse.name}</option>
+                                ))}
+                            </select>
+                            <span className={
+                                (this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
+                        </div>
+                    </div>
+                    <div className="edit-inventory__submit" >
+                        <Link className="edit-inventory__submit--cancel" to="/inventory">Cancel</Link>
+                        <button className="edit-inventory__submit--add" type="submit">Save</button>
+                    </div>
+                </form >
+            </div >
+        )
+    }
 }
 
 export default EditInventoryItem;
