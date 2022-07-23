@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid';
 import './EditInventoryItem.scss';
 import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
@@ -16,6 +17,7 @@ class EditInventoryItem extends React.Component {
         invalidInput: false,
 		warehouseName: "",
 		warehouseID: null,
+		category: null,
 		uniqueWarehouseList: [],
 		uniqueCategoryList: []
     }
@@ -28,20 +30,29 @@ class EditInventoryItem extends React.Component {
                 this.setState({
                     warehouses: response.data
                 });
-				return axios.get(`${API_URL}inventories/${inventoryId}`)
+				return axios.get(`${API_URL}inventories/`)
             })
-			.then((inventory) => {
-				const { itemName, description, status, quantity, warehouseName, warehouseID } = inventory.data;
+			.then((result) => {
+				const inventories = result.data;
+				const uniqueCategories = [];
+				inventories.forEach(inventory => {
+					!uniqueCategories.includes(inventory.category) && uniqueCategories.push(inventory.category);
+				});
+				this.setState({ uniqueCategoryList: uniqueCategories });
+				
+				const inventory = inventories.find( inventory => inventory.id === inventoryId );
+				
+				const { itemName, description, status, quantity, warehouseName, warehouseID, category } = inventory
 				this.setState({
 					itemName: itemName,
 					description: description,
 					status: status,
 					quantity: quantity,
 					warehouseName: warehouseName,
-					warehouseID: warehouseID
+					warehouseID: warehouseID,
+					category: category
 				});
-				//TESTER
-				console.log(this.state);
+
 			})
             .catch((error) => {
                 console.log('Failed request. Please try again', error);
@@ -132,12 +143,15 @@ class EditInventoryItem extends React.Component {
                                 (this.state.description.length === 0 && this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
                             <h3 className="edit-inventory__labels" >Category</h3>
                             <select name="categoryName" id="categoryName" className="edit-inventory__dropdown">
-                                <option value="">Please select</option>
-                                <option value="Accessories" >Accessories</option>
-                                <option value="Apparel" >Apparel</option>
-                                <option value="Electronics" >Electronics</option>
-                                <option value="Health" >Health</option>
-                                <option value="Gear" >Gear</option>
+								<option key={uuid()} value={this.state.category}>{this.state.category}</option>				
+									{
+										this.state.uniqueCategoryList.map( category => {
+											if (category !== this.state.category) {
+												return <option key={uuid()} value={category}>{category}</option>;
+											}
+											return null;
+										})
+									}
                             </select>
                             <span className={
                                 (this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
@@ -164,10 +178,15 @@ class EditInventoryItem extends React.Component {
                             </div>
                             <h3 className="edit-inventory__labels" >Warehouse</h3>
                             <select name="warehouseID" id="warehouseName" className="edit-inventory__dropdown">
-                                <option value="">Please select</option>
-                                {this.state.warehouses.map((eachWarehouse) => (
-                                    <option key={eachWarehouse.Id} value={eachWarehouse.id}>{eachWarehouse.name}</option>
-                                ))}
+								<option value={this.state.warehouseName}>{this.state.warehouseName}</option>
+									{
+										this.state.warehouses.map( warehouse => {
+											if (warehouse.name !== this.state.warehouseName) {
+												return <option key={uuid()} value={warehouse.name}>{warehouse.name}</option>;
+											}
+											return null;
+										})
+									}
                             </select>
                             <span className={
                                 (this.state.invalidInput) ? "edit-inventory__warning" : "edit-inventory__warning--hide"}>This field is required</span>
