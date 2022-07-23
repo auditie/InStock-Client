@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 const WarehouseDetails = (props) =>{
-  const { name, address, city, country } = props.warehouse;
+  const { name, address, city, country, id } = props.warehouse;
   const { position, phone, email } = props.warehouse.contact;
 
   return (
@@ -18,10 +18,10 @@ const WarehouseDetails = (props) =>{
         <Link to='/' className='single-warehouse__arrow'><img src={backArrow} alt='back arrow' /></Link>
         <h1 className='single-warehouse__title'>{name}</h1>     
       </div>
-        <div className='single-warehouse__edit'>
+        <Link to={`/warehouses/${id}/edit`} className='single-warehouse__edit'>
           <img className='single-warehouse__edit-image' src={edit} alt='edit icon' />
           <p className='single-warehouse__edit-word'>Edit</p>
-        </div>
+        </Link>
       </header>
       <article className='single-warehouse__details'>
         <div className='single-warehouse__address'>
