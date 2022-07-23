@@ -102,14 +102,13 @@ h4 {
 
     &__contact {
         display: flex;
-        width: 80%;
+        width: 100%;
         justify-content: space-between;
-        margin: 0.5rem 6rem 0rem 0rem;
 
         @include mixins.tablet {
             margin: 0rem;
             padding: 0rem 0rem 0rem 3rem;
-            justify-content: flex-start;
+            justify-content: space-between;
             width: 60%;
             border-left: solid 1px variables.$Cloud;
         }
@@ -125,7 +124,7 @@ h4 {
     }
 
     &__contact-info {
-        width: 12rem;
+        width: 100%;
 
         @include mixins.desktop {
             width: 18rem;
@@ -153,36 +152,37 @@ h4 {
         inline-size: 24%;
 
         @include mixins.desktop {
-            inline-size: 15rem;
+            inline-size: 25%;
         }
     }
 
     &__category-header {
         display: flex;
         align-items: center;
-        inline-size: 21%;
+        inline-size: 22%;
 
         @include mixins.desktop {
-            inline-size: 14rem;
+            inline-size: 20%;
         }
     }
 
     &__status-header {
         display: flex;
         align-items: center;
-        inline-size: 28%;
+        inline-size: 26%;
 
         @include mixins.desktop {
-            inline-size: 19.6rem;
+            inline-size: 27.5%;
         }
     }
 
     &__quantity-header {
         display: flex;
         align-items: center;
-        inline-size: 17%;
+        inline-size: 18%;
+
         @include mixins.desktop {
-            inline-size: 14.6rem;
+            inline-size: 15.5%;
         }
     }
 
@@ -190,6 +190,10 @@ h4 {
         inline-size: 10%;
         text-align: end;
         margin: 0;
+
+        @include mixins.desktop {
+            inline-size: 12%;
+        }
     }
 }
 
