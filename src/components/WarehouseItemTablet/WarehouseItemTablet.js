@@ -7,16 +7,15 @@ import { Link } from 'react-router-dom';
 const WarehouseItemTablet = ( { warehouse } ) => {
     return (
         <div className='warehouse-item-tablet'>
-            {/* to link to warehouse inventory */}
             <Link to={`/warehouses/${warehouse.id}`} className='warehouse-item-tablet__link'>{warehouse.name} 
                 <img src={rightArrow} alt='right pointing arrow' className='warehouse-item-tablet__direct' />
             </Link>
-            <p className='warehouse-item-tablet__details'>{warehouse.address}, {warehouse.city}</p>
+            <p className='warehouse-item-tablet__details'>{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
             <p className='warehouse-item-tablet__details--name'>{warehouse.contact.name}</p>
             <p className='warehouse-item-tablet__contact-info'>{warehouse.contact.phone}<br></br>{warehouse.contact.email}</p>
             <div className='warehouse-item-tablet__manage'>
                 <img src={deleteIcon} alt='trash can outline' className='warehouse-item-tablet__manage-icon'></img>
-                <img src={editIcon} alt='pen edit outline' className='warehouse-item-tablet__manage-icon'></img>
+                <Link to={`/warehouses/${warehouse.id}/edit`}><img src={editIcon} alt='pen edit outline' className='inventory-item__manage-icon'></img></Link>
             </div>
         </div>
     )

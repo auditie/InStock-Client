@@ -11,12 +11,13 @@
         padding: 3.65vh 4vw;
 
         @include tablet {
+            padding: 4.5vh 4vw;
             flex-direction: row;
             justify-content: space-between;
         }
 
         @include desktop {
-            padding: 2.9vh 4vw;
+            padding: 3.4vh 4vw 3.4vh 4vw;
         }
 
         &--top-right {
@@ -66,7 +67,8 @@
         }
 
         &-cta {
-            padding: 1.2vh 2vw;
+            text-align: center;
+            padding: 0.7vh 2vw;
             @include primary-button;
             font-size: 1em;
 

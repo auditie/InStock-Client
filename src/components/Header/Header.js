@@ -24,7 +24,7 @@ function Header(props) {
                     to="/inventory"
                     className="header__nav--link"
                     activeClassName="header__nav--active"
-                    isActive={() => ["/", "/inventory/add", "/inventory/:inventoryId", "/inventory/:inventoryId/edit"].includes(pathname)}
+                    isActive={() => ["/inventory", "/inventory/add", "/inventory/:inventoryId", "/inventory/:inventoryId/edit"].includes(pathname)}
                 >Inventory</NavLink>
             </div>
         </header>

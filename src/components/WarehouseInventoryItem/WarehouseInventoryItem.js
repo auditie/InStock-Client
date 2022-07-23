@@ -27,7 +27,7 @@ const WarehouseInventoryItem = (props) => {
       <div className='warehouse-inventory__column'>
         <div className='warehouse-inventory__block warehouse-inventory__status-block'>
           <h4 className='warehouse-inventory__header'>status</h4>
-          <p className={props.status === "In Stock" ? 'warehouse-inventory__status-in-stock' : 'warehouse-inventory__status-out-of-stock'}>{props.status}</p>
+          <p className={props.status.toLowerCase() === "in stock" ? 'warehouse-inventory__status-in-stock' : 'warehouse-inventory__status-out-of-stock'}>{props.status}</p>
         </div>
         <div className='warehouse-inventory__item-quantity'>
           <h4 className='warehouse-inventory__header'>qty</h4>

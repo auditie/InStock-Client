@@ -14,11 +14,14 @@ textarea {
     border-radius: 20px;
     border-color: variables.$Cloud;
     width: 100%;
-    height: 30px;
-    padding: 0.2rem 0 0 1rem;;
+
+    &:focus {
+        border: 1px solid variables.$Instock-Indigo;
+        outline: none !important;
+    }
 }
 
-.add-warehouse {
+.add-inventory {
     &__title {
         display: flex;
         justify-content: center;
@@ -34,7 +37,7 @@ textarea {
             padding: 0.5rem 0 0.5rem 4rem;
         }
     }
-
+    
     &__arrow {
         margin-top: 1.5rem;
         margin-right: 1rem;
@@ -46,7 +49,6 @@ textarea {
     }
 
     &__form {
-
         @include mixins.tablet {
             display: flex;
             justify-content: space-evenly;
@@ -54,7 +56,7 @@ textarea {
         }
     }
 
-    &__warehouse--detail, &__contact--detail {
+    &__inventory--detail, &__availability--detail {
         padding: 0.5rem 2rem 1.5rem;
 
         @include mixins.tablet {
@@ -67,7 +69,7 @@ textarea {
         }
     }
 
-    &__warehouse--detail {
+    &__inventory--detail {
         border-bottom: 0.05rem solid variables.$Cloud;
 
         @include mixins.tablet {
@@ -87,6 +89,41 @@ textarea {
 
        @include mixins.desktop {
            margin-top: 1rem;
+        }
+
+        &--description {
+            height: 7rem;
+        }
+    }
+
+    &__dropdown {
+        background: url('../../assets/icons/arrow_drop_down-24px.svg') no-repeat right;
+        font-family: 'Titillium-Web';
+        overflow: hidden;
+        resize: none;
+        border-radius: 20px;
+        border-color: variables.$Cloud;
+        width: 100%;
+        height: 30px;
+        padding-left: 1rem;
+        color: variables.$Slate;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
+    &__radio-buttons {
+        display: flex;
+        color: variables.$Slate;
+        justify-content: start;
+        accent-color: variables.$Instock-Indigo;
+
+        &--in {
+            padding-right: 4rem;
         }
     }
 
@@ -156,5 +193,9 @@ textarea {
         &--hide {
             display: none;
         }
+    }
+
+    &__quantity--hide {
+        display: none;
     }
 }
