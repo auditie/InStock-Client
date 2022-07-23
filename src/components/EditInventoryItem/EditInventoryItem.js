@@ -195,7 +195,7 @@ class EditInventoryItem extends React.Component {
                     </div>
                     <div className="edit-inventory__submit" >
                         <Link className="edit-inventory__submit--cancel" to="/inventory">Cancel</Link>
-                        <button className="edit-inventory__submit--add" type="submit">Save</button>
+                        <button className="edit-inventory__submit--edit" type="submit">Save</button>
                     </div>
                 </form >
             </div >
