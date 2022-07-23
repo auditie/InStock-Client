@@ -117,6 +117,7 @@ class EditInventoryItem extends React.Component {
             [event.target.name]: event.target.value
         })
 		event.target.name === "status" && event.target.value.toLowerCase() === "out of stock" && this.setState({ quantity: 0 });
+		event.target.name === "status" && event.target.value.toLowerCase() === "in stock" && this.state.quantity === 0 && this.setState({ quantity: 1});
     }
 
     render() {
@@ -161,11 +162,11 @@ class EditInventoryItem extends React.Component {
                             <h3 className="edit-inventory__labels" >Status</h3>
                             <div className="edit-inventory__radio-buttons" >
                                 <div className="edit-inventory__radio-buttons--in" >
-                                    <input type="radio" name="status" id="inStock" value="In Stock" defaultChecked onChange={this.handleChangeInventory}></input>
+                                    <input type="radio" name="status" id="inStock" value="In Stock" defaultChecked={this.state.status.toLowerCase() === "in stock"} onChange={this.handleChangeInventory}></input>
                                     <label htmlFor="in">In Stock</label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="status" id="outOfStock" value="Out of Stock" onChange={this.handleChangeInventory}></input>
+                                    <input type="radio" name="status" id="outOfStock" value="Out of Stock" defaultChecked={this.state.status.toLowerCase() === "out of stock"} onChange={this.handleChangeInventory}></input>
                                     <label htmlFor="out">Out of Stock</label>
                                 </div>
                             </div>
