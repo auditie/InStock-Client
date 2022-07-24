@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 const WarehouseDetails = (props) =>{
   const { name, address, city, country, id } = props.warehouse;
   const { position, phone, email } = props.warehouse.contact;
+  const { showDeleteInventory } = props;
 
   return (
     <div className='single-warehouse'>
@@ -74,6 +75,7 @@ const WarehouseDetails = (props) =>{
           category={item.category} 
           status={item.status}
           quantity={item.quantity}
+		  showDeleteInventory={showDeleteInventory}
           />
         )
       })}

@@ -6,6 +6,8 @@ import edit from '../../assets/icons/edit-24px.svg';
 import { Link } from 'react-router-dom'
 
 const WarehouseInventoryItem = (props) => {
+  const { showDeleteInventory } = props;
+
   return (
     //Mobile
     <div>
@@ -36,7 +38,7 @@ const WarehouseInventoryItem = (props) => {
       </div>
       </article>
       <div className='warehouse-inventory__actions'>
-        <img src={trash} alt='delete item'/>
+        <img onCLick={(e) => {showDeleteInventory(props.id)}} src={trash} alt='delete item'/>
         <Link className="warehouse-inventory__link" to={`/inventory/${props.id}/edit`}></Link>
       </div>
     </section>
