@@ -17,8 +17,11 @@ const InventoryItemTablet = ( { item, showDeleteInventory } ) => {
             <p className='inventory-item-tablet__details  inventory-item-tablet__quantity'>{item.quantity}</p>
             <p className='inventory-item-tablet__details  inventory-item-tablet__warehouse'>{item.warehouseName}</p>
             <div className='inventory-item-tablet__manage'>
-                <img src={deleteIcon} onClick={(e) =>  {showDeleteInventory(item.id);}} alt='trash can outline' className='inventory-item-tablet__manage-icon'></img>
-                <img src={editIcon} alt='pen edit outline' className='inventory-item-tablet__manage-icon'></img>
+            <img src={deleteIcon} onClick={(e) =>  {showDeleteInventory(item.id);}} alt='trash can outline' className='inventory-item-tablet__manage-icon'></img>
+			    	<Link to={`/inventory/${item.id}/edit`}>
+            	<img src={editIcon} alt='pen edit outline' className='inventory-item-tablet__manage-icon'></img>
+		    		</Link>
+
             </div>
         </div>
     )

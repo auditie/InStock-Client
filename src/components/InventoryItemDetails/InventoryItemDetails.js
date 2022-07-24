@@ -2,10 +2,10 @@ import React from 'react';
 import edit from '../../assets/icons/edit-24px.svg';
 import backArrow from '../../assets/icons/arrow_back-24px.svg';
 import './InventoryItemDetails.scss';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 const InventoryItemDetails = (props) => {
-  const { itemName, warehouseName, description, category, status, quantity } = props.inventoryItem
+  const { itemName, warehouseName, description, category, status, quantity, id } = props.inventoryItem
   const history = useHistory()
 
   return (
@@ -15,10 +15,10 @@ const InventoryItemDetails = (props) => {
           <img onClick={() => history.goBack()} src={backArrow} alt='back arrow' />
           <h1 className='inventory-item-details__title'>{itemName}</h1>
         </div>
-        <div className='inventory-item-details__edit'>
-          <img className='inventory-item-details__edit-image' src={edit} alt='edit' />
-          <p className='inventory-item-details__edit-word'>Edit</p>
-        </div>
+	  	<Link to={`/inventory/${id}/edit`} className='inventory-item-details__edit'>
+          	<img className='inventory-item-details__edit-image' src={edit} alt='edit' />
+          	<p className='inventory-item-details__edit-word'>Edit</p>
+	  	</Link>
       </header>
       <section className='inventory-item-details__info'>
         <article className='inventory-item-details__left-section'>

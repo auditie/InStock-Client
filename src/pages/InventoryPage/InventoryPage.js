@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
 import InventoryList from '../../components/InventoryList/InventoryList';
 import AddInventory from '../../components/AddInventory/AddInventory';
+import EditInventoryItem from '../../components/EditInventoryItem/EditInventoryItem';
 import DeleteInventory from '../../components/DeleteInventory/DeleteInventory';
 
 import { API_URL } from '../../App';
@@ -101,39 +102,39 @@ class InventoryPage extends Component {
             )
         }
         return (
-			<>
-				<Switch>
-					<Route path='/inventory' exact component={(routerProps) => {
-						return (
-							<InventoryList
-								inventory={this.state.inventory}
-								handleInventory={this.getInventory}
-								showDeleteInventory={this.showDeleteInventory}
-								{...routerProps}
-							/>
-						)
-					}} />
-					<Route path='/inventory/add' exact component={AddInventory} />
-					<Route path='/inventory/:inventoryId' component={(routerProps) => {
-						return (this.state.inventoryItem !== null ? (
-							<InventoryItemDetails
-								inventoryItem={this.state.inventoryItem}
-								{...routerProps}
-							/>
-						) : <h1>loading</h1>)
-					}} />
-					{/* <Route path='/inventory/:inventoryId/edit' component={InventoryPage} />*/}
-				</Switch >
-				{this.state.showInventoryDeleteModal && 
-					<DeleteInventory 
-						inventoryName={this.getInventoryName(this.state.inventoryItem)}
-						hideDeleteInventory={this.hideDeleteInventory} 
-						handleDeleteInventory={(e) => {
-							this.handleDeleteInventory(e);
-						}}
-					/>
-				}	
-			</>
+          <>
+            <Switch>
+              <Route path='/inventory' exact component={(routerProps) => {
+                return (
+                  <InventoryList
+                    inventory={this.state.inventory}
+                    handleInventory={this.getInventory}
+                    showDeleteInventory={this.showDeleteInventory}
+                    {...routerProps}
+                  />
+                )
+              }} />
+              <Route path='/inventory/add' exact component={AddInventory} />
+              <Route path='/inventory/:inventoryId' component={(routerProps) => {
+                return (this.state.inventoryItem !== null ? (
+                  <InventoryItemDetails
+                    inventoryItem={this.state.inventoryItem}
+                    {...routerProps}
+                  />
+                ) : <h1>loading</h1>)
+              }} />
+              {/* <Route path='/inventory/:inventoryId/edit' component={InventoryPage} />*/}
+            </Switch >
+            {this.state.showInventoryDeleteModal && 
+              <DeleteInventory 
+                inventoryName={this.getInventoryName(this.state.inventoryItem)}
+                hideDeleteInventory={this.hideDeleteInventory} 
+                handleDeleteInventory={(e) => {
+                  this.handleDeleteInventory(e);
+                }}
+              />
+            }	
+          </>
         )
     }
 }
