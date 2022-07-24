@@ -162,4 +162,10 @@ p {
             display: none;
         }
     }
+
+	&__link {
+		background-image: url('../../assets/icons/edit-24px.svg');
+		width: calc(24/16 * 1rem);
+		height: calc(24/16 * 1rem);
+	}
 }
