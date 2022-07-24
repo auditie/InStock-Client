@@ -16,7 +16,8 @@ class HomePage extends Component {
         warehouseInventory: [],
 		showWarehouseDeleteModal: false,
 		showInventoryDeleteModal: false,
-        selectedWarehouse: null
+        selectedWarehouse: null,
+		inventoryItem: null
     };
 
     fetchWarehouses = warehouseList => {
@@ -81,8 +82,8 @@ class HomePage extends Component {
 
 	// Delete Inventory Functions //
 	showDeleteInventory = (selectedId) => {
-		this.setState({ showInventoryDeleteModal: true });
 		this.setState({ inventoryItem: selectedId });
+		this.setState({ showInventoryDeleteModal: true });
 	}
 
 	hideDeleteInventory = () => {
@@ -107,7 +108,7 @@ class HomePage extends Component {
 	}
 
 	getInventoryName = (id) => {
-		return this.state.inventory.find( inventory => inventory.id === id).itemName;
+		return this.state.warehouseInventory.find( inventory => inventory.id === id).itemName;
 	}
 	
     // set up axios
@@ -119,12 +120,10 @@ class HomePage extends Component {
                     warehouses: response.data
                 });
             })
-		/* section Stephon asked me (Po) to comment out because it was causing an error message in console
         if (warehouseId) {
             this.getWarehouse(warehouseId);
             this.getWarehouseInventory(warehouseId);
         }
-		*/ 
     }
 
     // axios for page did update
