@@ -4,7 +4,7 @@ import InStockLogo from '../../assets/logo/InStock-Logo_2x.png';
 import React from 'react';
 
 function Header(props) {
-    console.log(props);
+    //console.log(props);
     const { pathname } = useLocation();
 
     return (
