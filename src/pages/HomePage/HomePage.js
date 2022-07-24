@@ -86,10 +86,12 @@ class HomePage extends Component {
                     warehouses: response.data
                 });
             })
+		/* section Stephon asked me (Po) to comment out because it was causing an error message in console
         if (warehouseId) {
             this.getWarehouse(warehouseId);
             this.getWarehouseInventory(warehouseId);
         }
+		*/ 
     }
 
     // axios for page did update
