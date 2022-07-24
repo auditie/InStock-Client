@@ -3,9 +3,7 @@ import React from 'react';
 import BackArrow from '../../assets/icons/arrow_back-24px.svg';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-
-const API_URL = 'http://localhost:8080'
+import { API_URL } from '../../App';
 class EditWarehouse extends React.Component {
     state = {
         name: "",
