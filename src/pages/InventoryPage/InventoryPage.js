@@ -7,7 +7,7 @@ import InventoryList from '../../components/InventoryList/InventoryList';
 import AddInventory from '../../components/AddInventory/AddInventory';
 import DeleteInventory from '../../components/DeleteInventory/DeleteInventory';
 
-const API_URL = 'http://localhost:8080';
+import { API_URL } from '../../App';
 
 class InventoryPage extends Component {
     state = {
@@ -16,17 +16,6 @@ class InventoryPage extends Component {
         inventoryItem: null,
 		showInventoryDeleteModal: false
     };
-
-    // fetchInventory = inventoryList => {
-    //     axios
-    //         .get(`%{API_URL}/inventories/inventory`)
-    //         .then(response => {
-    //             this.setState({
-    //                 warehouses: response.data
-    //             })
-    //             return response.data;
-    //         })
-    // }
 
     getInventory = (id) => {
         axios.get(`${API_URL}/inventories/${id}`)
