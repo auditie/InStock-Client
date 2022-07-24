@@ -4,7 +4,7 @@ import sortIcon from '../../assets/icons/sort-24px.svg';
 import InventoryItemMobile from '../../components/InventoryItemMobile/InventoryItemMobile';
 import InventoryItemTablet from '../../components/InventoryItemTablet/InventoryItemTablet';
 
-const InventoryList = ({ inventory }) => {
+const InventoryList = ({ inventory, showDeleteInventory }) => {
     const columnTitles = ['INVENTORY ITEM', 'CATEGORY', 'STATUS', 'QTY', 'WAREHOUSE'];
 
     return (
@@ -32,12 +32,12 @@ const InventoryList = ({ inventory }) => {
             <div className='inventory-list__items'>
                 {
                     inventory.map(item =>
-                        <InventoryItemMobile key={item.id} item={item} />
+                        <InventoryItemMobile key={item.id} item={item} showDeleteInventory={showDeleteInventory} />
                     )
                 }
                 {
                     inventory.map(item =>
-                        <InventoryItemTablet key={item.id} item={item} />
+                        <InventoryItemTablet key={item.id} item={item} showDeleteInventory={showDeleteInventory} />
                     )
                 }
             </div>

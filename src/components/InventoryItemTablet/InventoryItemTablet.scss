@@ -75,6 +75,10 @@
 
         &-icon {
             height: 2em;
+
+			&:hover {
+				cursor: pointer;
+			}
         }
     }
 }

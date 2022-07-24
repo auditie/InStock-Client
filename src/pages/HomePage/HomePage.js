@@ -7,9 +7,7 @@ import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails
 import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
 import DeleteWarehouse from '../../components/DeleteWarehouse/DeleteWarehouse';
 import EditWarehouse from '../../components/EditWarehouse/EditWarehouse';
-//import axios from 'axios';
-
-const API_URL = 'http://localhost:8080';
+import { API_URL } from '../../App';
 
 class HomePage extends Component {
     state = {
@@ -133,7 +131,7 @@ class HomePage extends Component {
 						)
 					}} />
 					<Route path='/warehouses/add' exact component={AddWarehouse} />
-					<Route path='/warehouses/:warehouseId' component={(routerProps) => {
+					<Route path='/warehouses/:warehouseId' exact component={(routerProps) => {
 						return (this.state.selectedWarehouse !== null ? (
 							<WarehouseDetails
 								warehouse={this.state.selectedWarehouse}
@@ -142,7 +140,7 @@ class HomePage extends Component {
 							/>
 						) : <h1>loading</h1>)
 					}} />
-					{/* <Route path='/warehouses/:warehouseId/edit' component={} /> */}
+					<Route path='/warehouses/:warehouseId/edit' component={EditWarehouse} />
 				</Switch>
 				{this.state.showWarehouseDeleteModal && 
 					<DeleteWarehouse 
