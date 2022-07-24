@@ -5,26 +5,13 @@ import { Route, Switch } from 'react-router-dom';
 import InventoryItemDetails from '../../components/InventoryItemDetails/InventoryItemDetails';
 import InventoryList from '../../components/InventoryList/InventoryList';
 import AddInventory from '../../components/AddInventory/AddInventory';
-
-const API_URL = 'http://localhost:8080';
-
+import { API_URL } from '../../App';
 class InventoryPage extends Component {
     state = {
         inventory: [],
         warehouseInventory: [],
         inventoryItem: null
     };
-
-    // fetchInventory = inventoryList => {
-    //     axios
-    //         .get(`%{API_URL}/inventories/inventory`)
-    //         .then(response => {
-    //             this.setState({
-    //                 warehouses: response.data
-    //             })
-    //             return response.data;
-    //         })
-    // }
 
     getInventory = (id) => {
         axios.get(`${API_URL}/inventories/${id}`)
