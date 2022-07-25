@@ -21,7 +21,7 @@ class EditWarehouse extends React.Component {
     getWarehouseInfo = (id) => {
         axios.get(`${API_URL}/warehouses/${id}`)
             .then((response) => {
-                console.log(response)
+                //console.log(response)
                 this.setState({
                     id: response.data.id,
                     name: response.data.name,
@@ -38,7 +38,7 @@ class EditWarehouse extends React.Component {
 
     editWarehouse = (event) => {
         event.preventDefault();
-        console.log(event);
+        //console.log(event);
 
         if (!this.state.name || !this.state.address || !this.state.city || !this.state.country || !this.state.contactName || !this.state.contactPosition || !this.state.contactPhone || !this.state.contactEmail) {
             this.setState({

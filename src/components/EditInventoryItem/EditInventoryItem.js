@@ -52,7 +52,6 @@ class EditInventoryItem extends React.Component {
 					warehouseID: warehouseID,
 					category: category
 				});
-
 			})
             .catch((error) => {
                 console.log('Failed request. Please try again', error);
@@ -76,8 +75,11 @@ class EditInventoryItem extends React.Component {
             event.target.warehouseName.classList.remove("edit-inventory__error");
         }
 
-
-        if (!this.state.itemName || !this.state.description || !this.state.status || (!this.state.quantity && this.state.status !== "Out of stock") || !event.target.warehouseName.value || !event.target.categoryName.value) {
+        if (!this.state.itemName || !this.state.description || !this.state.status) {
+			console.log(this.state.itemName);
+			console.log(this.state.description);
+			console.log(this.state.status);
+			console.log(this.state.quantity);
             this.setState({
                 invalidInput: true,
             })

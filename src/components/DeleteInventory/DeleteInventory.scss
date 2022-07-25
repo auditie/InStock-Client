@@ -94,7 +94,6 @@
 		text-transform: capitalize;
 
 		&:hover {
-			background-color: variables.$Graphite;
 			cursor: pointer;
 		}
 
@@ -106,11 +105,20 @@
 
 	&__button-cancel {
 		border: 0.05rem solid variables.$Cloud;
+
+		&:hover {
+			border-color: variables.$Instock-Indigo;
+			color: variables.$Instock-Indigo;
+		}
 	}
 
 	&__button-delete {
 		background-color: variables.$Red;
 		color: variables.$White;
+
+		&:hover {
+			background-color: variables.$Graphite;
+		}
 	}
 }
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import WarehouseItem from '../WarehouseItem/WarehouseItem';
 import WarehouseItemTablet from '../WarehouseItemTablet/WarehouseItemTablet';
 import sortIcon from '../../assets/icons/sort-24px.svg';
+import { v4 as uuid } from 'uuid';
 
 const WarehouseList = ({ warehouses, showDeleteWarehouse }) => {
     const columnTitles = ['WAREHOUSE', 'ADDRESS', 'CONTACT NAME', 'CONTACT INFORMATION'];
@@ -20,7 +21,7 @@ const WarehouseList = ({ warehouses, showDeleteWarehouse }) => {
             <div className='warehouse-list__column-titles'>
                 {
                     columnTitles.map(title => (
-                        <h4 className='warehouse-list__column-title'>
+                        <h4 className='warehouse-list__column-title' key={uuid()}>
                             {title}
                             <img src={sortIcon} alt='up and down arrows' className='warehouse-list__column-title-icon'></img>
                         </h4>

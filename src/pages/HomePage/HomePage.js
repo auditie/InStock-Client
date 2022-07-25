@@ -6,6 +6,7 @@ import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
 import AddWarehouse from '../../components/AddWarehouse/AddWarehouse';
 import DeleteWarehouse from '../../components/DeleteWarehouse/DeleteWarehouse';
+import DeleteInventory from '../../components/DeleteInventory/DeleteInventory';
 import EditWarehouse from '../../components/EditWarehouse/EditWarehouse';
 import { API_URL } from '../../App';
 
@@ -14,7 +15,9 @@ class HomePage extends Component {
         warehouses: [],
         warehouseInventory: [],
 		showWarehouseDeleteModal: false,
-        selectedWarehouse: null
+		showInventoryDeleteModal: false,
+        selectedWarehouse: null,
+		inventoryItem: null
     };
 
     fetchWarehouses = warehouseList => {
@@ -77,6 +80,37 @@ class HomePage extends Component {
 		return this.state.warehouses.find( warehouse => warehouse.id === id).name;
 	}
 
+	// Delete Inventory Functions //
+	showDeleteInventory = (selectedId) => {
+		this.setState({ inventoryItem: selectedId });
+		this.setState({ showInventoryDeleteModal: true });
+	}
+
+	hideDeleteInventory = () => {
+		this.setState({ showInventoryDeleteModal: false });
+		this.setState({ inventoryItem: null });
+	}
+
+	handleDeleteInventory = (e) => {
+		// axios delete call 
+		axios.delete(`${API_URL}/inventories/${this.state.inventoryItem}`)
+			.then(result => {
+				console.log(`Inventory with id of ${this.state.inventoryItem} successfully deleted`);
+				return axios.get(`${API_URL}/inventories`)
+			})		
+			.then(result => {
+				this.setState({ inventory: result.data });
+				this.setState({ showInventoryDeleteModal: false });
+			})
+			.catch(err => {
+				console.log(`There was an error deleting inventory with id : ${this.state.inventoryItem}, with err ${err}`);
+			});
+	}
+
+	getInventoryName = (id) => {
+		return this.state.warehouseInventory.find( inventory => inventory.id === id).itemName;
+	}
+	
     // set up axios
     componentDidMount() {
         const warehouseId = this.props.match.params.warehouseId;
@@ -86,10 +120,12 @@ class HomePage extends Component {
                     warehouses: response.data
                 });
             })
+		/*
         if (warehouseId) {
             this.getWarehouse(warehouseId);
             this.getWarehouseInventory(warehouseId);
         }
+		*/
     }
 
     // axios for page did update
@@ -136,6 +172,7 @@ class HomePage extends Component {
 							<WarehouseDetails
 								warehouse={this.state.selectedWarehouse}
 								inventory={this.state.warehouseInventory}
+								showDeleteInventory={this.showDeleteInventory}
 								{...routerProps}
 							/>
 						) : <h1>loading</h1>)
@@ -150,6 +187,15 @@ class HomePage extends Component {
 							this.handleDeleteWarehouse(e);
 						}}
 					/>
+				}
+				{this.state.showInventoryDeleteModal && 
+					  <DeleteInventory 
+						inventoryName={this.getInventoryName(this.state.inventoryItem)}
+						hideDeleteInventory={this.hideDeleteInventory} 
+						handleDeleteInventory={(e) => {
+						  this.handleDeleteInventory(e);
+						}}
+					  />
 				}
 			</>
         )
