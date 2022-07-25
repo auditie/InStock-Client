@@ -120,10 +120,12 @@ class HomePage extends Component {
                     warehouses: response.data
                 });
             })
+		/*
         if (warehouseId) {
             this.getWarehouse(warehouseId);
             this.getWarehouseInventory(warehouseId);
         }
+		*/
     }
 
     // axios for page did update
